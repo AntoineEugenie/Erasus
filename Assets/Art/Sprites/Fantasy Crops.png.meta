@@ -1,0 +1,2591 @@
+fileFormatVersion: 2
+guid: 59600c2140996624a967fc97545fb6bc
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Red_carrot_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 114
+        width: 9
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dcd3cc8b7714e544bb3873d13231775
+      internalID: 421583587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_carrot_1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 113
+        width: 9
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 217af47dad4230f4f85a714c53f9f8b1
+      internalID: 1937397574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_carrot_2
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 113
+        width: 9
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9360806b1de9b0478970131f3e65280
+      internalID: -1578455322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_carrot_3
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 113
+        width: 10
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 302aca7cd4d13b546948dfca1515135d
+      internalID: 1086436789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_carrot_4
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 113
+        width: 10
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 479653b95b494c541afca384b79655ff
+      internalID: 819798647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_carrot_dead
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 113
+        width: 10
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eaaea65fa1011f4bbfa8fa29a6f95ef
+      internalID: 2037675454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_carrot
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 114
+        width: 13
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f306cdde223ba24989fd23a4b8b80a0
+      internalID: -986995930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_7
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 115
+        width: 7
+        height: 6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8271b43726ffb3d4f92b7fd14191ddb2
+      internalID: -1726865075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_8
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 114
+        width: 9
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5dc87ee0b1a63a4eb79800c45fa2bc7
+      internalID: 426205024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_9
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 114
+        width: 11
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25412d5f2f045274b89dc17826c71905
+      internalID: 1415729717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_10
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 114
+        width: 11
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 897ee39160712d24cbcf4df0a2a6c1f7
+      internalID: 1109496184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_11
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 112
+        width: 12
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42c1ff2bbe3747e4caffb547b12af072
+      internalID: -1626913784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_12
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 113
+        width: 13
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 941d5c69ff1a08348ba33f7b43b44a39
+      internalID: -47170938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_13
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 112
+        width: 12
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2807326b430c714cb06e46ce759f6b9
+      internalID: 393943770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_14
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 99
+        width: 7
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c64088d0044b97041b57a3534d6e6417
+      internalID: -331288371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_15
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 98
+        width: 9
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46a2566c9f436874c8fb03475cffdb7c
+      internalID: -1498425084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_16
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 98
+        width: 9
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 485309eb90801c24989eca021fa93f30
+      internalID: 669501601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_17
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 98
+        width: 10
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90c8f74d7f6fd4848af49f97978ce625
+      internalID: 1223659891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_18
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 98
+        width: 10
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ca3199183e439d4c910ed4124719123
+      internalID: -1083306760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_19
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 98
+        width: 10
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29f037c886ff4894b8ec36aa5302fc55
+      internalID: -1555996696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_20
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 97
+        width: 14
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f5c3d42f3464ac47a80ee350c6e3d9b
+      internalID: -1222196328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_21
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 99
+        width: 7
+        height: 7
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e863f716b1eebda499f26bd948700cf9
+      internalID: -756560492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_22
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 98
+        width: 9
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01dc33175d4945446b4d0fe14bdc4e91
+      internalID: -82454209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_23
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 98
+        width: 10
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf5524fc6f7076e42ad830bf3a05b536
+      internalID: -1231667021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_24
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 98
+        width: 13
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 782ab1a54d1f563448d7fbd7763204ae
+      internalID: 2093521788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_25
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 97
+        width: 14
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b762bbc747c73b7489eb88c8ac07de72
+      internalID: -557245919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_26
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 97
+        width: 14
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99b1a2bdf7d56bf4397653838ff62f8b
+      internalID: 1813929109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_27
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 97
+        width: 16
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb62e9363347d1b48a4aab0ac6c058b2
+      internalID: -744898296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_28
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 83
+        width: 8
+        height: 7
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 215b8c432583cb34cbcebc12287c54ec
+      internalID: -2004636394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_29
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 83
+        width: 8
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a05c8c8fb4331034987b2b7364caff04
+      internalID: -537706934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_30
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 81
+        width: 11
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 190b6e077fda5c84eb57d7cab62180c6
+      internalID: 187303559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_31
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 81
+        width: 15
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f62a621bfa92cc4d8af7799826b0dec
+      internalID: -1703453526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_32
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 80
+        width: 16
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42397d18bc04e6c40a7674e38c40d801
+      internalID: 1355269727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_33
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 80
+        width: 13
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ebf6145c573a484081f5697f23855f6
+      internalID: -1197353049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_34
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 83
+        width: 7
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 435f1066e8ab2d14583b82a7db342357
+      internalID: 1893620294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_35
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 82
+        width: 9
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a770bdeaf2a4144aae09df4a8e5306c
+      internalID: 885014769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_36
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 82
+        width: 9
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb3a739146b69754390945164c518f89
+      internalID: -705279524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_37
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 82
+        width: 11
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e8e49fa6809bcf4381075c66be1c007
+      internalID: 1584189898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_38
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 81
+        width: 14
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2f9a1fdf4bccce4d8255a160c7c87df
+      internalID: 2127735847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_39
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 81
+        width: 12
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4db0c65d22edc4a4087b7c4f7fbfbd7a
+      internalID: -1356257631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_40
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 82
+        width: 12
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbea6f082917d134dae94e7459516fe5
+      internalID: -227430507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_41
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 67
+        width: 7
+        height: 7
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7942ffbf62a36a469b0103d34079b57
+      internalID: 1748823153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_42
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 66
+        width: 8
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53fcf6095e30b62498cff195406e4259
+      internalID: 1448013677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_43
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 65
+        width: 10
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9577d25240a02024e8b1931e6447f3ab
+      internalID: -1733086239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_44
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 65
+        width: 11
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e911828e307811409d93389aa7acd50
+      internalID: 1081868369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_45
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 65
+        width: 13
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b6c2875d0ba4a24195b1325e80b60fe
+      internalID: 1836885387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_46
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 65
+        width: 13
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfd215537f52ba648b66f2ce134f2c4b
+      internalID: -538234271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_47
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 66
+        width: 11
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d8c1efa65f5dde4896973341240e07b
+      internalID: 2054494423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_48
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 67
+        width: 7
+        height: 7
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 960632ad5845a674a9b1a4780db197e5
+      internalID: -245581614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_49
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 66
+        width: 7
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3745ee26c8964824dad8666f343633ae
+      internalID: -1185652791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_50
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 66
+        width: 7
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bdc1833e9601f94c8bdb5371288214d
+      internalID: 606122695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_51
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 66
+        width: 7
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d466d53d179510341b849f25a4492c75
+      internalID: -61199041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_52
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 65
+        width: 10
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ed789202cb471e46bfecada2697997c
+      internalID: 252845950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_53
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 65
+        width: 10
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 836076e3eefb81d4d854479a041df03e
+      internalID: 1518144343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_54
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 65
+        width: 14
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 724c6816a4b74d74bbe167251c72fab6
+      internalID: -494794929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_55
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 51
+        width: 7
+        height: 7
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25d465b676b1b2842b10606bfbfc89e5
+      internalID: -384296672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_56
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 50
+        width: 9
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b518c6fbf8eb411479ee83eceb8cc3fa
+      internalID: -2122472155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_57
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 50
+        width: 9
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 012beb8ec1a489e4199e483c27be60b6
+      internalID: 396668315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_58
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 50
+        width: 11
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53ce6e7b647cf4c4daacbb6374047247
+      internalID: -1500105303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_59
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 49
+        width: 14
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 092fc4d2a37d34d4ca1b39648f9e3ca7
+      internalID: 319379342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_60
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 49
+        width: 15
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e9c9a5a4cfd80645a6d86b8c4f53465
+      internalID: 1635650813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_61
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 50
+        width: 14
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5bcd6a397dbe2e428ab4912e6791d6a
+      internalID: -2135490585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_62
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 51
+        width: 7
+        height: 7
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a6a2989f9f78df4f92a865a12826abb
+      internalID: 1558055854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_63
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 50
+        width: 7
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bec40a29b547254b987d4ce85de7e39
+      internalID: -224660283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_64
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 50
+        width: 8
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7766b4aae60ead24a9d9609c15607f31
+      internalID: -2096407634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_65
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 50
+        width: 10
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e36628415191cf4384981be9cc5d1fd
+      internalID: -1590154204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_66
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 49
+        width: 12
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4326666c08f7c34bbb8d91a74f3976f
+      internalID: -2143903310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_67
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 49
+        width: 12
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bea63cb807384cd4e9cdcb923ca85b1c
+      internalID: -888712854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_68
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 50
+        width: 16
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65415ad3e84b9ce4393fcdf9fedc868a
+      internalID: -368131768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_69
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 35
+        width: 7
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3957ebc546ae5e845bdbf68b5c813324
+      internalID: 1995117215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_70
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 34
+        width: 9
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b799feffbe0a148a0909478a564ac8
+      internalID: -843346674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_71
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 34
+        width: 9
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd7aba79b126afd479e46963e0d58025
+      internalID: 1083106631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_72
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 34
+        width: 10
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22a0ed8558823134d962625bf44f6851
+      internalID: 146858009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_73
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 33
+        width: 13
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f1bc278d7e365342b23282ec47cc997
+      internalID: 1843641531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_74
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 33
+        width: 13
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5cba3e3cda5b64469d875feb26e02b2
+      internalID: -220668678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_75
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 34
+        width: 12
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4a1dc3ff3786074987212da2e3780d5
+      internalID: 1381534345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_76
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 35
+        width: 7
+        height: 6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c8434db62ce0b4aa5de894a1e2d65a
+      internalID: -334001001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_77
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 34
+        width: 9
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c2584fc3cc374340b7f34bddba1224d
+      internalID: -612914613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_78
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 34
+        width: 9
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa25be852ce89341ae881a750385017
+      internalID: -1413732246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_79
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 34
+        width: 11
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2861bc8015ef0024f98c382cac768b5c
+      internalID: -1901551398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_80
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 32
+        width: 14
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93e0b6ebb64ddb34d9668d40edba6c40
+      internalID: 1458152561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_81
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 33
+        width: 13
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe1dbe9d334d59049b8a9405409a3c00
+      internalID: -2103546287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_82
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 33
+        width: 14
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5edf837380bfbd4e97574fb63286eaa
+      internalID: -1967648260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_83
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 19
+        width: 7
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a90abf0d351db614193a69662ff5c627
+      internalID: -1830906338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_84
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 18
+        width: 9
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e1966d0814d17140a4a43a0280eac6f
+      internalID: 327243908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_85
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 18
+        width: 9
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bdf68934d287e242aaa73eb0c766bd0
+      internalID: 1607057163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_86
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 18
+        width: 11
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 166c6abc08dabf44ca5b0fb073663e28
+      internalID: 721563734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_87
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 17
+        width: 14
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1ab71b04d45c1b42912a6db6e6f47ce
+      internalID: -2021658093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_88
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 17
+        width: 14
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b9eaf969df759e4aa82bde0aaf24730
+      internalID: 1222207769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_89
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 16
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb4a43d99a5d25c4593013bd8c23a17c
+      internalID: -1481860601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_90
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 19
+        width: 7
+        height: 6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf407795c2047894c811caa613d96f22
+      internalID: 1047020749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_91
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 18
+        width: 9
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f84118765758c614d8b5acd743ec28bc
+      internalID: -1453963101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_92
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 18
+        width: 9
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27c02875635540646b824ced30521b9f
+      internalID: 1091461425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_93
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 18
+        width: 10
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb0b55b807ecc5d47abd95213faca3db
+      internalID: 525353191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_94
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 17
+        width: 13
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a11767721ab7a9a42923b04109e4566b
+      internalID: -484669039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_95
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 17
+        width: 14
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6491b3c37e1a0ee408ca38bb6d1e39b5
+      internalID: 222013447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_96
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 17
+        width: 12
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 731c485bf7c4b4340bcb7e21678881ec
+      internalID: -400246414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_97
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 3
+        width: 7
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dc936d945f556d498922540391d27c5
+      internalID: -320605412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_98
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 2
+        width: 9
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 045b9d62938162841840ea09fa4dc0be
+      internalID: -519226757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_99
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 2
+        width: 9
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29304efa0aed1ae4d8ebf56b18468138
+      internalID: -2034534526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_100
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 2
+        width: 10
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b13e9bda2ebb01b4c8b7d2725dbc68a2
+      internalID: -1095797436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_101
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1
+        width: 13
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d81c62b27bb01184ea6376ee54543504
+      internalID: 1331801933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_102
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 1
+        width: 13
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdbfbced6404f4f468d7dede27e93020
+      internalID: -337921447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_103
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 2
+        width: 15
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f4a0a35504b3c64ab8ce7c673ecbed9
+      internalID: -1943472302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_104
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 3
+        width: 7
+        height: 7
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfcda91743e0bce44aed967b17a6e573
+      internalID: -1885214920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_105
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 2
+        width: 9
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d592b7a27cfc6d48bc255bf8f6778a0
+      internalID: -1208747592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_106
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 2
+        width: 9
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5155ecb42147ca14f9d23b72fafc3c89
+      internalID: -1519876617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_107
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 2
+        width: 11
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d41008622370a0408a88e029d9bbe4f
+      internalID: -253219183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_108
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 1
+        width: 14
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 799fe3429c7c87f4a9320e534af1d024
+      internalID: 807936964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_109
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 1
+        width: 14
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dc68274e43cbe04b80ae790a0506dc0
+      internalID: -1862893893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_110
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 2
+        width: 13
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea9aef517cc80d14dbfa72e15afe71c9
+      internalID: -139050555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fantasy Crops_0
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 81
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76f908214b5f26e48934b16314f06d4f
+      internalID: 1735073758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Fantasy Crops_0: 1735073758
+      Fantasy Crops_10: 1109496184
+      Fantasy Crops_100: -1095797436
+      Fantasy Crops_101: 1331801933
+      Fantasy Crops_102: -337921447
+      Fantasy Crops_103: -1943472302
+      Fantasy Crops_104: -1885214920
+      Fantasy Crops_105: -1208747592
+      Fantasy Crops_106: -1519876617
+      Fantasy Crops_107: -253219183
+      Fantasy Crops_108: 807936964
+      Fantasy Crops_109: -1862893893
+      Fantasy Crops_11: -1626913784
+      Fantasy Crops_110: -139050555
+      Fantasy Crops_12: -47170938
+      Fantasy Crops_13: 393943770
+      Fantasy Crops_14: -331288371
+      Fantasy Crops_15: -1498425084
+      Fantasy Crops_16: 669501601
+      Fantasy Crops_17: 1223659891
+      Fantasy Crops_18: -1083306760
+      Fantasy Crops_19: -1555996696
+      Fantasy Crops_20: -1222196328
+      Fantasy Crops_21: -756560492
+      Fantasy Crops_22: -82454209
+      Fantasy Crops_23: -1231667021
+      Fantasy Crops_24: 2093521788
+      Fantasy Crops_25: -557245919
+      Fantasy Crops_26: 1813929109
+      Fantasy Crops_27: -744898296
+      Fantasy Crops_28: -2004636394
+      Fantasy Crops_29: -537706934
+      Fantasy Crops_30: 187303559
+      Fantasy Crops_31: -1703453526
+      Fantasy Crops_32: 1355269727
+      Fantasy Crops_33: -1197353049
+      Fantasy Crops_34: 1893620294
+      Fantasy Crops_35: 885014769
+      Fantasy Crops_36: -705279524
+      Fantasy Crops_37: 1584189898
+      Fantasy Crops_38: 2127735847
+      Fantasy Crops_39: -1356257631
+      Fantasy Crops_40: -227430507
+      Fantasy Crops_41: 1748823153
+      Fantasy Crops_42: 1448013677
+      Fantasy Crops_43: -1733086239
+      Fantasy Crops_44: 1081868369
+      Fantasy Crops_45: 1836885387
+      Fantasy Crops_46: -538234271
+      Fantasy Crops_47: 2054494423
+      Fantasy Crops_48: -245581614
+      Fantasy Crops_49: -1185652791
+      Fantasy Crops_50: 606122695
+      Fantasy Crops_51: -61199041
+      Fantasy Crops_52: 252845950
+      Fantasy Crops_53: 1518144343
+      Fantasy Crops_54: -494794929
+      Fantasy Crops_55: -384296672
+      Fantasy Crops_56: -2122472155
+      Fantasy Crops_57: 396668315
+      Fantasy Crops_58: -1500105303
+      Fantasy Crops_59: 319379342
+      Fantasy Crops_60: 1635650813
+      Fantasy Crops_61: -2135490585
+      Fantasy Crops_62: 1558055854
+      Fantasy Crops_63: -224660283
+      Fantasy Crops_64: -2096407634
+      Fantasy Crops_65: -1590154204
+      Fantasy Crops_66: -2143903310
+      Fantasy Crops_67: -888712854
+      Fantasy Crops_68: -368131768
+      Fantasy Crops_69: 1995117215
+      Fantasy Crops_7: -1726865075
+      Fantasy Crops_70: -843346674
+      Fantasy Crops_71: 1083106631
+      Fantasy Crops_72: 146858009
+      Fantasy Crops_73: 1843641531
+      Fantasy Crops_74: -220668678
+      Fantasy Crops_75: 1381534345
+      Fantasy Crops_76: -334001001
+      Fantasy Crops_77: -612914613
+      Fantasy Crops_78: -1413732246
+      Fantasy Crops_79: -1901551398
+      Fantasy Crops_8: 426205024
+      Fantasy Crops_80: 1458152561
+      Fantasy Crops_81: -2103546287
+      Fantasy Crops_82: -1967648260
+      Fantasy Crops_83: -1830906338
+      Fantasy Crops_84: 327243908
+      Fantasy Crops_85: 1607057163
+      Fantasy Crops_86: 721563734
+      Fantasy Crops_87: -2021658093
+      Fantasy Crops_88: 1222207769
+      Fantasy Crops_89: -1481860601
+      Fantasy Crops_9: 1415729717
+      Fantasy Crops_90: 1047020749
+      Fantasy Crops_91: -1453963101
+      Fantasy Crops_92: 1091461425
+      Fantasy Crops_93: 525353191
+      Fantasy Crops_94: -484669039
+      Fantasy Crops_95: 222013447
+      Fantasy Crops_96: -400246414
+      Fantasy Crops_97: -320605412
+      Fantasy Crops_98: -519226757
+      Fantasy Crops_99: -2034534526
+      Red_carrot: -986995930
+      Red_carrot_0: 421583587
+      Red_carrot_1: 1937397574
+      Red_carrot_2: -1578455322
+      Red_carrot_3: 1086436789
+      Red_carrot_4: 819798647
+      Red_carrot_dead: 2037675454
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

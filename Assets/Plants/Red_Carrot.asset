@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448fac154832aad438e841bd122a2942, type: 3}
+  m_Name: Red_Carrot
+  m_EditorClassIdentifier: 
+  growthData:
+    numberOfCycleToGrow: 1
+    growProgressSprites:
+    - {fileID: 421583587, guid: 59600c2140996624a967fc97545fb6bc, type: 3}
+    - {fileID: 1937397574, guid: 59600c2140996624a967fc97545fb6bc, type: 3}
+    - {fileID: -1578455322, guid: 59600c2140996624a967fc97545fb6bc, type: 3}
+    - {fileID: 1086436789, guid: 59600c2140996624a967fc97545fb6bc, type: 3}
+    - {fileID: 819798647, guid: 59600c2140996624a967fc97545fb6bc, type: 3}
+    deadSprite: {fileID: 2037675454, guid: 59600c2140996624a967fc97545fb6bc, type: 3}
+    minTemperature: 0
+    maxTemperature: 0
+    waterQuantityNeeded: 1
+    waterFrequencyNeeded: 1
+    maxHealth: 10
+    healthRecoveredPerCycle: 1
+  inventoryData:
+    inventoryIcon: {fileID: -986995930, guid: 59600c2140996624a967fc97545fb6bc, type: 3}
+    itemName: Red Carrot
+    description: Carrote rouge
+    maxStackSize: 0
