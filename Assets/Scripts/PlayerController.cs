@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+using UnityEngine.Windows;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,45 +14,50 @@ public class PlayerController : MonoBehaviour
     // hitbox
     Rigidbody2D rigidbody2d;
     //  movement
-    InputAction MoveAction;
+
     Vector2 move;
     Vector2 moveDirection;
     public float speed = 3.0f;
     private float sprintMultiplier = 2f;
-    InputAction SprintAction;
+
     public bool isSprinting = false;
 
     public Inventory inventory;
+    public Inventory toolbar;
 
-    // interact 
-    public InputAction InteractAction;
-    ///
-    public InputAction test;
-    public InputAction plowing;
-    public InputAction water;
+    //// interact 
+    // InputAction InteractAction;
+    //InputAction MoveAction;
+    //InputAction SprintAction;
+    /////
+    // InputAction test;
+    // InputAction plowing;
+    // InputAction water;
+    // InputAction toolbar;
 
     // Start is called before the first frame update
     void Start()
     {
-        InputSystem.actions.Enable();
-        // get input from imputsystem
-        MoveAction = InputSystem.actions.FindAction("Move");
-        SprintAction = InputSystem.actions.FindAction("Sprint");
-        InteractAction = InputSystem.actions.FindAction("Interact");
-        /////
-        test = InputSystem.actions.FindAction("Attack");
-        plowing = InputSystem.actions.FindAction("Crouch");
-        water = InputSystem.actions.FindAction("Jump");
-        // assign actions to fonctions
-        SprintAction.performed += ToggleSprint;
-        SprintAction.canceled += ToggleSprint;
-        InteractAction.performed += Harvest;
+       // InputSystem.actions.Enable();
+       // // get input from imputsystem
+       // MoveAction = InputSystem.actions.FindAction("Move");
+       // SprintAction = InputSystem.actions.FindAction("Sprint");
+       // InteractAction = InputSystem.actions.FindAction("Interact");
+
+       // /////
+       // test = InputSystem.actions.FindAction("Attack");
+       // plowing = InputSystem.actions.FindAction("Crouch");
+       // //water = InputSystem.actions.FindAction("Jump");
+       // // assign actions to fonctions
+       // SprintAction.performed += ToggleSprint;
+       // SprintAction.canceled += ToggleSprint;
+       // InteractAction.performed += Harvest;
 
 
-        ///
-        test.performed += Plant;
-        water.performed += Watering;
-        plowing.performed += FindSoil;
+       // ///
+       // test.performed += Plant;
+       //// water.performed += Watering;
+       // plowing.performed += FindSoil;
 
 
 
@@ -59,21 +66,14 @@ public class PlayerController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
 
-        inventory = new(21);
+        inventory = new(27);
+        toolbar = new(9);
     }
 
     // Update is called once per frame
     void Update()
     {
-        move = MoveAction.ReadValue<Vector2>();
-        if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
-        {
-            moveDirection.Set(move.x, move.y);
-            moveDirection.Normalize();
-        }
-        animator.SetFloat("X", moveDirection.x);
-        animator.SetFloat("Y", moveDirection.y);
-        animator.SetFloat("Speed", move.magnitude);
+        
     }
 
     // FixedUpdate has the same call rate as the physics system
@@ -84,7 +84,36 @@ public class PlayerController : MonoBehaviour
         rigidbody2d.MovePosition(position);
     }
 
+    
+    void OnMove(InputValue movementValue)
+    {
+        move = movementValue.Get<Vector2>();
+        if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
+        {
+            moveDirection.Set(move.x, move.y);
+            moveDirection.Normalize();
+        }
+        animator.SetFloat("X", moveDirection.x);
+        animator.SetFloat("Y", moveDirection.y);
+        animator.SetFloat("Speed", move.magnitude);
+    }
+    public void OnJump(InputValue value)
+    {
+        Watering();
+    }
+    public void OnInteract(InputValue value)
+    {
+        Harvest();
+    }
+    public void OnCrouch(InputValue value)
+    {
+        Plowting();
+    }
+    public void OnAttack(InputValue value)
+    {
+        Planting();
 
+    }
     public void DropItem(Item item)
     {
         if (item != null)
@@ -97,7 +126,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void FindSoil(InputAction.CallbackContext context)
+    void Plowting()
     {
 
         Vector3Int position = Vector3Int.FloorToInt(rigidbody2d.position + Vector2.up * 0.5f);
@@ -107,7 +136,7 @@ public class PlayerController : MonoBehaviour
             GameManager.instance.tileManager.SetPlowed(position);
         }
     }
-    void Harvest(InputAction.CallbackContext context)
+    void Harvest()
     {
         RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, moveDirection, 1.5f, LayerMask.GetMask("Plant"));
         if (hit.collider != null)
@@ -120,7 +149,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    void Watering(InputAction.CallbackContext context)
+    void Watering()
     {
 
         Vector3Int position = Vector3Int.FloorToInt(rigidbody2d.position + Vector2.up * 0.5f);
@@ -128,12 +157,12 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void ToggleSprint(InputAction.CallbackContext context)
+    public void OnSprint()
     {
         isSprinting = !isSprinting;
     }
 
-    void Plant(InputAction.CallbackContext context)
+    void Planting()
     {
         Plant Plant = GameManager.instance.plantManager.GetPlantbyName("Red Carrot");
         Vector3Int intPosition = Vector3Int.FloorToInt(rigidbody2d.position + Vector2.up * 0.5f);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -11,6 +12,7 @@ public class Plant : MonoBehaviour
     private int growingLevels;
     private int cycleToGrow;
     private int health;
+    private Vector3Int position;
     [HideInInspector] public Rigidbody2D rb2d;
 
     public PlantState plantState;
@@ -33,6 +35,7 @@ public class Plant : MonoBehaviour
         plantState = PlantState.GROWING;
         growingLevels = 0;
         cycleToGrow = 0;
+        position = Vector3Int.FloorToInt(rb2d.position + Vector2.up * 0.5f);
 
     }
 
@@ -75,6 +78,7 @@ public class Plant : MonoBehaviour
 
                 Item droppedItem = Instantiate(item, spawnLocation + spawnOffset, Quaternion.identity);
                 droppedItem.rb2d.AddForce(spawnOffset * 2f, ForceMode2D.Impulse);
+                GameManager.instance.tileManager.SetFree(position);
                 Destroy(gameObject);
             }
         }
@@ -82,7 +86,7 @@ public class Plant : MonoBehaviour
 
     public void CheckCondition()
     {
-        Vector3Int position = Vector3Int.FloorToInt(rb2d.position + Vector2.up * 0.5f);
+        
         int damage = 0;
         bool allGood = true;
         if (GameManager.instance.tileManager.GetWaterLevel(position) < data.growthData.waterQuantityNeeded)

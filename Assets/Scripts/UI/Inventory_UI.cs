@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
@@ -10,12 +11,15 @@ public class UI : MonoBehaviour
     bool isActive;
     public PlayerController player;
     [SerializeField] private List<Slot_UI> slots = new();
+    [SerializeField] private Canvas canvas;
+    private Slot_UI draggedSlot;
+    private Image draggedIcon;
 
     void Start()
     {
         menu = InputSystem.actions.FindAction("Menu");
         menu.performed += ToggleInventory;
-        //inventoryPanel.SetActive(false);
+        inventoryPanel.SetActive(false);
     }
 
     public void ToggleInventory(InputAction.CallbackContext context)
@@ -54,4 +58,25 @@ public class UI : MonoBehaviour
 
     }
 
+    public void SlotBeginDrag(Slot_UI slot)
+    {
+        draggedSlot = slot;
+        draggedIcon = Instantiate(draggedSlot.itemIcon);
+        Debug.Log("Start Drag " );
+    }
+
+    public void SlotDrag()
+    {
+        Debug.Log(" Drag " );
+    }
+
+    public void SlotEndDrag()
+    {
+        Debug.Log("End Drag " );
+    }
+
+    public void SlotDrop(Slot_UI slot)
+    {
+        Debug.Log("Drop " );
+    }
 }
