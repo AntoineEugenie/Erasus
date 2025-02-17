@@ -83,17 +83,89 @@
                     "id": "641cd816-40e6-41b4-8c3d-04687c349290",
                     "expectedControlType": "",
                     "processors": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToolbarOne",
+                    "type": "Button",
+                    "id": "1adcae8a-ec4e-474e-a002-3c30a6f1eda9",
+                    "expectedControlType": "",
+                    "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Toolbar",
-                    "type": "Value",
-                    "id": "83681e95-693f-408d-a487-9b87198d9257",
-                    "expectedControlType": "Touch",
+                    "name": "ToolbarTwo",
+                    "type": "Button",
+                    "id": "8918f674-2217-4c8d-ba8e-d9571d7d7301",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToolbarThree",
+                    "type": "Button",
+                    "id": "1d67db2b-e5d8-4d47-83dd-08920c0fb1dc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToolbarFour",
+                    "type": "Button",
+                    "id": "323a9ca0-fbb6-4791-8b20-0abd12824c33",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToolbarFive",
+                    "type": "Button",
+                    "id": "ee251fbe-9823-48a3-8282-88272055cdb1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToolbarSix",
+                    "type": "Button",
+                    "id": "7561a404-d187-4a7e-9587-39d8d045d55e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToolbarSeven",
+                    "type": "Button",
+                    "id": "246247b4-cc40-41de-8166-49579dce9ebb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToolbarEight",
+                    "type": "Button",
+                    "id": "4f5c2fe6-bbe4-4619-b16d-58e9b1b17903",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToolbarNine",
+                    "type": "Button",
+                    "id": "c61d4d08-b88d-4c3a-8e2b-07b708100897",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -495,12 +567,100 @@
                 },
                 {
                     "name": "",
-                    "id": "75b082dd-7e7e-48a6-a06f-986dab591cae",
-                    "path": "",
+                    "id": "4acacef9-25fc-442f-88be-9e13aec921df",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ToolbarOne",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fa7691f3-42d3-4397-9a7d-3cf63c8fb800",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ToolbarTwo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "71d55560-9b64-4a45-a314-1f230005f54d",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ToolbarThree",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ef39d0f8-388a-4453-a857-ff17b33a9574",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ToolbarFour",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6352891b-2954-4c60-bf37-1ff00f7ea133",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ToolbarFive",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2b6dc2eb-6ec8-45a8-9078-4137abd18b1f",
+                    "path": "<Keyboard>/6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ToolbarSix",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2cff83f9-9ca0-494a-938f-7d0186c68225",
+                    "path": "<Keyboard>/7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ToolbarSeven",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "57e76e47-8bdd-4ea1-81a7-7004a8873640",
+                    "path": "<Keyboard>/8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ToolbarEight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2ccd9d4d-a482-470a-bd34-da52a55f42ca",
+                    "path": "<Keyboard>/9",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Toolbar",
+                    "action": "ToolbarNine",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -40,8 +40,6 @@ public class TileManager : MonoBehaviour
     public void SetPlowed(Vector3Int position)
     {
         map.SetTile(position, plowedTile);
-
-
     }
 
     public bool CanPlant(Vector3Int position)
@@ -70,12 +68,24 @@ public class TileManager : MonoBehaviour
         if (!positionData.ContainsKey(position))
         {
             // Crée une nouvelle instance de TileData en utilisant ScriptableObject.CreateInstance
-            positionData[position] = ScriptableObject.CreateInstance<TileData>();
+            positionData[position] = CreateTileDataInstance(position);
         }
 
         positionData[position].isOccupied = true;
 
         Debug.Log($"Tile at position {position} is now occupied.");
+    }
+    public void SetFree(Vector3Int position)
+    {
+        if (!positionData.ContainsKey(position))
+        {
+            // Crée une nouvelle instance de TileData en utilisant ScriptableObject.CreateInstance
+            positionData[position] = CreateTileDataInstance(position);
+        }
+
+        positionData[position].isOccupied = false;
+        Debug.Log(positionData[position].isOccupied);
+        Debug.Log($"Tile at position {position} is now free.");
     }
     public int GetWaterLevel(Vector3Int position)
 

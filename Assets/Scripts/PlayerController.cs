@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+using UnityEngine.Windows;
+using static Inventory;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,60 +15,47 @@ public class PlayerController : MonoBehaviour
     // hitbox
     Rigidbody2D rigidbody2d;
     //  movement
-    InputAction MoveAction;
+
     Vector2 move;
     Vector2 moveDirection;
     public float speed = 3.0f;
     private float sprintMultiplier = 2f;
-    InputAction SprintAction;
+
     public bool isSprinting = false;
 
     public Inventory inventory;
 
-    // interact 
-    public InputAction InteractAction;
-    ///
-    public InputAction test;
-    public InputAction plowing;
-    public InputAction water;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        InputSystem.actions.Enable();
-        // get input from imputsystem
-        MoveAction = InputSystem.actions.FindAction("Move");
-        SprintAction = InputSystem.actions.FindAction("Sprint");
-        InteractAction = InputSystem.actions.FindAction("Interact");
-        /////
-        test = InputSystem.actions.FindAction("Attack");
-        plowing = InputSystem.actions.FindAction("Crouch");
-        water = InputSystem.actions.FindAction("Jump");
-        // assign actions to fonctions
-        SprintAction.performed += ToggleSprint;
-        SprintAction.canceled += ToggleSprint;
-        InteractAction.performed += Harvest;
-
-
-        ///
-        test.performed += Plant;
-        water.performed += Watering;
-        plowing.performed += FindSoil;
-
-
-
-
         rigidbody2d = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
 
-        inventory = new(21);
+        inventory = new(36);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        move = MoveAction.ReadValue<Vector2>();
+        
+    }
+
+    // FixedUpdate has the same call rate as the physics system
+    void FixedUpdate()
+    {
+        Vector2 position = isSprinting ? (Vector2)rigidbody2d.position + move * (speed * sprintMultiplier) * Time.deltaTime : (Vector2)rigidbody2d.position + move * speed * Time.deltaTime;
+        rigidbody2d.MovePosition(position);
+    }
+
+    
+    void OnMove(InputValue movementValue)
+    {
+        move = movementValue.Get<Vector2>();
         if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
         {
             moveDirection.Set(move.x, move.y);
@@ -75,29 +65,48 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Y", moveDirection.y);
         animator.SetFloat("Speed", move.magnitude);
     }
-
-    // FixedUpdate has the same call rate as the physics system
-    void FixedUpdate()
+    public void OnJump(InputValue value)
     {
-        Debug.Log((isSprinting, sprintMultiplier));
-        Vector2 position = isSprinting ? (Vector2)rigidbody2d.position + move * (speed * sprintMultiplier) * Time.deltaTime : (Vector2)rigidbody2d.position + move * speed * Time.deltaTime;
-        rigidbody2d.MovePosition(position);
+        Watering();
+    }
+    public void OnInteract(InputValue value)
+    {
+        Harvest();
+    }
+    public void OnCrouch(InputValue value)
+    {
+        Plowting();
+    }
+    public void OnAttack(InputValue value)
+    {
+        Planting();
+
+    }
+    public void DropItem(Item item)
+    {
+        Vector2 spawnLocation = transform.position;
+        Vector2 spawnOffset = Random.insideUnitCircle * 2;
+        Item droppedItem = Instantiate(item, spawnLocation + spawnOffset, Quaternion.identity);
+        droppedItem.rb2d.AddForce(spawnOffset * 2f, ForceMode2D.Impulse);
+        Debug.Log(item.amount.ToString()+"after");
     }
 
-
-    public void DropItem(Item item)
+    public void DropItem(Item item, int quantity)
     {
         if (item != null)
         {
-            Vector2 spawnLocation = transform.position;
-            Vector2 spawnOffset = Random.insideUnitCircle * 1.25f;
+            int temp = item.amount;
+            item.amount = quantity;
+            DropItem(item);
+            Debug.Log(temp.ToString()+"temp");
 
-            Item droppedItem = Instantiate(item, spawnLocation + spawnOffset, Quaternion.identity);
-            droppedItem.rb2d.AddForce(spawnOffset * 2f, ForceMode2D.Impulse);
+            item.amount = temp;
+            Debug.Log(item.amount.ToString()+"amount after");
         }
+        
     }
 
-    void FindSoil(InputAction.CallbackContext context)
+    void Plowting()
     {
 
         Vector3Int position = Vector3Int.FloorToInt(rigidbody2d.position + Vector2.up * 0.5f);
@@ -107,7 +116,8 @@ public class PlayerController : MonoBehaviour
             GameManager.instance.tileManager.SetPlowed(position);
         }
     }
-    void Harvest(InputAction.CallbackContext context)
+
+    void Harvest()
     {
         RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, moveDirection, 1.5f, LayerMask.GetMask("Plant"));
         if (hit.collider != null)
@@ -120,20 +130,19 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    void Watering(InputAction.CallbackContext context)
+    void Watering()
     {
-
         Vector3Int position = Vector3Int.FloorToInt(rigidbody2d.position + Vector2.up * 0.5f);
         GameManager.instance.tileManager.ChangeWaterLevel(position, 1);
 
     }
 
-    public void ToggleSprint(InputAction.CallbackContext context)
+    public void OnSprint()
     {
         isSprinting = !isSprinting;
     }
 
-    void Plant(InputAction.CallbackContext context)
+    void Planting()
     {
         Plant Plant = GameManager.instance.plantManager.GetPlantbyName("Red Carrot");
         Vector3Int intPosition = Vector3Int.FloorToInt(rigidbody2d.position + Vector2.up * 0.5f);
@@ -147,6 +156,6 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-
+     
 
 }
