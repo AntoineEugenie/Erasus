@@ -13,6 +13,7 @@ public class Inventory
         public int count;
         public int maxPerStack;
         public Sprite icon;
+        public Item item;
 
         public Slot()
         {
@@ -35,6 +36,7 @@ public class Inventory
             this.itemName = item.data.inventoryData.itemName;
             this.icon = item.data.inventoryData.icon;
             this.maxPerStack = item.data.inventoryData.maxStackSize;
+            this.item = item;
             count++;
         }
         public void RemoveItem()
@@ -80,8 +82,39 @@ public class Inventory
             }
         }
     }
+
     public void Remove(int index)
     {
         slots[index].RemoveItem();
+    }
+    public void Remove(int index, int quantity)
+    {
+        quantity = Mathf.Clamp(quantity, 0, slots[index].count);
+        for (int i = 0; i < quantity; i++)
+        {
+            Remove(index);
+        }
+    }
+
+    public void Deplace(int slotId, int DestinationId)
+    {
+        Slot temp = this.slots[DestinationId];
+        this.slots[DestinationId] = this.slots[slotId];
+        this.slots[slotId] = temp;    
+    }
+
+    public void Deplace(int slotId, int DestinationId, int quantity)
+    {//currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        if (this.slots[DestinationId].itemName == this.slots[slotId].itemName)
+        {
+            quantity = this.slots[slotId].maxPerStack - Mathf.Clamp(quantity + this.slots[DestinationId].count, 0, this.slots[slotId].maxPerStack);
+            Remove(slotId, quantity);
+            this.slots[DestinationId].count += quantity;
+        }
+        if (this.slots[DestinationId].itemName =="")
+        {
+            this.slots[DestinationId] = this.slots[slotId];
+            this.slots[DestinationId].count = quantity;
+        }
     }
 }

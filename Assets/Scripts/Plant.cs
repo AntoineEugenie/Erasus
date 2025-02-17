@@ -80,7 +80,13 @@ public class Plant : MonoBehaviour
                 droppedItem.rb2d.AddForce(spawnOffset * 2f, ForceMode2D.Impulse);
                 GameManager.instance.tileManager.SetFree(position);
                 Destroy(gameObject);
+
             }
+        }
+        if (plantState == PlantState.DEAD)
+        {
+            GameManager.instance.tileManager.SetFree(position);
+            Destroy(gameObject);
         }
     }
 

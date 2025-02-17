@@ -40,8 +40,6 @@ public class TileManager : MonoBehaviour
     public void SetPlowed(Vector3Int position)
     {
         map.SetTile(position, plowedTile);
-
-
     }
 
     public bool CanPlant(Vector3Int position)

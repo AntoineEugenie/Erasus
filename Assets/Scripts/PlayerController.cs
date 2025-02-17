@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.Windows;
+using static Inventory;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,51 +24,19 @@ public class PlayerController : MonoBehaviour
     public bool isSprinting = false;
 
     public Inventory inventory;
-    public Inventory toolbar;
 
-    //// interact 
-    // InputAction InteractAction;
-    //InputAction MoveAction;
-    //InputAction SprintAction;
-    /////
-    // InputAction test;
-    // InputAction plowing;
-    // InputAction water;
-    // InputAction toolbar;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-       // InputSystem.actions.Enable();
-       // // get input from imputsystem
-       // MoveAction = InputSystem.actions.FindAction("Move");
-       // SprintAction = InputSystem.actions.FindAction("Sprint");
-       // InteractAction = InputSystem.actions.FindAction("Interact");
-
-       // /////
-       // test = InputSystem.actions.FindAction("Attack");
-       // plowing = InputSystem.actions.FindAction("Crouch");
-       // //water = InputSystem.actions.FindAction("Jump");
-       // // assign actions to fonctions
-       // SprintAction.performed += ToggleSprint;
-       // SprintAction.canceled += ToggleSprint;
-       // InteractAction.performed += Harvest;
-
-
-       // ///
-       // test.performed += Plant;
-       //// water.performed += Watering;
-       // plowing.performed += FindSoil;
-
-
-
-
         rigidbody2d = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
 
-        inventory = new(27);
-        toolbar = new(9);
+        inventory = new(36);
+        
     }
 
     // Update is called once per frame
@@ -79,7 +48,6 @@ public class PlayerController : MonoBehaviour
     // FixedUpdate has the same call rate as the physics system
     void FixedUpdate()
     {
-        Debug.Log((isSprinting, sprintMultiplier));
         Vector2 position = isSprinting ? (Vector2)rigidbody2d.position + move * (speed * sprintMultiplier) * Time.deltaTime : (Vector2)rigidbody2d.position + move * speed * Time.deltaTime;
         rigidbody2d.MovePosition(position);
     }
@@ -116,14 +84,26 @@ public class PlayerController : MonoBehaviour
     }
     public void DropItem(Item item)
     {
+        Vector2 spawnLocation = transform.position;
+        Vector2 spawnOffset = Random.insideUnitCircle * 2;
+        Item droppedItem = Instantiate(item, spawnLocation + spawnOffset, Quaternion.identity);
+        droppedItem.rb2d.AddForce(spawnOffset * 2f, ForceMode2D.Impulse);
+        Debug.Log(item.amount.ToString()+"after");
+    }
+
+    public void DropItem(Item item, int quantity)
+    {
         if (item != null)
         {
-            Vector2 spawnLocation = transform.position;
-            Vector2 spawnOffset = Random.insideUnitCircle * 1.25f;
+            int temp = item.amount;
+            item.amount = quantity;
+            DropItem(item);
+            Debug.Log(temp.ToString()+"temp");
 
-            Item droppedItem = Instantiate(item, spawnLocation + spawnOffset, Quaternion.identity);
-            droppedItem.rb2d.AddForce(spawnOffset * 2f, ForceMode2D.Impulse);
+            item.amount = temp;
+            Debug.Log(item.amount.ToString()+"amount after");
         }
+        
     }
 
     void Plowting()
@@ -136,6 +116,7 @@ public class PlayerController : MonoBehaviour
             GameManager.instance.tileManager.SetPlowed(position);
         }
     }
+
     void Harvest()
     {
         RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, moveDirection, 1.5f, LayerMask.GetMask("Plant"));
@@ -151,7 +132,6 @@ public class PlayerController : MonoBehaviour
     }
     void Watering()
     {
-
         Vector3Int position = Vector3Int.FloorToInt(rigidbody2d.position + Vector2.up * 0.5f);
         GameManager.instance.tileManager.ChangeWaterLevel(position, 1);
 
@@ -176,6 +156,6 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-
+     
 
 }
