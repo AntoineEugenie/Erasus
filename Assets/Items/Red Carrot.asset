@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbad4d957ae99744aeda475ef7fee82, type: 3}
   m_Name: Red Carrot
   m_EditorClassIdentifier: 
-  inventoryData:
-    icon: {fileID: -986995930, guid: 59600c2140996624a967fc97545fb6bc, type: 3}
-    itemName: Red Carrot
-    description: A carrot but red
-    maxStackSize: 16
+  icon: {fileID: -986995930, guid: 59600c2140996624a967fc97545fb6bc, type: 3}
+  itemName: Red_carrot
+  itemType: 2
+  description: '.-. '
+  maxStackSize: 100
+  seedOf: 

@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public ItemManager itemManager;
     public PlantManager plantManager;
     public TileManager tileManager;
-
+    public PlayerController playerController;
     public UnityEvent newDay;
     public float cycle = 5f;
 

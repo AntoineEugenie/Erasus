@@ -22,8 +22,10 @@ public class Toolbar_UI : MonoBehaviour
                selectedSlots.SetHightlight(false);
             }    
             selectedSlots = slots[index];
-            selectedSlots.SetHightlight(true);
             Debug.Log(selectedSlots);
+            GameManager.instance.playerController.inventory.SelectSlot(index);
+            selectedSlots.SetHightlight(true);
+            
         }
     }
     public void OnToolbarOne()

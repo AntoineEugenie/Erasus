@@ -39,7 +39,6 @@ public class PlantData : ScriptableObject
         public Sprite[] growProgressSprites;
         // à changer en Sprite[] lorsque tous les sprites seront pret
         public Sprite deadSprite;
-
         [Space(10)]
 
         public int minTemperature;

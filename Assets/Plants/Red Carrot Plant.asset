@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 448fac154832aad438e841bd122a2942, type: 3}
-  m_Name: Red_Carrot
+  m_Name: Red Carrot Plant
   m_EditorClassIdentifier: 
   growthData:
     numberOfCycleToGrow: 1

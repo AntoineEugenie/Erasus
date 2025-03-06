@@ -71,17 +71,40 @@ public class PlayerController : MonoBehaviour
     }
     public void OnInteract(InputValue value)
     {
-        Harvest();
+        if (inventory.selectSlot.itemName != "") {
+            Item item = GameManager.instance.itemManager.GetItembyName(inventory.selectSlot.itemName);
+            Debug.Log(item.name);
+            if (item.data.itemType == ItemType.Seed)
+            {
+                Planting(item.data.associatedPlant.inventoryData.itemName);
+            }
+            switch (item.data.action)
+            { 
+                case Action.Plowting:
+                    Plowting();
+                    break;
+
+                case Action.Watering:
+                    Watering();
+                    break;
+
+                default:
+                    Debug.LogWarning("Action non reconnue : " + item.data.action);
+                    break;
+            }
+            Harvest();
+            
+        }
     }
     public void OnCrouch(InputValue value)
     {
         Plowting();
     }
-    public void OnAttack(InputValue value)
-    {
-        Planting();
+    //public void OnAttack(InputValue value)
+    //{
+    //    Planting();
 
-    }
+    //}
     public void DropItem(Item item)
     {
         Vector2 spawnLocation = transform.position;
@@ -142,14 +165,15 @@ public class PlayerController : MonoBehaviour
         isSprinting = !isSprinting;
     }
 
-    void Planting()
+    void Planting(string plantName)
     {
-        Plant Plant = GameManager.instance.plantManager.GetPlantbyName("Red Carrot");
+        Plant Plant = GameManager.instance.plantManager.GetPlantbyName(plantName);
+        Debug.Log($"Plant {plantName}");
         Vector3Int intPosition = Vector3Int.FloorToInt(rigidbody2d.position + Vector2.up * 0.5f);
         Vector3 centerPosition = new(intPosition.x + 0.5f, intPosition.y + 0.25f, 0f);
         if (GameManager.instance.tileManager.CanPlant(intPosition))
         {
-
+            inventory.Remove(inventory.slots.IndexOf(inventory.selectSlot));
             Plant newPlant = Instantiate(Plant, centerPosition, Quaternion.identity);
             GameManager.instance.plantManager.RegisterNewAcitvePlant(newPlant);
             GameManager.instance.tileManager.SetOccupied(intPosition);

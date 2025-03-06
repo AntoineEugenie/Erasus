@@ -6,6 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class Inventory
 {
+    
     [System.Serializable]
     public class Slot
     {
@@ -21,6 +22,14 @@ public class Inventory
             count = 0;
             maxPerStack = 0;
         }
+        public Slot(Slot other)
+        {
+            this.itemName = other.itemName;
+            this.count = other.count;
+            this.maxPerStack = other.maxPerStack;
+            this.icon = other.icon;
+            this.item = other.item;
+        }
 
         public bool CanAddItem()
         {
@@ -33,9 +42,9 @@ public class Inventory
 
         public void AddItem(Item item)
         {
-            this.itemName = item.data.inventoryData.itemName;
-            this.icon = item.data.inventoryData.icon;
-            this.maxPerStack = item.data.inventoryData.maxStackSize;
+            this.itemName = item.data.itemName;
+            this.icon = item.data.icon;
+            this.maxPerStack = item.data.maxStackSize;
             this.item = item;
             count++;
         }
@@ -52,6 +61,9 @@ public class Inventory
             }
         }
     }
+
+    public Slot selectSlot = null;
+
     public List<Slot> slots = new();
 
     public Inventory(int numSlots)
@@ -67,7 +79,7 @@ public class Inventory
     {
         foreach (Slot slot in slots) // check if stack already exist 
         {
-            if (slot.itemName == item.data.inventoryData.itemName && slot.CanAddItem())
+            if (slot.itemName == item.data.itemName && slot.CanAddItem())
             {
                 slot.AddItem(item);
                 return;
@@ -107,14 +119,24 @@ public class Inventory
     {//currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         if (this.slots[DestinationId].itemName == this.slots[slotId].itemName)
         {
-            quantity = this.slots[slotId].maxPerStack - Mathf.Clamp(quantity + this.slots[DestinationId].count, 0, this.slots[slotId].maxPerStack);
+            quantity = Mathf.Clamp(quantity, 0, this.slots[slotId].count);
             Remove(slotId, quantity);
             this.slots[DestinationId].count += quantity;
         }
-        if (this.slots[DestinationId].itemName =="")
+        if (this.slots[DestinationId].itemName == "")
         {
-            this.slots[DestinationId] = this.slots[slotId];
+            this.slots[DestinationId] = new Slot(this.slots[slotId]); 
             this.slots[DestinationId].count = quantity;
+            Remove(slotId, quantity);
+        }
+
+    }
+
+    public void SelectSlot(int index)
+    {
+        if(slots !=  null)
+        { 
+            selectSlot = slots[index];
         }
     }
 }
