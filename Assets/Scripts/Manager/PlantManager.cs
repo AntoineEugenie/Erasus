@@ -8,16 +8,17 @@ public class PlantManager : MonoBehaviour
     public List<Plant> activePlants;
     private Dictionary<string, Plant> nameToPlantDict = new();
 
-    public GameManager gameManager;
 
+   
     private void Awake()
     {
-        gameManager = GetComponent<GameManager>();
         foreach (Plant plant in plantsLibrary)
         {
             AddPlant(plant);
         }
         RegisterActivePlants();
+        TimeEvents.newDay.AddListener(GrowAll);
+
     }
 
     private void AddPlant(Plant plant)

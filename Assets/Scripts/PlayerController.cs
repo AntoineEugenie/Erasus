@@ -1,16 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.EventSystems;
-using UnityEngine.Windows;
-using static Inventory;
+
+
 
 public class PlayerController : MonoBehaviour
 {
     AudioSource audioSource;
 
     Animator animator;
+    public Player player;
 
     // hitbox
     Rigidbody2D rigidbody2d;
@@ -23,27 +21,49 @@ public class PlayerController : MonoBehaviour
 
     public bool isSprinting = false;
 
+    //[System.NonSerialized]
     public Inventory inventory;
-
-
+    
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
 
-        inventory = new(36);
+
+        if (player != null)
+        {
+            if (player.inventory == null)
+            {
+                player.inventory = new(36);
+                Debug.Log("Inventaire créer");
+                inventory = player.inventory;
+            }
+            else
+            {
+                inventory = player.inventory;
+                Debug.Log("Inventaire copier");
+            }
+            transform.position = player.lastPosition;
+
+
+        }
+        else {
+            Debug.LogWarning("Les player data sont nulles");
+        }
         
+
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        player.lastPosition = transform.position;
     }
+
 
     // FixedUpdate has the same call rate as the physics system
     void FixedUpdate()
@@ -53,7 +73,7 @@ public class PlayerController : MonoBehaviour
     }
 
     
-    void OnMove(InputValue movementValue)
+    public void OnMove(InputValue movementValue)
     {
         move = movementValue.Get<Vector2>();
         if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
@@ -65,13 +85,19 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Y", moveDirection.y);
         animator.SetFloat("Speed", move.magnitude);
     }
+
+    public void OnAttack(InputValue value)
+    {
+        Harvest();
+    }
     public void OnJump(InputValue value)
     {
         Watering();
     }
     public void OnInteract(InputValue value)
     {
-        if (inventory.selectSlot.itemName != "") {
+        if (inventory.selectSlot.itemName != "")
+        {
             Item item = GameManager.instance.itemManager.GetItembyName(inventory.selectSlot.itemName);
             Debug.Log(item.name);
             if (item.data.itemType == ItemType.Seed)
@@ -79,7 +105,7 @@ public class PlayerController : MonoBehaviour
                 Planting(item.data.associatedPlant.inventoryData.itemName);
             }
             switch (item.data.action)
-            { 
+            {
                 case Action.Plowting:
                     Plowting();
                     break;
@@ -92,9 +118,20 @@ public class PlayerController : MonoBehaviour
                     Debug.LogWarning("Action non reconnue : " + item.data.action);
                     break;
             }
-            Harvest();
             
         }
+        int layerMask = ~(LayerMask.GetMask("Player", "Confiner"));
+        RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, moveDirection, 1.5f, layerMask);
+        if (hit.collider != null)
+        {
+            IRaycastable raycastable = hit.collider.GetComponent<IRaycastable>();
+            if (raycastable != null)
+            {
+                raycastable.OnHitByRaycast();
+            }
+        }
+
+
     }
     public void OnCrouch(InputValue value)
     {
@@ -132,7 +169,7 @@ public class PlayerController : MonoBehaviour
     void Plowting()
     {
 
-        Vector3Int position = Vector3Int.FloorToInt(rigidbody2d.position + Vector2.up * 0.5f);
+        Vector3Int position = Vector3Int.FloorToInt(rigidbody2d.position); //+ Vector2.up * 0.5f);
 
         if (GameManager.instance.tileManager.IsInteractable(position))
         {

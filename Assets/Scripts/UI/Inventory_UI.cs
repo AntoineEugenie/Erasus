@@ -10,7 +10,6 @@ public class UI : MonoBehaviour
     InputAction menu;
     public GameObject inventoryPanel;
     bool isActive;
-    public PlayerController player;
     [SerializeField] private List<Slot_UI> slots = new();
     [SerializeField] private Canvas canvas;
     private Slot_UI draggedSlot;
@@ -22,11 +21,11 @@ public class UI : MonoBehaviour
         menu = InputSystem.actions.FindAction("Menu");
         menu.performed += ToggleInventory;
         inventoryPanel.SetActive(false);
-        if (player == null)
+        if (GameManager.instance.playerController == null)
         {
             Debug.LogError("⚠️ UI: Le `player` n'est pas assigné !");
         }
-        else if (player.inventory == null)
+        else if (GameManager.instance.playerController.inventory == null)
         {
             Debug.LogError("⚠️ UI: `player.inventory` est null !");
         }
@@ -49,13 +48,13 @@ public class UI : MonoBehaviour
     {//hmmm
 
 
-        if (slots.Count == player.inventory.slots.Count)
+        if (slots.Count == GameManager.instance.playerController.inventory.slots.Count)
         {
             for (int i = 0; i < slots.Count; i++)
             {
-                if (player.inventory.slots[i].itemName != "")
+                if (GameManager.instance.playerController.inventory.slots[i].itemName != "")
                 {
-                    slots[i].SetItem(player.inventory.slots[i]);
+                    slots[i].SetItem(GameManager.instance.playerController.inventory.slots[i]);
                 }
                 else
                 {
@@ -67,7 +66,7 @@ public class UI : MonoBehaviour
     public void Remove()
     {
         
-        Item itemToDrop = GameManager.instance.itemManager.GetItembyName(player.inventory.slots[draggedSlot.slotID].itemName);
+        Item itemToDrop = GameManager.instance.itemManager.GetItembyName(GameManager.instance.playerController.inventory.slots[draggedSlot.slotID].itemName);
 
         if (itemToDrop != null)
         {
@@ -75,14 +74,14 @@ public class UI : MonoBehaviour
             Debug.Log(dragSingle);
             if (dragSingle) 
             {
-                
-                player.DropItem(itemToDrop);
-                player.inventory.Remove(draggedSlot.slotID);
+
+                GameManager.instance.playerController.DropItem(itemToDrop);
+                GameManager.instance.playerController.inventory.Remove(draggedSlot.slotID);
              }
             else
             {
-                player.DropItem(itemToDrop, player.inventory.slots[draggedSlot.slotID].count);
-                player.inventory.Remove(draggedSlot.slotID, player.inventory.slots[draggedSlot.slotID].count);
+                GameManager.instance.playerController.DropItem(itemToDrop, GameManager.instance.playerController.inventory.slots[draggedSlot.slotID].count);
+                GameManager.instance.playerController.inventory.Remove(draggedSlot.slotID, GameManager.instance.playerController.inventory.slots[draggedSlot.slotID].count);
             }
         }
         draggedSlot = null;
@@ -117,10 +116,10 @@ public class UI : MonoBehaviour
     {
         if (dragSingle)
         {
-            player.inventory.Deplace(draggedSlot.slotID, slot.slotID,1);
+            GameManager.instance.playerController.inventory.Deplace(draggedSlot.slotID, slot.slotID,1);
         }
         else
-        { player.inventory.Deplace(draggedSlot.slotID, slot.slotID); }
+        { GameManager.instance.playerController.inventory.Deplace(draggedSlot.slotID, slot.slotID); }
 
     }
 

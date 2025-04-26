@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448fac154832aad438e841bd122a2942, type: 3}
+  m_Name: Pink Letuce Plant
+  m_EditorClassIdentifier: 
+  growthData:
+    numberOfCycleToGrow: 1
+    growProgressSprites:
+    - {fileID: -756560492, guid: 59600c2140996624a967fc97545fb6bc, type: 3}
+    - {fileID: -82454209, guid: 59600c2140996624a967fc97545fb6bc, type: 3}
+    - {fileID: -1231667021, guid: 59600c2140996624a967fc97545fb6bc, type: 3}
+    - {fileID: 2093521788, guid: 59600c2140996624a967fc97545fb6bc, type: 3}
+    - {fileID: -557245919, guid: 59600c2140996624a967fc97545fb6bc, type: 3}
+    deadSprite: {fileID: 1813929109, guid: 59600c2140996624a967fc97545fb6bc, type: 3}
+    minTemperature: 0
+    maxTemperature: 0
+    waterQuantityNeeded: 1
+    waterFrequencyNeeded: 0
+    maxHealth: 10
+    healthRecoveredPerCycle: 2
+  inventoryData:
+    inventoryIcon: {fileID: -557245919, guid: 59600c2140996624a967fc97545fb6bc, type: 3}
+    itemName: Pink Letuce
+    description: poce bleu
+    maxStackSize: 100
+  effectsData:
+    temperatureEmission: 0
+    temperatureEmissionRadius: 0

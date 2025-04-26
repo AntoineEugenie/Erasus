@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Red Carrot
   m_EditorClassIdentifier: 
   icon: {fileID: -986995930, guid: 59600c2140996624a967fc97545fb6bc, type: 3}
-  itemName: Red_carrot
+  itemName: Red Carrot
   itemType: 2
   description: '.-. '
   maxStackSize: 100
-  seedOf: 
+  associatedPlant: {fileID: 0}
+  action: 0

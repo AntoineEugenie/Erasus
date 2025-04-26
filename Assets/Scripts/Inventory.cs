@@ -73,6 +73,8 @@ public class Inventory
             Slot slot = new();
             slots.Add(slot);
         }
+        Debug.Log("index l:" + numSlots);
+        Debug.Log("count : "+  slots.Count);
     }
 
     public void Add(Item item)
@@ -134,9 +136,19 @@ public class Inventory
 
     public void SelectSlot(int index)
     {
-        if(slots !=  null)
-        { 
-            selectSlot = slots[index];
+        Debug.Log("stp:" +slots.Count);
+        if (index < 0 || index >= slots.Count)  // Assure-toi que inventorySlots est bien ta liste
+        {
+            Debug.LogWarning($"Tentative d'accès à un slot hors limite: {index}. Taille actuelle: {slots.Count}");
+            return;
         }
+        else {
+            Debug.Log("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
+        }
+
+        // Sélection du slot si l'index est valide
+        selectSlot = slots[index];
+        Debug.Log($"Slot {index} sélectionné.");
     }
+
 }

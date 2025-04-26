@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,8 +24,14 @@ public class ItemManager : MonoBehaviour
 
     public Item GetItembyName(string name)
     {
+        //Debug.Log(name);
+        //Debug.Log($"contains: {nameToItemDict.ContainsKey(name)}");
+        //Debug.Log("Dict: " + string.Join(", ", nameToItemDict));
+
+
         if (nameToItemDict.ContainsKey(name))
         {
+            //Debug.Log("name to dict", nameToItemDict[name]);
             return nameToItemDict[name];
         }
         return null;

@@ -8,9 +8,11 @@ public class Toolbar_UI : MonoBehaviour
 {
     [SerializeField] private List<Slot_UI> slots = new();
     private Slot_UI selectedSlots;
+
     private void Start()
     {
         SelectSlot(0);
+        
     }
 
     public void SelectSlot(int index)
@@ -22,7 +24,9 @@ public class Toolbar_UI : MonoBehaviour
                selectedSlots.SetHightlight(false);
             }    
             selectedSlots = slots[index];
+            Debug.Log("Index: " + index);
             Debug.Log(selectedSlots);
+            Debug.Log("ALED :" + GameManager.instance.playerController.inventory.slots.Count);
             GameManager.instance.playerController.inventory.SelectSlot(index);
             selectedSlots.SetHightlight(true);
             

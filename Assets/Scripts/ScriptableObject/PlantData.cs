@@ -14,10 +14,10 @@ public class PlantData : ScriptableObject
     // [SerializeField]
     // private HarvestData harvestData;
 
-    // [Space(25)]
+    [Space(25)]
 
-    // [SerializeField]
-    // private EffectsData effectsData;
+    [SerializeField]
+    public EffectsData effectsData;
 
     [System.Serializable]
     public struct InventoryData
@@ -83,33 +83,34 @@ public class PlantData : ScriptableObject
     //     public Sprite _deadSprite;
     // }
 
-    // [System.Serializable]
-    // public struct EffectsData
-    // {
-    //     public int _temperatureEmission;
-    //     [Min(0)]
-    //     public int _temperatureEmissionRadius;
+    [System.Serializable]
+    public struct EffectsData
+    {
+        public int temperatureEmission;
+        [Min(0)]
+        public int temperatureEmissionRadius;
 
-    //     [Space(10)]
 
-    //     [Tooltip("Amount of water that will be added or removed")]
-    //     public int _waterChangeAmount;
-    //     [Min(0)]
-    //     public int _waterChangeRadius;
+        //     [Space(10)]
 
-    //     [Space(10)]
+        //     [Tooltip("Amount of water that will be added or removed")]
+        //     public int _waterChangeAmount;
+        //     [Min(0)]
+        //     public int _waterChangeRadius;
 
-    //     [Tooltip("The plant will copy the effect of other plants in this radius")]
-    //     [Min(0)]
-    //     public int _copyEffectsRadius;
+        //     [Space(10)]
 
-    //     [Space(10)]
+        //     [Tooltip("The plant will copy the effect of other plants in this radius")]
+        //     [Min(0)]
+        //     public int _copyEffectsRadius;
 
-    //     [Tooltip("The temperature around this plant will be set to this value regardless of other temperature sources")]
-    //     public int _temperatureOverwriteValue;
-    //     [Min(0)]
-    //     public int _temperatureOverwriteRadius;
+        //     [Space(10)]
 
-    // }
+        //     [Tooltip("The temperature around this plant will be set to this value regardless of other temperature sources")]
+        //     public int _temperatureOverwriteValue;
+        //     [Min(0)]
+        //     public int _temperatureOverwriteRadius;
+
+    }
 
 }
