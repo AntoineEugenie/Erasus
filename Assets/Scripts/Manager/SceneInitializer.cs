@@ -18,8 +18,9 @@ public class SceneInitializer : MonoBehaviour
         Debug.Log("Scène chargée : " + scene.name);
         if (GameManager.instance.tileManager != null)
         {
-          //GameManager.instance.tileManager.ini
+          
         }
+        
 
      
     }

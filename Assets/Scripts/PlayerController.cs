@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
                 inventory = player.inventory;
                 Debug.Log("Inventaire copier");
             }
+            inventory.SelectSlot(player.selectSlot);
             transform.position = player.lastPosition;
 
 
@@ -133,15 +134,8 @@ public class PlayerController : MonoBehaviour
 
 
     }
-    public void OnCrouch(InputValue value)
-    {
-        Plowting();
-    }
-    //public void OnAttack(InputValue value)
-    //{
-    //    Planting();
-
-    //}
+  
+    
     public void DropItem(Item item)
     {
         Vector2 spawnLocation = transform.position;
@@ -204,19 +198,75 @@ public class PlayerController : MonoBehaviour
 
     void Planting(string plantName)
     {
-        Plant Plant = GameManager.instance.plantManager.GetPlantbyName(plantName);
-        Debug.Log($"Plant {plantName}");
+        PlantData plantData = GameManager.instance.plantManager.GetPlantbyName(plantName);
+        Debug.Log($"Data : {plantData} de  {plantName} ");
+
         Vector3Int intPosition = Vector3Int.FloorToInt(rigidbody2d.position + Vector2.up * 0.5f);
         Vector3 centerPosition = new(intPosition.x + 0.5f, intPosition.y + 0.25f, 0f);
+
         if (GameManager.instance.tileManager.CanPlant(intPosition))
         {
             inventory.Remove(inventory.slots.IndexOf(inventory.selectSlot));
-            Plant newPlant = Instantiate(Plant, centerPosition, Quaternion.identity);
+
+            // Instancie un prefab vide de plante
+            GameObject newPlantGO = Instantiate(GameManager.instance.plantManager.basePlantPrefab, centerPosition, Quaternion.identity);
+
+            // Et donne-lui sa data 
+            Plant newPlant = newPlantGO.GetComponent<Plant>();
+            newPlant.Initialize(plantData);
+
             GameManager.instance.plantManager.RegisterNewAcitvePlant(newPlant);
             GameManager.instance.tileManager.SetOccupied(intPosition);
-
         }
     }
-     
+
+
+    public void OnToolbarOne()
+    {   
+        player.selectSlot = 0;
+        inventory.SelectSlot(0);
+    }
+
+    public void OnToolbarTwo()
+    {
+        player.selectSlot = 1;
+        inventory.SelectSlot(1);
+    }
+    public void OnToolbarThree()
+    {
+        player.selectSlot = 2;
+        inventory.SelectSlot(2);
+    }
+    public void OnToolbarFour()
+    {
+        player.selectSlot = 3;
+        inventory.SelectSlot(3);
+    }
+    public void OnToolbarFive()
+    {
+        player.selectSlot = 4;
+        inventory.SelectSlot(4);
+    }
+
+    public void OnToolbarSix()
+    {
+        player.selectSlot = 5;
+        inventory.SelectSlot(5);
+    }
+    public void OnToolbarSeven()
+    {   
+        player.selectSlot = 6;
+        inventory.SelectSlot(6);
+    }
+    public void OnToolbarEight()
+    {
+        player.selectSlot = 7;
+        inventory.SelectSlot(7);
+    }
+    public void OnToolbarNine()
+    {
+        player.selectSlot = 8;
+        inventory.SelectSlot(8);
+    }
 
 }

@@ -34,6 +34,7 @@ public class UI : MonoBehaviour
     private void Update()
     {
         if (Input.GetKey(KeyCode.LeftShift)) { dragSingle = true; } else {  dragSingle = false; }
+
         Refresh();
     }
 

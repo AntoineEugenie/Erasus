@@ -6,6 +6,8 @@ public class Player : ScriptableObject
 {
     public Inventory inventory;
     public Vector3 lastPosition;
-    public string LastScene;
+    public string lastScene;
+    public string spawnName;
+    public int selectSlot;
     
 }

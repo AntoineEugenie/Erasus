@@ -5,21 +5,23 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    float cycle = 5f;
-    void Start()
+    public float cycle;
+    private float time;
+
+    void Awake()
     {
-        
+        time = cycle;
     }
 
     // Update is called once per frame
    
     private void Update()
         {
-        cycle -= Time.deltaTime;
-        if (cycle <= 0)
+        time -= Time.deltaTime;
+        if (time <= 0)
         {
             TimeEvents.newDay.Invoke(); // Invoque l'événement pour signaler un nouveau jour
-            cycle = 2f;
+            time = cycle;
         }
     }
 

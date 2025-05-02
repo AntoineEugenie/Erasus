@@ -99,6 +99,7 @@ public class Inventory
 
     public void Remove(int index)
     {
+        Debug.Log("index"+index);
         slots[index].RemoveItem();
     }
     public void Remove(int index, int quantity)
@@ -137,18 +138,17 @@ public class Inventory
     public void SelectSlot(int index)
     {
         Debug.Log("stp:" +slots.Count);
-        if (index < 0 || index >= slots.Count)  // Assure-toi que inventorySlots est bien ta liste
+        if (index < 0 || index >= slots.Count)  
         {
             Debug.LogWarning($"Tentative d'accès à un slot hors limite: {index}. Taille actuelle: {slots.Count}");
             return;
         }
         else {
-            Debug.Log("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
+            selectSlot = slots[index];
+            Debug.Log($"Slot {index} sélectionné.");
         }
 
-        // Sélection du slot si l'index est valide
-        selectSlot = slots[index];
-        Debug.Log($"Slot {index} sélectionné.");
+    
     }
 
 }

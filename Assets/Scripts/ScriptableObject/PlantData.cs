@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 [CreateAssetMenu]
 public class PlantData : ScriptableObject
@@ -8,6 +7,8 @@ public class PlantData : ScriptableObject
     [SerializeField] public GrowthData growthData;
     [Space(25)]
     [SerializeField] public InventoryData inventoryData;
+    public  HarvestData harvestData;
+    [Space(25)]
 
     // [Space(25)]
 
@@ -64,24 +65,20 @@ public class PlantData : ScriptableObject
         [Min(0)]
         public int maxHealth;
         public int healthRecoveredPerCycle;
+        public bool isCopy;
     }
+    [System.Serializable]
+    public struct HarvestData
+    {
 
-    // [System.Serializable]
-    // public struct HarvestData
-    // {
-    //     public Sprite _readyToHarvestSprite;
-    //     public IngredientData _harvestResult;
+        public PlantState plantState;
+        public int growingLevels;
+        public int cycleToGrow;
+        public int health;
+        public Vector3Int position;
+        public string sceneName;
 
-    //     [Space(10)]
-
-    //     [Min(0)]
-    //     public int _numberOfCyclesToRegrow;
-    //     public Sprite _regrowingSprite;
-
-    //     [Space(10)]
-
-    //     public Sprite _deadSprite;
-    // }
+    }
 
     [System.Serializable]
     public struct EffectsData
@@ -112,5 +109,12 @@ public class PlantData : ScriptableObject
         //     public int _temperatureOverwriteRadius;
 
     }
-
+}
+public enum PlantState
+{
+    //PREVIEWING,
+    GROWING,
+    READY_TO_HARVEST,
+    //REGROWING,
+    DEAD
 }
