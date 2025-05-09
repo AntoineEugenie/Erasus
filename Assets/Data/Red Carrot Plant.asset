@@ -27,11 +27,19 @@ MonoBehaviour:
     waterFrequencyNeeded: 1
     maxHealth: 10
     healthRecoveredPerCycle: 1
+    isCopy: 1
   inventoryData:
     inventoryIcon: {fileID: 819798647, guid: 59600c2140996624a967fc97545fb6bc, type: 3}
     itemName: Red Carrot
     description: Carrote rouge
     maxStackSize: 0
+  harvestData:
+    plantState: 0
+    growingLevels: 0
+    cycleToGrow: 0
+    health: 0
+    position: {x: 0, y: 0, z: 0}
+    sceneName: 
   effectsData:
     temperatureEmission: 1
     temperatureEmissionRadius: 1

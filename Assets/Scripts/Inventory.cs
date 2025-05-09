@@ -73,8 +73,6 @@ public class Inventory
             Slot slot = new();
             slots.Add(slot);
         }
-        Debug.Log("index l:" + numSlots);
-        Debug.Log("count : "+  slots.Count);
     }
 
     public void Add(Item item)
@@ -99,7 +97,6 @@ public class Inventory
 
     public void Remove(int index)
     {
-        Debug.Log("index"+index);
         slots[index].RemoveItem();
     }
     public void Remove(int index, int quantity)
@@ -113,23 +110,31 @@ public class Inventory
 
     public void Deplace(int slotId, int DestinationId)
     {
-        Slot temp = this.slots[DestinationId];
-        this.slots[DestinationId] = this.slots[slotId];
-        this.slots[slotId] = temp;    
-    }
-
-    public void Deplace(int slotId, int DestinationId, int quantity)
-    {//currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         if (this.slots[DestinationId].itemName == this.slots[slotId].itemName)
         {
-            quantity = Mathf.Clamp(quantity, 0, this.slots[slotId].count);
-            Remove(slotId, quantity);
-            this.slots[DestinationId].count += quantity;
+            Deplace(slotId, DestinationId, this.slots[slotId].count);
         }
-        if (this.slots[DestinationId].itemName == "")
+        else
         {
-            this.slots[DestinationId] = new Slot(this.slots[slotId]); 
-            this.slots[DestinationId].count = quantity;
+            Slot temp = this.slots[DestinationId];
+            this.slots[DestinationId] = this.slots[slotId];
+            this.slots[slotId] = temp;
+        }
+    }
+
+    public void Deplace(int slotId, int destinationId, int quantity)
+    {//currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        if (this.slots[destinationId].itemName == this.slots[slotId].itemName)
+        {
+            quantity = Mathf.Clamp(quantity, 0, this.slots[slotId].count);// ne dépasse le nombre d'item du slot envoyeur
+            quantity = Mathf.Clamp(quantity, 0, this.slots[slotId].maxPerStack - this.slots[destinationId].count); // ne dépasse pas le stack max 
+            Remove(slotId, quantity);
+            this.slots[destinationId].count += quantity;
+        }
+        if (this.slots[destinationId].itemName == "")
+        {
+            this.slots[destinationId] = new Slot(this.slots[slotId]); 
+            this.slots[destinationId].count = quantity;
             Remove(slotId, quantity);
         }
 
@@ -137,7 +142,6 @@ public class Inventory
 
     public void SelectSlot(int index)
     {
-        Debug.Log("stp:" +slots.Count);
         if (index < 0 || index >= slots.Count)  
         {
             Debug.LogWarning($"Tentative d'accès à un slot hors limite: {index}. Taille actuelle: {slots.Count}");

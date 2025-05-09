@@ -138,7 +138,7 @@ public class PlantManager : MonoBehaviour
 
         int damage = 0;
         bool allGood = true;
-        if (GameManager.instance.tileManager.GetWaterLevel(data.harvestData.position) < data.growthData.waterQuantityNeeded)
+        if (GameManager.instance.tileManager.GetWaterLevel(data.harvestData.position, data.harvestData.sceneName) < data.growthData.waterQuantityNeeded)
         {
             damage++;
             allGood = false;

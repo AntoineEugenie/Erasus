@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 
 
@@ -165,9 +166,9 @@ public class PlayerController : MonoBehaviour
 
         Vector3Int position = Vector3Int.FloorToInt(rigidbody2d.position); //+ Vector2.up * 0.5f);
 
-        if (GameManager.instance.tileManager.IsInteractable(position))
+        if (GameManager.instance.tileManager.IsInteractable(position, player.lastScene))
         {
-            GameManager.instance.tileManager.SetPlowed(position);
+            GameManager.instance.tileManager.SetPlowed(position, player.lastScene);
         }
     }
 
@@ -187,7 +188,7 @@ public class PlayerController : MonoBehaviour
     void Watering()
     {
         Vector3Int position = Vector3Int.FloorToInt(rigidbody2d.position + Vector2.up * 0.5f);
-        GameManager.instance.tileManager.ChangeWaterLevel(position, 1);
+        GameManager.instance.tileManager.ChangeWaterLevel(position, 1, player.lastScene);
 
     }
 
@@ -200,11 +201,12 @@ public class PlayerController : MonoBehaviour
     {
         PlantData plantData = GameManager.instance.plantManager.GetPlantbyName(plantName);
         Debug.Log($"Data : {plantData} de  {plantName} ");
+        
 
         Vector3Int intPosition = Vector3Int.FloorToInt(rigidbody2d.position + Vector2.up * 0.5f);
         Vector3 centerPosition = new(intPosition.x + 0.5f, intPosition.y + 0.25f, 0f);
 
-        if (GameManager.instance.tileManager.CanPlant(intPosition))
+        if (GameManager.instance.tileManager.CanPlant(intPosition, player.lastScene))
         {
             inventory.Remove(inventory.slots.IndexOf(inventory.selectSlot));
 
@@ -216,7 +218,7 @@ public class PlayerController : MonoBehaviour
             newPlant.Initialize(plantData);
 
             GameManager.instance.plantManager.RegisterNewAcitvePlant(newPlant);
-            GameManager.instance.tileManager.SetOccupied(intPosition);
+            GameManager.instance.tileManager.SetOccupied(intPosition, player.lastScene);
         }
     }
 

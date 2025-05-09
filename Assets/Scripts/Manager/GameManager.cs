@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
 
     private void InitializeScene(string sceneName)
     {   
+        
+        tileManager.InitializeScene(sceneName);
         plantManager.InitializeScene(sceneName);
         playerController = GameObject.Find("Player")?.GetComponent<PlayerController>();
 
@@ -62,7 +64,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError("Aucun Player nommé trouvé !");
             return;
         }
-        
+        playerController.player.lastScene = sceneName;
         GameObject spawnPoint = GameObject.Find(playerController.player.spawnName);
         if (spawnPoint == null)
         {

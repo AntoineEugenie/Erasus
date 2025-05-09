@@ -34,7 +34,7 @@ public class PlantData : ScriptableObject
     [System.Serializable]
     public struct GrowthData
     {
-        [Tooltip("total number of cycles required to grow from seed to harvest")]
+        [Tooltip("Number of cycle to grow to the next step")]
         [Min(0)]
         public int numberOfCycleToGrow;
         public Sprite[] growProgressSprites;
@@ -62,7 +62,7 @@ public class PlantData : ScriptableObject
 
         [Space(10)]
 
-        [Min(0)]
+        //[Min(0)]
         public int maxHealth;
         public int healthRecoveredPerCycle;
         public bool isCopy;

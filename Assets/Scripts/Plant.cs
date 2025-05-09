@@ -64,7 +64,7 @@ public class Plant : MonoBehaviour, IRaycastable
 
         for (int i = 0; i < heatZone.Count; i++)
         {
-            GameManager.instance.tileManager.ChangeTemperature(heatZone[i],data.effectsData.temperatureEmission);
+            GameManager.instance.tileManager.ChangeTemperature(heatZone[i],data.effectsData.temperatureEmission, data.harvestData.sceneName);
         }
 
     }
@@ -120,10 +120,10 @@ public class Plant : MonoBehaviour, IRaycastable
 
                 Item droppedItem = Instantiate(item, spawnLocation + spawnOffset, Quaternion.identity);
                 droppedItem.rb2d.AddForce(spawnOffset * 2f, ForceMode2D.Impulse);
-                GameManager.instance.tileManager.SetFree(data.harvestData.position);
+                GameManager.instance.tileManager.SetFree(data.harvestData.position, data.harvestData.sceneName);
                 for (int i = 0; i < heatZone.Count; i++)
                 {
-                    GameManager.instance.tileManager.ChangeTemperature(heatZone[i], -data.effectsData.temperatureEmission);
+                    GameManager.instance.tileManager.ChangeTemperature(heatZone[i], -data.effectsData.temperatureEmission, data.harvestData.sceneName);
                 }
                 Destroy(gameObject);
 
@@ -131,10 +131,10 @@ public class Plant : MonoBehaviour, IRaycastable
         }
         if (data.harvestData.plantState == PlantState.DEAD)
         {
-            GameManager.instance.tileManager.SetFree(data.harvestData.position);
+            GameManager.instance.tileManager.SetFree(data.harvestData.position, data.harvestData.sceneName);
             for (int i = 0; i < heatZone.Count; i++)
             {
-                GameManager.instance.tileManager.ChangeTemperature(heatZone[i], -data.effectsData.temperatureEmission);
+                GameManager.instance.tileManager.ChangeTemperature(heatZone[i], -data.effectsData.temperatureEmission, data.harvestData.sceneName);
             }
             Destroy(gameObject);
         }

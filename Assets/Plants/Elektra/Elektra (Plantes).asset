@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448fac154832aad438e841bd122a2942, type: 3}
+  m_Name: Elektra (Plantes)
+  m_EditorClassIdentifier: 
+  growthData:
+    numberOfCycleToGrow: 0
+    growProgressSprites: []
+    deadSprite: {fileID: 0}
+    minTemperature: 0
+    maxTemperature: 0
+    waterQuantityNeeded: 0
+    waterFrequencyNeeded: 0
+    maxHealth: 0
+    healthRecoveredPerCycle: 0
+    isCopy: 0
+  inventoryData:
+    inventoryIcon: {fileID: 0}
+    itemName: 
+    description: 
+    maxStackSize: 0
+  harvestData:
+    plantState: 0
+    growingLevels: 0
+    cycleToGrow: 0
+    health: 0
+    position: {x: 0, y: 0, z: 0}
+    sceneName: 
+  effectsData:
+    temperatureEmission: 0
+    temperatureEmissionRadius: 0

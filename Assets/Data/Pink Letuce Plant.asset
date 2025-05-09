@@ -27,11 +27,19 @@ MonoBehaviour:
     waterFrequencyNeeded: 0
     maxHealth: 10
     healthRecoveredPerCycle: 2
+    isCopy: 1
   inventoryData:
     inventoryIcon: {fileID: -557245919, guid: 59600c2140996624a967fc97545fb6bc, type: 3}
     itemName: Pink Letuce
     description: poce bleu
     maxStackSize: 100
+  harvestData:
+    plantState: 0
+    growingLevels: 0
+    cycleToGrow: 0
+    health: 0
+    position: {x: 0, y: 0, z: 0}
+    sceneName: 
   effectsData:
     temperatureEmission: 0
     temperatureEmissionRadius: 0
