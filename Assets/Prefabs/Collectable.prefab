@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7919898867737674744}
   m_Layer: 0
   m_Name: Collectable
-  m_TagString: Plant
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1410705006, guid: be3147f1e53163240adef77cbe567fc9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 69e9ccb605556d247bad2d572ce40818, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b46a551104d014190124a28056d4ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 220034147894e274799a9c64d9b1d217, type: 2}
+  data: {fileID: 11400000, guid: 8781e57da40610741b2b3032733b0a28, type: 2}
   amount: 1
   rb2d: {fileID: 0}
 --- !u!61 &2692248051794049227
@@ -155,7 +155,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5

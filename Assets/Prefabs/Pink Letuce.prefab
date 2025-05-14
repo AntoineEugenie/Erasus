@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pink Letuce
       objectReference: {fileID: 0}
+    - target: {fileID: 3804062234484204755, guid: 66f1a36a06d7fcd4784dc339fc5bc1f7, type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     - target: {fileID: 4441958234101837967, guid: 66f1a36a06d7fcd4784dc339fc5bc1f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.27530944

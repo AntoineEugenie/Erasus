@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using System.Threading;
-using NUnit.Framework;
+
 
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class CollectPoint : MonoBehaviour, IRaycastable
 {
@@ -28,9 +28,14 @@ public class CollectPoint : MonoBehaviour, IRaycastable
     public void LootItem()
     {
         int randomIndex = Random.Range(0, loots.Count);
-        Vector3Int intPosition = Vector3Int.FloorToInt(rigidbody2d.position + Vector2.up * 0.5f);
-        Vector3 centerPosition = new(intPosition.x + 0.5f, intPosition.y + 0.25f, 0f);
-        Instantiate(loots[randomIndex], centerPosition, Quaternion.identity);
+        //Vector3Int intPosition = Vector3Int.FloorToInt(rigidbody2d.position + Vector2.up * 0.5f);
+        //Vector3 centerPosition = new(intPosition.x + 0.5f, intPosition.y + 0.25f, 0f);
+        Vector2 spawnLocation = transform.position;
+        Vector2 spawnOffset = Random.insideUnitCircle;
+        Item droppedItem = Instantiate(loots[randomIndex], spawnLocation + spawnOffset, Quaternion.identity);
+        droppedItem.rb2d.AddForce(spawnOffset * 2f, ForceMode2D.Impulse);
 
     }
 }
+
+

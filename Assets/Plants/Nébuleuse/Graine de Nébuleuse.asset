@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbad4d957ae99744aeda475ef7fee82, type: 3}
+  m_Name: "Graine de N\xE9buleuse"
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: c1521030d3106b140a5c945ef0537cbe, type: 3}
+  itemName: "Graine de N\xE9buleuse"
+  itemType: 0
+  description: 
+  maxStackSize: 100
+  associatedPlant: {fileID: 11400000, guid: 8aa0ac9f784515d4698925d891f65b5f, type: 2}
+  action: 0

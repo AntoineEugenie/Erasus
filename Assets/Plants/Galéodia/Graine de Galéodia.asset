@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbad4d957ae99744aeda475ef7fee82, type: 3}
   m_Name: "Graine de Gal\xE9odia"
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 69e9ccb605556d247bad2d572ce40818, type: 3}
   itemName: "Graine de Gal\xE9odia"
   itemType: 0
   description: 
-  maxStackSize: 1
-  associatedPlant: {fileID: 0}
+  maxStackSize: 100
+  associatedPlant: {fileID: 11400000, guid: dbfd273c00d907140a616a9a2d5b77b6, type: 2}
   action: 0

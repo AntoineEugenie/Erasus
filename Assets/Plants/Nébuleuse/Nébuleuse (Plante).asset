@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448fac154832aad438e841bd122a2942, type: 3}
+  m_Name: "N\xE9buleuse (Plante)"
+  m_EditorClassIdentifier: 
+  growthData:
+    numberOfCycleToGrow: 1
+    growProgressSprites:
+    - {fileID: 21300000, guid: f8ef391a4d4e09f498344d3c76e94176, type: 3}
+    - {fileID: 21300000, guid: e4625ba46853cdf48b3d26c6ebcba847, type: 3}
+    - {fileID: 21300000, guid: fb981aa93ce2dd54d94a200bb77d09c4, type: 3}
+    - {fileID: 21300000, guid: d382d367047f75f48bc7b11921ea623a, type: 3}
+    - {fileID: 21300000, guid: 456235de64e63cf41847f47e87e6d2a6, type: 3}
+    deadSprite: {fileID: 0}
+    minTemperature: 2
+    maxTemperature: 3
+    waterQuantityNeeded: 1
+    waterFrequencyNeeded: 1
+    maxHealth: 4
+    healthRecoveredPerCycle: 0
+    isCopy: 1
+  inventoryData:
+    inventoryIcon: {fileID: 21300000, guid: 456235de64e63cf41847f47e87e6d2a6, type: 3}
+    itemName: "N\xE9buleuse"
+    description: 
+    maxStackSize: 100
+  harvestData:
+    plantState: 0
+    growingLevels: 0
+    cycleToGrow: 0
+    health: 0
+    position: {x: 0, y: 0, z: 0}
+    sceneName: 
+  effectsData:
+    temperatureEmission: 0
+    temperatureEmissionRadius: 0

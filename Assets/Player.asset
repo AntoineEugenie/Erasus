@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory:
     selectSlot:
-      itemName: Hoe
+      itemName: "H\xE9olia"
       count: 1
-      maxPerStack: 1
-      icon: {fileID: 1257465636, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
+      maxPerStack: 100
+      icon: {fileID: 21300000, guid: 113cb6275c42a1e4e94778cf7db8712e, type: 3}
       item: {fileID: 0}
     slots:
     - itemName: 
@@ -32,11 +32,6 @@ MonoBehaviour:
       item: {fileID: 0}
     - itemName: 
       count: 0
-      maxPerStack: 100
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
       maxPerStack: 0
       icon: {fileID: 0}
       item: {fileID: 0}
@@ -45,104 +40,14 @@ MonoBehaviour:
       maxPerStack: 0
       icon: {fileID: 0}
       item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 0
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 0
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 0
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 0
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 100
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 100
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 100
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 100
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 100
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 100
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 0
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 0
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 0
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 100
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 100
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: Watering can
+    - itemName: "H\xE9olia"
       count: 1
-      maxPerStack: 1
-      icon: {fileID: 1150208678, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
-      item: {fileID: 0}
-    - itemName: Pink Letuce Seed
-      count: 32
       maxPerStack: 100
-      icon: {fileID: -1523285477, guid: be3147f1e53163240adef77cbe567fc9, type: 3}
+      icon: {fileID: 21300000, guid: 113cb6275c42a1e4e94778cf7db8712e, type: 3}
       item: {fileID: 0}
     - itemName: 
       count: 0
       maxPerStack: 0
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 100
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 100
       icon: {fileID: 0}
       item: {fileID: 0}
     - itemName: 
@@ -154,26 +59,36 @@ MonoBehaviour:
       count: 0
       maxPerStack: 0
       icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: "Graine d'H\xE9olia"
+      count: 98
+      maxPerStack: 100
+      icon: {fileID: 21300000, guid: 33a85e0198af10a4a8bb7a2c64d72fb7, type: 3}
       item: {fileID: 0}
     - itemName: Hoe
       count: 1
       maxPerStack: 1
       icon: {fileID: 1257465636, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
       item: {fileID: 0}
-    - itemName: Red carrot seed
-      count: 38
-      maxPerStack: 100
-      icon: {fileID: -1410705006, guid: be3147f1e53163240adef77cbe567fc9, type: 3}
+    - itemName: Watering can
+      count: 1
+      maxPerStack: 1
+      icon: {fileID: 1150208678, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
       item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 100
-      icon: {fileID: 0}
+    - itemName: Watering can
+      count: 1
+      maxPerStack: 1
+      icon: {fileID: 1150208678, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
       item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 100
-      icon: {fileID: 0}
+    - itemName: Watering can
+      count: 1
+      maxPerStack: 1
+      icon: {fileID: 1150208678, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
+      item: {fileID: 0}
+    - itemName: Watering can
+      count: 1
+      maxPerStack: 1
+      icon: {fileID: 1150208678, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
       item: {fileID: 0}
     - itemName: Watering can
       count: 1
@@ -190,6 +105,16 @@ MonoBehaviour:
       maxPerStack: 1
       icon: {fileID: 1150208678, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
       item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: Hoe
+      count: 1
+      maxPerStack: 1
+      icon: {fileID: 1257465636, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
+      item: {fileID: 0}
     - itemName: Hoe
       count: 1
       maxPerStack: 1
@@ -200,7 +125,82 @@ MonoBehaviour:
       maxPerStack: 1
       icon: {fileID: 1150208678, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
       item: {fileID: 0}
-  lastPosition: {x: -3.5, y: -1, z: 0}
+    - itemName: Hoe
+      count: 1
+      maxPerStack: 1
+      icon: {fileID: 1257465636, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
+      item: {fileID: 0}
+    - itemName: Hoe
+      count: 1
+      maxPerStack: 1
+      icon: {fileID: 1257465636, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
+      item: {fileID: 0}
+    - itemName: Watering can
+      count: 1
+      maxPerStack: 1
+      icon: {fileID: 1150208678, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
+      item: {fileID: 0}
+    - itemName: Hoe
+      count: 1
+      maxPerStack: 1
+      icon: {fileID: 1257465636, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: "Graine d'H\xE9olia"
+      count: 100
+      maxPerStack: 100
+      icon: {fileID: 21300000, guid: 33a85e0198af10a4a8bb7a2c64d72fb7, type: 3}
+      item: {fileID: 0}
+    - itemName: "Graine de Gal\xE9odia"
+      count: 2
+      maxPerStack: 100
+      icon: {fileID: 21300000, guid: 69e9ccb605556d247bad2d572ce40818, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+  lastPosition: {x: 3.154673, y: 1.7047827, z: 0}
   lastScene: Spawn
   spawnName: Sortie de la maison
-  selectSlot: 7
+  selectSlot: 4

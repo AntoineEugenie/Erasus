@@ -73,7 +73,8 @@ public class Plant : MonoBehaviour, IRaycastable
     {
         if(data.harvestData.plantState == PlantState.DEAD)
         {
-            spriteRenderer.sprite = data.growthData.deadSprite;
+            //spriteRenderer.sprite = data.growthData.deadSprite;
+            spriteRenderer.color = Color.grey;
         }
         else
         {

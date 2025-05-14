@@ -784,6 +784,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid
       objectReference: {fileID: 0}
+    - target: {fileID: 8408349594180166560, guid: db4bc2b990d2c3342a92cf3243f5db20, type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0.03333336
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408349594180166560, guid: db4bc2b990d2c3342a92cf3243f5db20, type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0.03333336
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1062,7 +1070,8 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7140527734319267887, guid: 466bc32065fa12945a5c9ace4b9a129c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 466bc32065fa12945a5c9ace4b9a129c, type: 3}

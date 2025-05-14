@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hoe
       objectReference: {fileID: 0}
+    - target: {fileID: 2993032379878272129, guid: 320e0d22c12572e44bdb6c7c91d66c3b, type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     - target: {fileID: 5086545032760873969, guid: 320e0d22c12572e44bdb6c7c91d66c3b, type: 3}
       propertyPath: data
       value: 

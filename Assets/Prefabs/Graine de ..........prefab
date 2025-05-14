@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Graine de .........
       objectReference: {fileID: 0}
+    - target: {fileID: 3804062234484204755, guid: de59dd6386a336045bc95d98c4001ed7, type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     - target: {fileID: 4441958234101837967, guid: de59dd6386a336045bc95d98c4001ed7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.1395445
@@ -67,11 +71,27 @@ PrefabInstance:
     - target: {fileID: 6564823889071720775, guid: de59dd6386a336045bc95d98c4001ed7, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1523285477, guid: be3147f1e53163240adef77cbe567fc9, type: 3}
+      objectReference: {fileID: 21300000, guid: 33a85e0198af10a4a8bb7a2c64d72fb7, type: 3}
+    - target: {fileID: 6564823889071720775, guid: de59dd6386a336045bc95d98c4001ed7, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564823889071720775, guid: de59dd6386a336045bc95d98c4001ed7, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564823889071720775, guid: de59dd6386a336045bc95d98c4001ed7, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564823889071720775, guid: de59dd6386a336045bc95d98c4001ed7, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8649598491943237670, guid: de59dd6386a336045bc95d98c4001ed7, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: 7d67c6b9a3ce78d47af59e8d1ceb7ec0, type: 2}
+      objectReference: {fileID: 11400000, guid: 526a5f3f700295642b760a252c9a8957, type: 2}
     - target: {fileID: 8649598491943237670, guid: de59dd6386a336045bc95d98c4001ed7, type: 3}
       propertyPath: amount
       value: 100

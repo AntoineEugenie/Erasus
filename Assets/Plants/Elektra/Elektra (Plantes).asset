@@ -13,21 +13,26 @@ MonoBehaviour:
   m_Name: Elektra (Plantes)
   m_EditorClassIdentifier: 
   growthData:
-    numberOfCycleToGrow: 0
-    growProgressSprites: []
+    numberOfCycleToGrow: 1
+    growProgressSprites:
+    - {fileID: 21300000, guid: 070ea64dc7a9db6429a2b013cac3f74c, type: 3}
+    - {fileID: 21300000, guid: 2d2531570ef94504083228722ed25dde, type: 3}
+    - {fileID: 21300000, guid: 81ec39524cc379c4b853cc81be6dd9a3, type: 3}
+    - {fileID: 21300000, guid: 763143976f7efbf49be042871474dd8f, type: 3}
+    - {fileID: 21300000, guid: 738fecf0403b92f4794ea634513cd27f, type: 3}
     deadSprite: {fileID: 0}
-    minTemperature: 0
-    maxTemperature: 0
-    waterQuantityNeeded: 0
-    waterFrequencyNeeded: 0
-    maxHealth: 0
-    healthRecoveredPerCycle: 0
-    isCopy: 0
+    minTemperature: 3
+    maxTemperature: 4
+    waterQuantityNeeded: 1
+    waterFrequencyNeeded: 1
+    maxHealth: 6
+    healthRecoveredPerCycle: 1
+    isCopy: 1
   inventoryData:
-    inventoryIcon: {fileID: 0}
-    itemName: 
+    inventoryIcon: {fileID: 21300000, guid: 738fecf0403b92f4794ea634513cd27f, type: 3}
+    itemName: Elektra
     description: 
-    maxStackSize: 0
+    maxStackSize: 100
   harvestData:
     plantState: 0
     growingLevels: 0

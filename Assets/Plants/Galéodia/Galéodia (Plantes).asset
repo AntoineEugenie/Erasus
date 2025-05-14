@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Gal\xE9odia (Plantes)"
   m_EditorClassIdentifier: 
   growthData:
-    numberOfCycleToGrow: 0
+    numberOfCycleToGrow: 1
     growProgressSprites:
     - {fileID: 21300000, guid: 9995d64f15e7fa942b01cc830ee611b3, type: 3}
     - {fileID: 21300000, guid: c18246ce3f6f6e342983bf4372582e31, type: 3}
