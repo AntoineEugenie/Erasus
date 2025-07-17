@@ -13,4 +13,11 @@ public class Item : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
     }
+
+    public Item Clone()
+    {
+        Item clone = Instantiate(this);
+        return clone;
+    }
+
 }

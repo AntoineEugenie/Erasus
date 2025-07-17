@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
         Vector2 spawnLocation = transform.position;
         Vector2 spawnOffset = Random.insideUnitCircle * 2;
         Item droppedItem = Instantiate(item, spawnLocation + spawnOffset, Quaternion.identity);
-        droppedItem.rb2d.AddForce(spawnOffset * 2f, ForceMode2D.Impulse);
+        droppedItem.rb2d.AddForce(spawnOffset * 1.5f, ForceMode2D.Impulse);
         Debug.Log(item.amount.ToString()+"after");
     }
 
@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
     {
         if (item != null)
         {
-            int temp = item.amount;
+            int temp = item.amount - quantity;
             item.amount = quantity;
             DropItem(item);
             Debug.Log(temp.ToString()+"temp");

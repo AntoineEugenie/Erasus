@@ -126,6 +126,7 @@ public class Plant : MonoBehaviour, IRaycastable
                 {
                     GameManager.instance.tileManager.ChangeTemperature(heatZone[i], -data.effectsData.temperatureEmission, data.harvestData.sceneName);
                 }
+                GameManager.instance.plantManager.RemoveActivePlant(data.harvestData.position);
                 Destroy(gameObject);
 
             }
@@ -137,6 +138,7 @@ public class Plant : MonoBehaviour, IRaycastable
             {
                 GameManager.instance.tileManager.ChangeTemperature(heatZone[i], -data.effectsData.temperatureEmission, data.harvestData.sceneName);
             }
+            GameManager.instance.plantManager.RemoveActivePlant(data.harvestData.position);
             Destroy(gameObject);
         }
     }

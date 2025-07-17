@@ -1,8 +1,8 @@
 
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.Splines;
-using static Plant;
+
 
 public class PlantManager : MonoBehaviour
 {
@@ -96,6 +96,16 @@ public class PlantManager : MonoBehaviour
     {
         activePlants.Add(plant.data);
     }
+
+    public void RemoveActivePlant(Vector3Int pos)
+    {
+        var data = activePlants.FirstOrDefault(p => p.harvestData.position == pos);
+        if (data != null)
+        {
+            activePlants.Remove(data);
+        }
+    }
+
 
     // Fais grandir toutes les plantes
     public void GrowAll()

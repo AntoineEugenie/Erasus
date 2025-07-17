@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -93,6 +91,8 @@ public class Inventory
                 return;
             }
         }
+        
+        GameManager.instance.playerController.DropItem(item);
     }
 
     public void Remove(int index)

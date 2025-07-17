@@ -75,13 +75,13 @@ public class UI : MonoBehaviour
             Debug.Log(dragSingle);
             if (dragSingle) 
             {
-
-                GameManager.instance.playerController.DropItem(itemToDrop);
+                GameManager.instance.playerController.DropItem(itemToDrop, 1);
+                
                 GameManager.instance.playerController.inventory.Remove(draggedSlot.slotID);
              }
             else
             {
-                GameManager.instance.playerController.DropItem(itemToDrop, GameManager.instance.playerController.inventory.slots[draggedSlot.slotID].count);
+                GameManager.instance.playerController.DropItem(itemToDrop);
                 GameManager.instance.playerController.inventory.Remove(draggedSlot.slotID, GameManager.instance.playerController.inventory.slots[draggedSlot.slotID].count);
             }
         }
