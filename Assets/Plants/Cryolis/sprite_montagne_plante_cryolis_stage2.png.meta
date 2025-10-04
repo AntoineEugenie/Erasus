@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sprite_montagne_plante_cryolis_stage2_0: 5330004397599875412
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

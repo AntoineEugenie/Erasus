@@ -53,6 +53,7 @@ public class Plant : MonoBehaviour, IRaycastable
         else
         {
             data = plantData;
+            SpriteChanger();
         }
         Debug.Log(data.harvestData.position);
         Debug.Log(String.Join(", ",heatZone));
@@ -71,7 +72,7 @@ public class Plant : MonoBehaviour, IRaycastable
 
     void SpriteChanger()
     {
-        if(data.harvestData.plantState == PlantState.DEAD)
+        if (data.harvestData.plantState == PlantState.DEAD)
         {
             //spriteRenderer.sprite = data.growthData.deadSprite;
             spriteRenderer.color = Color.grey;

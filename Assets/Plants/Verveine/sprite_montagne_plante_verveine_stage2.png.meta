@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sprite_montagne_plante_verveine_stage2_0: -2906311988161957934
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
