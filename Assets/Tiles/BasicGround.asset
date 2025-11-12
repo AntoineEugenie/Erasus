@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7afade79ee87845a47d7579f96e57b, type: 3}
+  m_Name: BasicGround
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: 5060906939413e94b9d8b5206ba4b0a7, type: 2}
+  - {fileID: 11400000, guid: 0df2cc5064792f444988f685c0d6c828, type: 2}
+  - {fileID: 11400000, guid: 4b69028b04b39ac499c940c893e702a6, type: 2}
+  - {fileID: 11400000, guid: 0bba1c0d60a046c4eaff63ae27af535a, type: 2}
+  - {fileID: 11400000, guid: 978bf091b8a6df846ac8ca07a845ceba, type: 2}
+  - {fileID: 11400000, guid: 3cbc5844ca28ac14cb487e8574364e56, type: 2}
+  - {fileID: 11400000, guid: cd0bd4959a2854f478b0693f852dcc0e, type: 2}
+  - {fileID: 11400000, guid: 57bc2080c45e6b44a8251e9a0df26860, type: 2}
+  - {fileID: 11400000, guid: 41884dedb0626314f9c1e2cfa80d861c, type: 2}
+  - {fileID: 11400000, guid: bdd1317dafc1e7c44b5823ba38c918ab, type: 2}
+  - {fileID: 11400000, guid: ee0d5be1c14b0bc4a9a5bce8c1780a27, type: 2}
+  - {fileID: 11400000, guid: 0874aa0b3a0cb9448ae6cfd87bc93a94, type: 2}
+  - {fileID: 11400000, guid: 0f2f4fea0ce5a734d8dba2ea189c6030, type: 2}
+  - {fileID: 11400000, guid: b0382e82b4b3fdd4ea74df7978826fd6, type: 2}
+  - {fileID: 11400000, guid: 44820747e88383544be80d59cad0e1ff, type: 2}
+  - {fileID: 11400000, guid: b5dd837daafad64479e6c70d64101725, type: 2}
+  - {fileID: 11400000, guid: e58763a25d68b2241a4ce5120f33b85a, type: 2}
+  - {fileID: 11400000, guid: e3847129325021943aec9a78db6ad376, type: 2}
+  - {fileID: 11400000, guid: 1377f58001aaecc4fab7bea6911095fc, type: 2}
+  - {fileID: 11400000, guid: f14599f1cb504e9408b109d2b80fdc20, type: 2}
+  - {fileID: 11400000, guid: 5d331e395d70a76469207bf54b048c32, type: 2}
+  - {fileID: 11400000, guid: 9c6bd2c97956e52418c494a5a5a3d631, type: 2}
+  - {fileID: 11400000, guid: 1761d71ef14a8d64c87ea160450b5a10, type: 2}
+  - {fileID: 11400000, guid: 58a8fcd1ac18b824d894a86fe25dca3f, type: 2}
+  - {fileID: 11400000, guid: c9d3e19ce87c7594f9310682a53f1635, type: 2}
+  - {fileID: 11400000, guid: af73dfafbeb9f064784dfed8647e5633, type: 2}
+  - {fileID: 11400000, guid: 2257eea059197ab409ec02ecae0aac42, type: 2}
+  - {fileID: 11400000, guid: d59f63f1cb7ab254893a9ab1983c283b, type: 2}
+  - {fileID: 11400000, guid: aac982ee1eb2b88438f2caafb0af6fc1, type: 2}
+  isPlowtable: 0
+  isPlowted: 0
+  isOccupied: 0
+  Temperature: 0
+  Waterlevel: 0

@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7668728012820975665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 95549583852910345}
+  - component: {fileID: 1713109735746855787}
+  - component: {fileID: 102829592254645820}
+  - component: {fileID: 8544277369578613339}
+  - component: {fileID: 2469622986070924573}
+  - component: {fileID: 3070850334391908128}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &95549583852910345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7668728012820975665}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1713109735746855787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7668728012820975665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d899a9a2ca1eb024895a211e03595ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemManager: {fileID: 0}
+  plantManager: {fileID: 0}
+  tileManager: {fileID: 0}
+  timeManager: {fileID: 0}
+  playerController: {fileID: 0}
+--- !u!114 &102829592254645820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7668728012820975665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd10570f1384fb34a98894c490e97305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plowedTile: {fileID: 11400000, guid: 4b110ca7ff5dd6047928e2f810488f9f, type: 2}
+  tileDatas:
+  - {fileID: 11400000, guid: a4720adf8f6dfd94ea365b35ec8489ea, type: 2}
+  - {fileID: 11400000, guid: 75fcc5d84e7890d479ea4851f71a076f, type: 2}
+  - {fileID: 11400000, guid: d56939a01f2b40c448cd43b6a998c5a1, type: 2}
+--- !u!114 &8544277369578613339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7668728012820975665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9290f48a0fe4fc14ca887cf3c99fa367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 8649598491943237670, guid: de59dd6386a336045bc95d98c4001ed7, type: 3}
+  - {fileID: 8649598491943237670, guid: 66f1a36a06d7fcd4784dc339fc5bc1f7, type: 3}
+  - {fileID: 2929873064216823230, guid: 0530af717d0152b4a8c245d38c09550d, type: 3}
+  - {fileID: 7539048110598346059, guid: 38e23f8eacbe2d9469304c65a50a6b02, type: 3}
+  - {fileID: 4103280403877964443, guid: af2e750f1ae0d404d9aa4008d4a14321, type: 3}
+  - {fileID: 4311662043822049808, guid: 5b2187d6982385544b37735a5e6ef7ef, type: 3}
+--- !u!114 &2469622986070924573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7668728012820975665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41250eefaef3364dbaa9d1205aa212a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantsLibrary:
+  - {fileID: 3975074978077845577, guid: 98c23198930c54f409b6f019f99da184, type: 3}
+  - {fileID: 3975074978077845577, guid: 8d03ab7fb85f6d6418dd669566bf885a, type: 3}
+  activePlants: []
+--- !u!114 &3070850334391908128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7668728012820975665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2370f5f7c984dbc40820e333b5d13cc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
