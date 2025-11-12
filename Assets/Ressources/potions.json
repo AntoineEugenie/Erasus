@@ -1,0 +1,104 @@
+{
+    "recipes": [
+        {
+            "plantA": "cryolis",
+            "plantB": "elektra",
+            "resultPotion": "potion1"
+        },
+        {
+            "plantA": "solaria",
+            "plantB": "cryolis",
+            "resultPotion": "potion2"
+        },
+        {
+            "plantA": "galéodia",
+            "plantB": "héolia",
+            "resultPotion": "potion3"
+        },
+        {
+            "plantA": "nébuleuse",
+            "plantB": "ortie",
+            "resultPotion": "potion4"
+        },
+        {
+            "plantA": "verveine",
+            "plantB": "solaria",
+            "resultPotion": "potion5"
+        },
+        {
+            "plantA": "cryolis",
+            "plantB": "galéodia",
+            "resultPotion": "potion6"
+        },
+        {
+            "plantA": "elektra",
+            "plantB": "nébuleuse",
+            "resultPotion": "potion7"
+        },
+        {
+            "plantA": "héolia",
+            "plantB": "verveine",
+            "resultPotion": "potion8"
+        },
+        {
+            "plantA": "ortie",
+            "plantB": "cryolis",
+            "resultPotion": "potion9"
+        },
+        {
+            "plantA": "solaria",
+            "plantB": "galéodia",
+            "resultPotion": "potion10"
+        },
+        {
+            "plantA": "verveine",
+            "plantB": "nébuleuse",
+            "resultPotion": "potion11"
+        },
+        {
+            "plantA": "cryolis",
+            "plantB": "héolia",
+            "resultPotion": "potion12"
+        },
+        {
+            "plantA": "elektra",
+            "plantB": "ortie",
+            "resultPotion": "potion13"
+        },
+        {
+            "plantA": "galéodia",
+            "plantB": "verveine",
+            "resultPotion": "potion14"
+        },
+        {
+            "plantA": "nébuleuse",
+            "plantB": "solaria",
+            "resultPotion": "potion15"
+        },
+        {
+            "plantA": "héolia",
+            "plantB": "cryolis",
+            "resultPotion": "potion16"
+        },
+        {
+            "plantA": "ortie",
+            "plantB": "galéodia",
+            "resultPotion": "potion17"
+        },
+        {
+            "plantA": "solaria",
+            "plantB": "elektra",
+            "resultPotion": "potion18"
+        },
+        {
+            "plantA": "verveine",
+            "plantB": "cryolis",
+            "resultPotion": "potion19"
+        },
+        {
+            "plantA": "nébuleuse",
+            "plantB": "héolia",
+            "resultPotion": "potion20"
+        }
+    ]
+}
