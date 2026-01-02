@@ -228,9 +228,17 @@ PrefabInstance:
       value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 6946161557120695272, guid: 6dcc9a730a864b14aa237f045f573b30, type: 3}
+      propertyPath: itemIcon
+      value: 
+      objectReference: {fileID: 4652387977278110698}
+    - target: {fileID: 6946161557120695272, guid: 6dcc9a730a864b14aa237f045f573b30, type: 3}
       propertyPath: highlight
       value: 
       objectReference: {fileID: 9024564402520651860}
+    - target: {fileID: 6946161557120695272, guid: 6dcc9a730a864b14aa237f045f573b30, type: 3}
+      propertyPath: baseItemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
     - target: {fileID: 8562148992298180245, guid: 6dcc9a730a864b14aa237f045f573b30, type: 3}
       propertyPath: m_Name
       value: Slot Variant
@@ -248,3 +256,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3251015552620541471, guid: 6dcc9a730a864b14aa237f045f573b30, type: 3}
   m_PrefabInstance: {fileID: 3152791285455539469}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4652387977278110698 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7732800196684543719, guid: 6dcc9a730a864b14aa237f045f573b30, type: 3}
+  m_PrefabInstance: {fileID: 3152791285455539469}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

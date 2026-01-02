@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -24,7 +24,8 @@ public class PlayerController : MonoBehaviour
 
     //[System.NonSerialized]
     public Inventory inventory;
-    
+    MenuController menuController;
+
 
 
     // Start is called before the first frame update
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
+        menuController = GetComponent<MenuController>();
 
 
         if (player != null)
@@ -40,7 +42,7 @@ public class PlayerController : MonoBehaviour
             if (player.inventory == null)
             {
                 player.inventory = new(36);
-                Debug.Log("Inventaire créer");
+                Debug.Log("Inventaire crï¿½er");
                 inventory = player.inventory;
             }
             else
@@ -53,10 +55,11 @@ public class PlayerController : MonoBehaviour
 
 
         }
-        else {
+        else
+        {
             Debug.LogWarning("Les player data sont nulles");
         }
-        
+
 
     }
 
@@ -74,76 +77,17 @@ public class PlayerController : MonoBehaviour
         rigidbody2d.MovePosition(position);
     }
 
-    
-    public void OnMove(InputValue movementValue)
-    {
-        move = movementValue.Get<Vector2>();
-        if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
-        {
-            moveDirection.Set(move.x, move.y);
-            moveDirection.Normalize();
-        }
-        animator.SetFloat("X", moveDirection.x);
-        animator.SetFloat("Y", moveDirection.y);
-        animator.SetFloat("Speed", move.magnitude);
-    }
-
-    public void OnAttack(InputValue value)
-    {
-        Harvest();
-    }
-    public void OnJump(InputValue value)
-    {
-        Watering();
-    }
-    public void OnInteract(InputValue value)
-    {
-        if (inventory.selectSlot.itemName != "")
-        {
-            Item item = GameManager.instance.itemManager.GetItembyName(inventory.selectSlot.itemName);
-            Debug.Log(item.name);
-            if (item.data.itemType == ItemType.Seed)
-            {
-                Planting(item.data.associatedPlant.inventoryData.itemName);
-            }
-            switch (item.data.action)
-            {
-                case Action.Plowting:
-                    Plowting();
-                    break;
-
-                case Action.Watering:
-                    Watering();
-                    break;
-
-                default:
-                    Debug.LogWarning("Action non reconnue : " + item.data.action);
-                    break;
-            }
-            
-        }
-        int layerMask = ~(LayerMask.GetMask("Player", "Confiner"));
-        RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, moveDirection, 1.5f, layerMask);
-        if (hit.collider != null)
-        {
-            IRaycastable raycastable = hit.collider.GetComponent<IRaycastable>();
-            if (raycastable != null)
-            {
-                raycastable.OnHitByRaycast();
-            }
-        }
 
 
-    }
-  
-    
+
+    /// -------------- Actions -------------------
     public void DropItem(Item item)
     {
         Vector2 spawnLocation = transform.position;
         Vector2 spawnOffset = Random.insideUnitCircle * 2;
         Item droppedItem = Instantiate(item, spawnLocation + spawnOffset, Quaternion.identity);
         droppedItem.rb2d.AddForce(spawnOffset * 1.5f, ForceMode2D.Impulse);
-        Debug.Log(item.amount.ToString()+"after");
+        Debug.Log(item.amount.ToString() + "after");
     }
 
     public void DropItem(Item item, int quantity)
@@ -153,12 +97,12 @@ public class PlayerController : MonoBehaviour
             int temp = item.amount - quantity;
             item.amount = quantity;
             DropItem(item);
-            Debug.Log(temp.ToString()+"temp");
+            Debug.Log(temp.ToString() + "temp");
 
             item.amount = temp;
-            Debug.Log(item.amount.ToString()+"amount after");
+            Debug.Log(item.amount.ToString() + "amount after");
         }
-        
+
     }
 
     void Plowting()
@@ -192,16 +136,12 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void OnSprint()
-    {
-        isSprinting = !isSprinting;
-    }
-
+ 
     void Planting(string plantName)
     {
         PlantData plantData = GameManager.instance.plantManager.GetPlantbyName(plantName);
         Debug.Log($"Data : {plantData} de  {plantName} ");
-        
+
 
         Vector3Int intPosition = Vector3Int.FloorToInt(rigidbody2d.position + Vector2.up * 0.5f);
         Vector3 centerPosition = new(intPosition.x + 0.5f, intPosition.y + 0.25f, 0f);
@@ -222,9 +162,73 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// -------------- Events -------------------
+    public void OnMove(InputValue movementValue)
+    {
+        move = movementValue.Get<Vector2>();
+        if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
+        {
+            moveDirection.Set(move.x, move.y);
+            moveDirection.Normalize();
+        }
+        animator.SetFloat("X", moveDirection.x);
+        animator.SetFloat("Y", moveDirection.y);
+        animator.SetFloat("Speed", move.magnitude);
+    }
+
+    public void OnInteract(InputValue value)
+    {
+        if (inventory.selectSlot.itemName != "")
+        {
+            Item item = GameManager.instance.itemManager.GetItembyName(inventory.selectSlot.itemName);
+            Debug.Log(item.name);
+            if (item.data.itemType == ItemType.Seed)
+            {
+                Planting(item.data.associatedPlant.inventoryData.itemName);
+            }
+            switch (item.data.action)
+            {
+                case Action.Plowting:
+                    Plowting();
+                    break;
+
+                case Action.Watering:
+                    Watering();
+                    break;
+
+                default:
+                    Debug.LogWarning("Action non reconnue : " + item.data.action);
+                    break;
+            }
+
+        }
+        int layerMask = ~(LayerMask.GetMask("Player", "Confiner"));
+        RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, moveDirection, 1.5f, layerMask);
+        if (hit.collider != null)
+        {
+            IRaycastable raycastable = hit.collider.GetComponent<IRaycastable>();
+            if (raycastable != null)
+            {
+                raycastable.OnHitByRaycast();
+            }
+        }
+
+
+    }
+
+
+    public void OnSprint()
+    {
+        isSprinting = !isSprinting;
+    }
+
+    public void OnMenu() {
+        menuController.ToggleInventory();
+    }
+
 
     public void OnToolbarOne()
-    {   
+    {
         player.selectSlot = 0;
         inventory.SelectSlot(0);
     }
@@ -256,7 +260,7 @@ public class PlayerController : MonoBehaviour
         inventory.SelectSlot(5);
     }
     public void OnToolbarSeven()
-    {   
+    {
         player.selectSlot = 6;
         inventory.SelectSlot(6);
     }
