@@ -1,27 +1,30 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneInitializer : MonoBehaviour
+namespace Manager
 {
-    private void OnEnable()
+    public class SceneInitializer : MonoBehaviour
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        Debug.Log("Scène chargée : " + scene.name);
-        if (GameManager.instance.tileManager != null)
+        private void OnEnable()
         {
-          
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
+
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            Debug.Log("Scï¿½ne chargï¿½e : " + scene.name);
+            if (GameManager.instance.tileManager != null)
+            {
+          
+            }
         
 
      
+        }
     }
 }

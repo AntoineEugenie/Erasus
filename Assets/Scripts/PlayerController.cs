@@ -1,3 +1,4 @@
+using Manager;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour
             if (player.inventory == null)
             {
                 player.inventory = new(36);
-                Debug.Log("Inventaire créer");
+                Debug.Log("Inventaire crï¿½er");
                 inventory = player.inventory;
             }
             else

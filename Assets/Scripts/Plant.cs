@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Manager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -59,7 +60,7 @@ public class Plant : MonoBehaviour, IRaycastable
         Debug.Log(String.Join(", ",heatZone));
         if (GameManager.instance == null || GameManager.instance.tileManager == null)
         {
-            Debug.LogError("GameManager ou tileManager n'est pas assigné !");
+            Debug.LogError("GameManager ou tileManager n'est pas assignï¿½ !");
             return;
         }
 
@@ -171,7 +172,7 @@ public class Plant : MonoBehaviour, IRaycastable
     //}
     public void OnHitByRaycast()
     {
-        Debug.Log("Plante touchée ! Récolte en cours...");
+        Debug.Log("Plante touchï¿½e ! Rï¿½colte en cours...");
         DropFruit(); 
     }
 

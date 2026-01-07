@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8544277369578613339}
   - component: {fileID: 2469622986070924573}
   - component: {fileID: 3070850334391908128}
+  - component: {fileID: 1221122535805720352}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -89,6 +90,16 @@ MonoBehaviour:
   - {fileID: 7539048110598346059, guid: 38e23f8eacbe2d9469304c65a50a6b02, type: 3}
   - {fileID: 4103280403877964443, guid: af2e750f1ae0d404d9aa4008d4a14321, type: 3}
   - {fileID: 4311662043822049808, guid: 5b2187d6982385544b37735a5e6ef7ef, type: 3}
+  - {fileID: 27783220633032191, guid: 6fc977f4cca79c34b8e47a853b7f2a30, type: 3}
+  - {fileID: 4821766854340171583, guid: 0e727463daafc544f9661eaeaf244309, type: 3}
+  - {fileID: 8611384691185691594, guid: f4d2c42372f65194abbe2d1dcb725d24, type: 3}
+  - {fileID: 5973549178752201895, guid: f5d8b458adf75e148aa101d2f44ce1ca, type: 3}
+  - {fileID: 8649598491943237670, guid: dfa3ca11dc4c4ba4da27eb8b00416598, type: 3}
+  - {fileID: 8649598491943237670, guid: 45430ef08804828458e566887fd3abae, type: 3}
+  - {fileID: 8649598491943237670, guid: 964789b589bba4b46a0614e2d30170ea, type: 3}
+  - {fileID: 8611384691185691594, guid: df3322bee7884474daed4bad4bf00807, type: 3}
+  - {fileID: 8649598491943237670, guid: 92fdb6902ffa64a429fac6ee10f14ecf, type: 3}
+  - {fileID: 196581228340669660, guid: ac8f5e7e8042a3147855ced96fb6a6a1, type: 3}
 --- !u!114 &2469622986070924573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,9 +112,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41250eefaef3364dbaa9d1205aa212a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basePlantPrefab: {fileID: 0}
   plantsLibrary:
-  - {fileID: 3975074978077845577, guid: 98c23198930c54f409b6f019f99da184, type: 3}
-  - {fileID: 3975074978077845577, guid: 8d03ab7fb85f6d6418dd669566bf885a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   activePlants: []
 --- !u!114 &3070850334391908128
 MonoBehaviour:
@@ -117,3 +129,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2370f5f7c984dbc40820e333b5d13cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cycle: 0
+--- !u!114 &1221122535805720352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7668728012820975665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff67bed00467124cbbe8ead8a820cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionsLibrary: []
+  recipesJson: {fileID: 4900000, guid: 853584857a405e746947dc09e4614206, type: 3}

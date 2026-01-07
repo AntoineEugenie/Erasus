@@ -1,39 +1,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemManager : MonoBehaviour
+namespace Manager
 {
-    public Item[] items;
-    private Dictionary<string, Item> nameToItemDict = new();
-
-    private void Awake()
+    public class ItemManager : MonoBehaviour
     {
-        foreach (Item item in items)
+        public Item[] items;
+        private Dictionary<string, Item> nameToItemDict = new();
+
+        private void Awake()
         {
-            AddItem(item);
+            foreach (Item item in items)
+            {
+                AddItem(item);
+            }
         }
-    }
 
-    private void AddItem(Item item)
-    {
-        if (!nameToItemDict.ContainsKey(item.data.itemName))
+        private void AddItem(Item item)
         {
-            nameToItemDict.Add(item.data.itemName, item);
+            if (!nameToItemDict.ContainsKey(item.data.itemName))
+            {
+                nameToItemDict.Add(item.data.itemName, item);
+            }
         }
-    }
 
-    public Item GetItembyName(string name)
-    {
-        //Debug.Log(name);
-        //Debug.Log($"contains: {nameToItemDict.ContainsKey(name)}");
-        //Debug.Log("Dict: " + string.Join(", ", nameToItemDict));
-
-
-        if (nameToItemDict.ContainsKey(name))
+        public Item GetItembyName(string name)
         {
-            //Debug.Log("name to dict", nameToItemDict[name]);
-            return nameToItemDict[name];
+            //Debug.Log(name);
+            //Debug.Log($"contains: {nameToItemDict.ContainsKey(name)}");
+            //Debug.Log("Dict: " + string.Join(", ", nameToItemDict));
+
+
+            if (nameToItemDict.ContainsKey(name))
+            {
+                //Debug.Log("name to dict", nameToItemDict[name]);
+                return nameToItemDict[name];
+            }
+            return null;
         }
-        return null;
     }
 }

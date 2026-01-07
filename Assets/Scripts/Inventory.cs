@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Manager;
 using UnityEngine;
 
 [System.Serializable]
@@ -126,8 +127,8 @@ public class Inventory
     {//currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         if (this.slots[destinationId].itemName == this.slots[slotId].itemName)
         {
-            quantity = Mathf.Clamp(quantity, 0, this.slots[slotId].count);// ne dépasse le nombre d'item du slot envoyeur
-            quantity = Mathf.Clamp(quantity, 0, this.slots[slotId].maxPerStack - this.slots[destinationId].count); // ne dépasse pas le stack max 
+            quantity = Mathf.Clamp(quantity, 0, this.slots[slotId].count);// ne dï¿½passe le nombre d'item du slot envoyeur
+            quantity = Mathf.Clamp(quantity, 0, this.slots[slotId].maxPerStack - this.slots[destinationId].count); // ne dï¿½passe pas le stack max 
             Remove(slotId, quantity);
             this.slots[destinationId].count += quantity;
         }
@@ -144,12 +145,12 @@ public class Inventory
     {
         if (index < 0 || index >= slots.Count)  
         {
-            Debug.LogWarning($"Tentative d'accès à un slot hors limite: {index}. Taille actuelle: {slots.Count}");
+            Debug.LogWarning($"Tentative d'accï¿½s ï¿½ un slot hors limite: {index}. Taille actuelle: {slots.Count}");
             return;
         }
         else {
             selectSlot = slots[index];
-            Debug.Log($"Slot {index} sélectionné.");
+            Debug.Log($"Slot {index} sï¿½lectionnï¿½.");
         }
 
     

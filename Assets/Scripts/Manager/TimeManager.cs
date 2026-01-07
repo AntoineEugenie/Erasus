@@ -1,29 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeManager : MonoBehaviour
+namespace Manager
 {
-    // Start is called before the first frame update
-    public float cycle;
-    private float time;
-
-    void Awake()
+    public class TimeManager : MonoBehaviour
     {
-        time = cycle;
-    }
+        // Start is called before the first frame update
+        public float cycle;
+        private float time;
 
-    // Update is called once per frame
-   
-    private void Update()
+        void Awake()
         {
-        time -= Time.deltaTime;
-        if (time <= 0)
-        {
-            TimeEvents.newDay.Invoke(); // Invoque l'événement pour signaler un nouveau jour
             time = cycle;
         }
-    }
 
+        // Update is called once per frame
+   
+        private void Update()
+        {
+            time -= Time.deltaTime;
+            if (time <= 0)
+            {
+                TimeEvents.newDay.Invoke(); // Invoque l'ï¿½vï¿½nement pour signaler un nouveau jour
+                time = cycle;
+            }
+        }
+
+    }
 }
 
