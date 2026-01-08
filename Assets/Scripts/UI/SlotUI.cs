@@ -5,18 +5,29 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Rendering;
 
-public class Slot_UI : MonoBehaviour
+public class SlotUI : MonoBehaviour
 {
     public int slotID;
     public Image itemIcon;
     public TextMeshProUGUI quantityText;
+
+
+    [SerializeField] private Sprite baseItemIcon;
+
     [SerializeField] private GameObject highlight;
 
     public void SetItem(Inventory.Slot slot)
     {
         if(slot != null)
         {
-            itemIcon.sprite = slot.icon;
+            if (slot.icon == null) 
+            {
+                slot.icon = baseItemIcon; 
+            }
+            else
+            {
+                itemIcon.sprite = slot.icon;
+            }
             itemIcon.color = new (1,1,1,1);
             quantityText.text = slot.count.ToString();
         }
@@ -24,8 +35,8 @@ public class Slot_UI : MonoBehaviour
 
     public void SetEmpty()
     {
-        itemIcon.sprite = null;
-        itemIcon.color = new(1,1,1,0);
+        itemIcon.sprite = baseItemIcon;
+        itemIcon.color = new(1, 1, 1, 1);
         quantityText.text ="";
     }
 

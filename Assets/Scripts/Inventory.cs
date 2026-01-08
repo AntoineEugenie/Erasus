@@ -1,5 +1,4 @@
-using System.Collections.Generic;
-using Manager;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]

@@ -307,6 +307,7 @@ MonoBehaviour:
   slotID: 0
   itemIcon: {fileID: 7732800196684543719}
   quantityText: {fileID: 3430715857542180352}
+  baseItemIcon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
   highlight: {fileID: 0}
 --- !u!114 &87206829589167260
 MonoBehaviour:
