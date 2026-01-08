@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Inventory
 {
-    
+
     [System.Serializable]
     public class Slot
     {
@@ -47,18 +47,22 @@ public class Inventory
             this.item = item;
             count++;
         }
-        public void RemoveItem()
+        public bool RemoveItem()
         {
             if (count > 0)
             {
                 count--;
+
                 if (count == 0)
                 {
                     icon = null;
                     itemName = "";
+                    return true; // indique que le slot est maintenant vide
                 }
             }
+            return false;
         }
+
     }
 
     public Slot selectSlot = null;
@@ -92,7 +96,7 @@ public class Inventory
                 return;
             }
         }
-        
+
         GameManager.instance.playerController.DropItem(item);
     }
 
@@ -134,7 +138,7 @@ public class Inventory
         }
         if (this.slots[destinationId].itemName == "")
         {
-            this.slots[destinationId] = new Slot(this.slots[slotId]); 
+            this.slots[destinationId] = new Slot(this.slots[slotId]);
             this.slots[destinationId].count = quantity;
             Remove(slotId, quantity);
         }
@@ -143,17 +147,18 @@ public class Inventory
 
     public void SelectSlot(int index)
     {
-        if (index < 0 || index >= slots.Count)  
+        if (index < 0 || index >= slots.Count)
         {
             Debug.LogWarning($"Tentative d'acc�s � un slot hors limite: {index}. Taille actuelle: {slots.Count}");
             return;
         }
-        else {
+        else
+        {
             selectSlot = slots[index];
             Debug.Log($"Slot {index} s�lectionn�.");
         }
 
-    
+
     }
 
 }
