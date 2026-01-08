@@ -4,37 +4,43 @@ using UnityEngine.SceneManagement;
 
 
 
+
 public class PlayerController : MonoBehaviour
 {
-    AudioSource audioSource;
-
-    Animator animator;
-    public Player player;
-
-    // hitbox
     Rigidbody2D rigidbody2d;
-    //  movement
+    AudioSource audioSource;
+    Animator animator;
+    PlayerInput input;
+    MenuController menuController;
+    public Player player;
+  
+   
+
+   
 
     Vector2 move;
     Vector2 moveDirection;
-    public float speed = 3.0f;
+    public float speed;
+    public float defaultSpeed = 3.0f;
     private float sprintMultiplier = 2f;
 
     public bool isSprinting = false;
 
-    //[System.NonSerialized]
-    public Inventory inventory;
-    MenuController menuController;
+    [System.NonSerialized]public Inventory inventory;
+   
 
 
 
     // Start is called before the first frame update
     void Awake()
-    {
+    {   
+        // TODO : Ajouter les verifs
         rigidbody2d = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         menuController = GetComponent<MenuController>();
+        input = GetComponent<PlayerInput>();
+        speed = defaultSpeed;
 
 
         if (player != null)
@@ -161,7 +167,7 @@ public class PlayerController : MonoBehaviour
             GameManager.instance.tileManager.SetOccupied(intPosition, player.lastScene);
         }
     }
-
+    
     /// -------------- Events -------------------
     public void OnMove(InputValue movementValue)
     {

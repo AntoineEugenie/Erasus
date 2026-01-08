@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private List<SlotUI> slots = new();
     [SerializeField] private Canvas menu;
+    [SerializeField] private TMPro.TMP_InputField inputField;
+    private string currentSearchQuery = "";
+    private List<int> displayedGridIndices = new List<int>();
+
     private SlotUI draggedSlot;
     private Image draggedIcon;
     private bool dragSingle;
@@ -30,7 +35,7 @@ public class InventoryUI : MonoBehaviour
     private void Update()
     {
         if (Input.GetKey(KeyCode.LeftShift)) { dragSingle = true; } else {  dragSingle = false; }
-        Refresh();
+        Refresh();// TODO: à enlever et à mettre à chaque modif pour moins de calcul
     }
 
 
@@ -38,54 +43,73 @@ public class InventoryUI : MonoBehaviour
     void Refresh()
     {
         var inventory = GameManager.instance.playerController.inventory;
+        displayedGridIndices.Clear();
 
-        // Calcul du nombre de pages
-        int inventoryCountWithoutToolbar = inventory.slots.Count - 9;
-       
-        if (inventoryCountWithoutToolbar <= 0) maxPage = 1;
-        else maxPage = Mathf.CeilToInt((float)inventoryCountWithoutToolbar / numberOfItemPerPage);
-
-        pageNumber = Mathf.Clamp(pageNumber, 1, maxPage);
-
-        // --- GESTION DE LA TOOLBAR  ---
+        // --- 1 : LA TOOLBAR (Ne change jamais) ---
+        // On affiche toujours les items 0 à 8
         for (int i = 0; i < 9; i++)
         {
-            if (i < inventory.slots.Count)
-            {
-                if (inventory.slots[i].itemName != "")
-                    slots[i].SetItem(inventory.slots[i]);
-                else
-                    slots[i].SetEmpty();
-            }
+            if (i < inventory.slots.Count && inventory.slots[i].itemName != "")
+                slots[i].SetItem(inventory.slots[i]);
             else
-            {
                 slots[i].SetEmpty();
+        }
+
+        // --- 2 : LE FILTRAGE ---
+        // On cherche tous les items correspondants dans le RESTE de l'inventaire (à partir de 9)
+        List<int> foundIndices = new List<int>();
+
+        for (int i = 9; i < inventory.slots.Count; i++)
+        {
+            var slot = inventory.slots[i];
+            bool match = false;
+
+            // Si la recherche est vide, on prend tout
+            if (string.IsNullOrEmpty(currentSearchQuery))
+            {
+                match = true;
+            }
+            // Sinon, on vérifie si le nom 
+            else if (slot.itemName != "" && slot.itemName.ToLower().Contains(currentSearchQuery))
+            {
+                match = true;
+            }
+
+            if (match)
+            {
+                foundIndices.Add(i); // On sauvegarde l'INDEX RÉEL (ex: item n°12)
             }
         }
 
-        // --- GESTION DES PAGES  ---
+        // --- 3: LA PAGINATION ---
+        // On calcule les pages en se basant sur le nombre d'items trouvé
+        int count = foundIndices.Count;
+        if (count == 0) maxPage = 1;
+        else maxPage = Mathf.CeilToInt((float)count / numberOfItemPerPage);
 
-        // Calcul de l'index de départ (27 item par page)
-        // Ex: Page 1 = 9 + (0 * 27) = 9
-        // Ex: Page 2 = 9 + (1 * 27) = 36
-        int startDataIndex = 9 + ((pageNumber - 1) * numberOfItemPerPage);
+        pageNumber = Mathf.Clamp(pageNumber, 1, maxPage);
 
-        for (int i = 0; i < numberOfItemPerPage; i++)
+        // --- 4 : L'AFFICHAGE DE LA GRILLE ---
+        int startOffset = (pageNumber - 1) * numberOfItemPerPage;
+
+        for (int i = 0; i < numberOfItemPerPage; i++) // Boucle sur les 27 cases visuelles
         {
-            int uiSlotIndex = 9 + i;        // L'index dans UI (9 à 35)
-            int dataIndex = startDataIndex + i; // L'index dans inventory
+            int uiIndex = 9 + i; // L'index du SlotUI (visuel)
+            int resultIndex = startOffset + i; // L'index dans notre liste de résultats filtrés
 
-            // SÉCURITÉ CRITIQUE : Vérifier si l'index de donnée existe réellement
-            if (dataIndex < inventory.slots.Count)
+            if (resultIndex < foundIndices.Count)
             {
-                if (inventory.slots[dataIndex].itemName != "")
-                    slots[uiSlotIndex].SetItem(inventory.slots[dataIndex]);
-                else
-                    slots[uiSlotIndex].SetEmpty();
+                int realIndex = foundIndices[resultIndex]; // On récupère le vrai ID 
+
+                //  "La case i correspond à l'item realIndex"
+                displayedGridIndices.Add(realIndex);
+                slots[uiIndex].SetItem(inventory.slots[realIndex]);
             }
             else
             {
-                slots[uiSlotIndex].SetEmpty();
+                // Case vide (fin de page ou pas de résultat)
+                displayedGridIndices.Add(-1); // -1 pour le mettre à la fin
+                slots[uiIndex].SetEmpty();
             }
         }
     }
@@ -181,24 +205,36 @@ public class InventoryUI : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("déplacement hors des limites de l'inventaire");
+            Debug.LogWarning("deplacement hors des limites de l'inventaire");
         }
     }
 
-    // Convertit l'index du slot UI (0-35) en index réel dans l'inventaire (0-999)
+    // Convertit l'index du slot UI (0-35) en index réel dans l'inventaire (0-n)
     public int GetRealIndex(int uiSlotIndex)
     {
-        // Si c'est dans la toolbar (0 à 8), l'index ne change jamais
+        // Toolbar (0-8)
+     
         if (uiSlotIndex < 9)
         {
             return uiSlotIndex;
         }
 
-        // Sinon, on ajoute le décalage des pages
-        // Formule : IndexUI + ((PageActuelle - 1) * nombre d'item par page)
-        // Exemple : Slot UI 9 à la page 2 devient : 9 + (1 * 27) = 36
-        int offset = (pageNumber - 1) * numberOfItemPerPage;
-        return uiSlotIndex + offset;
+        // Inventaire (9-n)
+        
+        int indexInGrid = uiSlotIndex - 9; // On ramène l'index de 0 à 26
+
+        if (indexInGrid >= 0 && indexInGrid < displayedGridIndices.Count)
+        {
+            int realIndex = displayedGridIndices[indexInGrid];
+
+            // Si c'est -1, c'est une case vide générée par le filtre, on renvoie l'index UI par défaut
+            // ou on bloque (ici je renvoie l'UI index pour éviter les crashs, mais attention au drop)
+            if (realIndex == -1) return uiSlotIndex;
+
+            return realIndex;
+        }
+
+        return uiSlotIndex; // Sécurité
     }
 
     private void MoveToMousePosition(GameObject toMove)
@@ -210,4 +246,14 @@ public class InventoryUI : MonoBehaviour
             toMove.transform.position = menu.transform.TransformPoint(position);
         }
     }
+
+    public void SearchValueChanged()
+    {
+        
+        // On met en minuscule et on enlève les espaces inutiles pour faciliter la recherche
+        currentSearchQuery = inputField.text.ToLower().Trim();
+        pageNumber = 1;
+        Refresh();
+    }
 }
+ 
