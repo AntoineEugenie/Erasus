@@ -1376,15 +1376,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 11400000, guid: 9886ddd257cd0e743b9bbfc74636a891, type: 2}
   speed: 3
+  defaultSpeed: 3
   isSprinting: 0
-  inventory:
-    selectSlot:
-      itemName: 
-      count: 0
-      maxPerStack: 0
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    slots: []
 --- !u!114 &6315196033885822648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1479,7 +1472,7 @@ GameObject:
   - component: {fileID: 3421762162395702513}
   - component: {fileID: 8197822629099701310}
   m_Layer: 5
-  m_Name: InputField (TMP)
+  m_Name: InventorySearchBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4613,6 +4606,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8487709447783709633, guid: 5dc0f377dde9a86429f668a8dbb9e211, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1468096654706429942}
+    - targetCorrespondingSourceObject: {fileID: 8487709447783709633, guid: 5dc0f377dde9a86429f668a8dbb9e211, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6608215361139038218}
   m_SourcePrefab: {fileID: 100100000, guid: 5dc0f377dde9a86429f668a8dbb9e211, type: 3}
 --- !u!224 &3714923170610124 stripped
 RectTransform:
@@ -4860,6 +4856,29 @@ MonoBehaviour:
   - {fileID: 849964548348611431}
   - {fileID: 1136215388408867177}
   menu: {fileID: 1003795754732398635}
+  inputField: {fileID: 8197822629099701310}
+--- !u!114 &6608215361139038218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3630735768104947119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f5a70986fbb72408ba2747a51f3c0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slots:
+  - {fileID: 6562433383895227517}
+  - {fileID: 7323268695230605504}
+  - {fileID: 6335693817035802678}
+  - {fileID: 7944653462683225516}
+  - {fileID: 611462547317203012}
+  - {fileID: 8834444843396976418}
+  - {fileID: 3926137678516872726}
+  - {fileID: 81865774625572050}
+  - {fileID: 4621625458902350061}
 --- !u!114 &3926137678516872726 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8202428618675769464, guid: 5dc0f377dde9a86429f668a8dbb9e211, type: 3}
