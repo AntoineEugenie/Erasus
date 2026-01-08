@@ -11,6 +11,15 @@ public class Toolbar_UI : MonoBehaviour
     private SlotUI selectedSlots;
     private void Start()
     {
+        if (GameManager.instance != null && GameManager.instance.playerInventory != null)
+        {
+            for (int i = 0; i < slots.Count; i++)
+            {
+                slots[i].slotID = i;
+                slots[i].parentInventory = GameManager.instance.playerInventory;
+            }
+        }
+        RefreshUI();
         SelectSlot(0);
     }
 
@@ -65,7 +74,18 @@ public class Toolbar_UI : MonoBehaviour
     {
         SelectSlot(8);
     }
-
     
-
+    public void RefreshUI()
+    {
+        if (GameManager.instance.playerInventory == null) return;
+    
+        for (int i = 0; i < slots.Count; i++)
+        {
+            // On vérifie que l'index existe dans les DATA avant de l'afficher dans l'UI
+            if (i < GameManager.instance.playerInventory.slots.Count)
+            {
+                slots[i].SetItem(GameManager.instance.playerInventory.slots[i]);
+            }
+        }
+    }
 }

@@ -227,6 +227,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 28
       objectReference: {fileID: 0}
+    - target: {fileID: 6778999791462124279, guid: 6dcc9a730a864b14aa237f045f573b30, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6946161557120695272, guid: 6dcc9a730a864b14aa237f045f573b30, type: 3}
       propertyPath: itemIcon
       value: 

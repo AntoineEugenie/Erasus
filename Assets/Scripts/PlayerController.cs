@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using Manager;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-
-
+using UnityEngine.Serialization;
 
 
 public class PlayerController : MonoBehaviour
@@ -13,26 +13,18 @@ public class PlayerController : MonoBehaviour
     PlayerInput input;
     MenuController menuController;
     public Player player;
-  
-   
-
-   
-
+    
     Vector2 move;
     Vector2 moveDirection;
     public float speed;
     public float defaultSpeed = 3.0f;
     private float sprintMultiplier = 2f;
-
     public bool isSprinting = false;
-
-    [System.NonSerialized]public Inventory inventory;
-   
-
-
-
+    public Inventory playerInventory;
+    public Inventory craftInventory;
+    
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {   
         // TODO : Ajouter les verifs
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -42,31 +34,70 @@ public class PlayerController : MonoBehaviour
         input = GetComponent<PlayerInput>();
         speed = defaultSpeed;
 
-
+        
         if (player != null)
         {
-            if (player.inventory == null)
+            if (GameManager.instance.playerInventory == null)
             {
-                player.inventory = new(36);
+                GameManager.instance.playerInventory = new(36);
                 Debug.Log("Inventaire cr�er");
-                inventory = player.inventory;
+                playerInventory = GameManager.instance.playerInventory;
             }
             else
             {
-                inventory = player.inventory;
+                playerInventory = GameManager.instance.playerInventory;
                 Debug.Log("Inventaire copier");
             }
-            inventory.SelectSlot(player.selectSlot);
+            playerInventory.SelectSlot(player.selectSlot);
             transform.position = player.lastPosition;
-
-
+            
+            if (GameManager.instance.playerInventory == null)
+            {
+                GameManager.instance.playerInventory = new(36);
+                Debug.Log("Inventaire cr�er");
+                playerInventory = GameManager.instance.playerInventory;
+            }
+            else
+            {
+                playerInventory = GameManager.instance.playerInventory;
+                Debug.Log("Inventaire copier");
+            }
+            playerInventory.SelectSlot(player.selectSlot);
+            transform.position = player.lastPosition;
+            
+            // Table de craft de potions
+            if (GameManager.instance.craftInventory == null)
+            {
+                GameManager.instance.craftInventory = new(3);
+                Debug.Log("Inventaire cr�er");
+                craftInventory = GameManager.instance.craftInventory;
+            }
+            else
+            {
+                craftInventory = GameManager.instance.craftInventory;
+                Debug.Log("Inventaire copier");
+            }
+            craftInventory.SelectSlot(player.selectSlot);
+            transform.position = player.lastPosition;
+            if (GameManager.instance.craftInventory == null)
+            {
+                GameManager.instance.craftInventory = new(3);
+                Debug.Log("Inventaire cr�er");
+                craftInventory = GameManager.instance.craftInventory;
+            }
+            else
+            {
+                craftInventory = GameManager.instance.craftInventory;
+                Debug.Log("Inventaire copier");
+            }
+            craftInventory.SelectSlot(player.selectSlot);
+            transform.position = player.lastPosition;
+            
         }
         else
         {
             Debug.LogWarning("Les player data sont nulles");
         }
-
-
     }
 
     // Update is called once per frame
@@ -154,7 +185,8 @@ public class PlayerController : MonoBehaviour
 
         if (GameManager.instance.tileManager.CanPlant(intPosition, player.lastScene))
         {
-            inventory.Remove(inventory.slots.IndexOf(inventory.selectSlot));
+            playerInventory.Remove(playerInventory.slots.IndexOf(playerInventory.selectSlot));
+            craftInventory.Remove(craftInventory.slots.IndexOf(craftInventory.selectSlot));
 
             // Instancie un prefab vide de plante
             GameObject newPlantGO = Instantiate(GameManager.instance.plantManager.basePlantPrefab, centerPosition, Quaternion.identity);
@@ -184,9 +216,9 @@ public class PlayerController : MonoBehaviour
 
     public void OnInteract(InputValue value)
     {
-        if (inventory.selectSlot.itemName != "")
+        if (playerInventory.selectSlot.itemName != "")
         {
-            Item item = GameManager.instance.itemManager.GetItembyName(inventory.selectSlot.itemName);
+            Item item = GameManager.instance.itemManager.GetItembyName(playerInventory.selectSlot.itemName);
             Debug.Log(item.name);
             if (item.data.itemType == ItemType.Seed)
             {
@@ -236,49 +268,49 @@ public class PlayerController : MonoBehaviour
     public void OnToolbarOne()
     {
         player.selectSlot = 0;
-        inventory.SelectSlot(0);
+        playerInventory.SelectSlot(0);
     }
 
     public void OnToolbarTwo()
     {
         player.selectSlot = 1;
-        inventory.SelectSlot(1);
+        playerInventory.SelectSlot(1);
     }
     public void OnToolbarThree()
     {
         player.selectSlot = 2;
-        inventory.SelectSlot(2);
+        playerInventory.SelectSlot(2);
     }
     public void OnToolbarFour()
     {
         player.selectSlot = 3;
-        inventory.SelectSlot(3);
+        playerInventory.SelectSlot(3);
     }
     public void OnToolbarFive()
     {
         player.selectSlot = 4;
-        inventory.SelectSlot(4);
+        playerInventory.SelectSlot(4);
     }
 
     public void OnToolbarSix()
     {
         player.selectSlot = 5;
-        inventory.SelectSlot(5);
+        playerInventory.SelectSlot(5);
     }
     public void OnToolbarSeven()
     {
         player.selectSlot = 6;
-        inventory.SelectSlot(6);
+        playerInventory.SelectSlot(6);
     }
     public void OnToolbarEight()
     {
         player.selectSlot = 7;
-        inventory.SelectSlot(7);
+        playerInventory.SelectSlot(7);
     }
     public void OnToolbarNine()
     {
         player.selectSlot = 8;
-        inventory.SelectSlot(8);
+        playerInventory.SelectSlot(8);
     }
 
 }

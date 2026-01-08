@@ -12,6 +12,9 @@ namespace Manager
         public TimeManager timeManager;
         public PotionManager potionManager;
         public PlayerController playerController;
+        public Inventory playerInventory;
+        public Inventory craftInventory;
+        public InventoryManager inventoryManager;
         
         private void Awake()
         {
@@ -34,6 +37,11 @@ namespace Manager
             plantManager = GetComponent<PlantManager>();
             potionManager = GetComponent<PotionManager>();
             timeManager = GetComponent<TimeManager>();
+            inventoryManager = GetComponent<InventoryManager>();
+            
+            // Création des inventaires
+            playerInventory = new Inventory(9);
+            craftInventory = new Inventory(2);
             
             if (TimeEvents.newDay == null)
             {
@@ -78,6 +86,5 @@ namespace Manager
 
 
         }
-        
     }
 }

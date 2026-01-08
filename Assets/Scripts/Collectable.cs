@@ -16,7 +16,7 @@ public class Collectable : MonoBehaviour
             Item item = GetComponent<Item>();
             for (int i = 0; i < item.amount; i++)
             {
-                player.inventory.Add(item);
+                player.playerInventory.Add(item);
             }
             
             Destroy(gameObject);

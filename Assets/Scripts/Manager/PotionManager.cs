@@ -43,7 +43,7 @@ public class PotionManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Keypad9))
+        if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             AddRecipeToInventory("cryolis", "elektra");
         }
@@ -86,7 +86,7 @@ public class PotionManager : MonoBehaviour
         {
             // 3. Cloner/Instancier le Prefab Item pour le placer dans la scène
             
-            playerInventory = GameManager.instance.playerController.inventory;
+            playerInventory = GameManager.instance.playerController.playerInventory;
             playerInventory.Add(itemPrefab);
                 
             Debug.Log($"✅ [GameManager] Potion '{recipeName}' ajoutée à l'inventaire");
