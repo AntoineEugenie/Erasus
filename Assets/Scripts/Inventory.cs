@@ -101,7 +101,15 @@ public class Inventory
 
     public void Remove(int index)
     {
+        // Ajout d'une sécurité pour vérifier si l'index est bien dans la liste
+        if (index < 0 || index >= slots.Count)
+        {
+            Debug.LogError($"Tentative de retrait à un index invalide : {index}. Taille inventaire : {slots.Count}");
+            return;
+        }
+
         slots[index].RemoveItem();
+        GameManager.instance.inventoryUI.Refresh();
     }
     public void Remove(int index, int quantity)
     {
