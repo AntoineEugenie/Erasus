@@ -17,21 +17,6 @@ public class CraftInterface_UI : MonoBehaviour
             }
         }
         RefreshUI();
-        SelectSlot(0);
-    }
-
-    public void SelectSlot(int index)
-    {
-        if (slots.Count == 3)
-        {   
-            if(_selectedSlots != null)
-            {
-                _selectedSlots.SetHightlight(false);
-            }    
-            _selectedSlots = slots[index];
-            _selectedSlots.SetHightlight(true);
-            Debug.Log(_selectedSlots);
-        }
     }
     
     public void RefreshUI()

@@ -23,7 +23,6 @@ public class PotionManager : MonoBehaviour
         {
             PotionRecipeList loaded = JsonUtility.FromJson<PotionRecipeList>(recipesJson.text);
             _recipes = loaded.recipes;
-            Debug.Log($"✅ {_recipes.Count} recettes de potions chargées depuis le JSON !");
         }
         else
         {
@@ -38,7 +37,6 @@ public class PotionManager : MonoBehaviour
                 _nameToPotionDict.Add(potionData.itemName, potionData);
             }
         }
-        Debug.Log($"✅ {_nameToPotionDict.Count} ItemData de potions enregistrées !");
     }
 
     void Update()

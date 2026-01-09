@@ -15,6 +15,7 @@ namespace Manager
         public Inventory playerInventory;
         public Inventory craftInventory;
         public InventoryManager inventoryManager;
+        public InventoryUI inventoryUI;
         
         private void Awake()
         {
@@ -39,9 +40,10 @@ namespace Manager
             timeManager = GetComponent<TimeManager>();
             inventoryManager = GetComponent<InventoryManager>();
             
-            // Création des inventaires
-            playerInventory = new Inventory(9);
+            // Initialisation des inventaires
+            playerInventory = new Inventory(36);
             craftInventory = new Inventory(2);
+            Debug.Log("Création des inventaires et leurs tailles");
             
             if (TimeEvents.newDay == null)
             {

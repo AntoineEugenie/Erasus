@@ -1,8 +1,6 @@
 ﻿using Manager;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 
 public class PlayerController : MonoBehaviour
@@ -37,61 +35,29 @@ public class PlayerController : MonoBehaviour
         
         if (player != null)
         {
-            if (GameManager.instance.playerInventory == null)
+            // Inventaire du joueur
+            if (GameManager.instance.playerInventory != null)
             {
-                GameManager.instance.playerInventory = new(36);
-                Debug.Log("Inventaire cr�er");
                 playerInventory = GameManager.instance.playerInventory;
+                playerInventory.SelectSlot(player.selectSlot);
+                transform.position = player.lastPosition;
             }
             else
             {
-                playerInventory = GameManager.instance.playerInventory;
-                Debug.Log("Inventaire copier");
+                Debug.LogWarning("L'inventaire du joueur a mal été initialisé dans le GamerManager");
             }
-            playerInventory.SelectSlot(player.selectSlot);
-            transform.position = player.lastPosition;
             
-            if (GameManager.instance.playerInventory == null)
-            {
-                GameManager.instance.playerInventory = new(36);
-                Debug.Log("Inventaire cr�er");
-                playerInventory = GameManager.instance.playerInventory;
-            }
-            else
-            {
-                playerInventory = GameManager.instance.playerInventory;
-                Debug.Log("Inventaire copier");
-            }
-            playerInventory.SelectSlot(player.selectSlot);
-            transform.position = player.lastPosition;
             
-            // Table de craft de potions
-            if (GameManager.instance.craftInventory == null)
+            // Inventaire de la table des potions
+            if (GameManager.instance.craftInventory != null)
             {
-                GameManager.instance.craftInventory = new(3);
-                Debug.Log("Inventaire cr�er");
                 craftInventory = GameManager.instance.craftInventory;
+                transform.position = player.lastPosition;
             }
             else
             {
-                craftInventory = GameManager.instance.craftInventory;
-                Debug.Log("Inventaire copier");
+                Debug.LogWarning("L'inventaire de la table des potions a mal été initialisé dans le GamerManager");
             }
-            craftInventory.SelectSlot(player.selectSlot);
-            transform.position = player.lastPosition;
-            if (GameManager.instance.craftInventory == null)
-            {
-                GameManager.instance.craftInventory = new(3);
-                Debug.Log("Inventaire cr�er");
-                craftInventory = GameManager.instance.craftInventory;
-            }
-            else
-            {
-                craftInventory = GameManager.instance.craftInventory;
-                Debug.Log("Inventaire copier");
-            }
-            craftInventory.SelectSlot(player.selectSlot);
-            transform.position = player.lastPosition;
             
         }
         else

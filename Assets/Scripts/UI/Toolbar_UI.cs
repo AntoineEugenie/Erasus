@@ -1,14 +1,11 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Manager;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Toolbar_UI : MonoBehaviour
 {
     [SerializeField] private List<SlotUI> slots = new();
-    private SlotUI selectedSlots;
+    private SlotUI _selectedSlots;
     private void Start()
     {
         if (GameManager.instance != null && GameManager.instance.playerInventory != null)
@@ -27,13 +24,12 @@ public class Toolbar_UI : MonoBehaviour
     {
         if (slots.Count == 9)
         {   
-            if(selectedSlots != null)
+            if(_selectedSlots != null)
             {
-               selectedSlots.SetHightlight(false);
+               _selectedSlots.SetHightlight(false);
             }    
-            selectedSlots = slots[index];
-            selectedSlots.SetHightlight(true);
-            Debug.Log(selectedSlots);
+            _selectedSlots = slots[index];
+            _selectedSlots.SetHightlight(true);
         }
     }
     public void OnToolbarOne()

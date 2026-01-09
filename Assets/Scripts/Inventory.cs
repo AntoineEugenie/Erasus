@@ -65,8 +65,7 @@ public class Inventory
 
     }
 
-    public Slot selectSlot = null;
-
+    public Slot selectSlot;
     public List<Slot> slots = new();
 
     public Inventory(int numSlots)
@@ -114,57 +113,75 @@ public class Inventory
     }
 
     public void Deplace(int sourceID, int targetID, Inventory targetInventory = null)
+{
+    // Si targetInventory est nul, on travaille dans le même inventaire
+    Inventory targetInv = targetInventory ?? this;
+
+    // Sécurité index
+    if (sourceID < 0 || sourceID >= this.slots.Count || targetID < 0 || targetID >= targetInv.slots.Count)
+        return;
+
+    Slot sourceSlot = this.slots[sourceID];
+    Slot targetSlot = targetInv.slots[targetID];
+
+    // 1. Si la source est vide, rien à déplacer
+    if (string.IsNullOrEmpty(sourceSlot.itemName)) return;
+
+    // 2. TENTATIVE DE STACK (Empilement)
+    if (sourceSlot.itemName == targetSlot.itemName)
     {
-        // Si targetInventory est nul, on considère que c'est le même inventaire
-        Inventory targetInv = targetInventory ?? this;
+        int spaceInTarget = targetSlot.maxPerStack - targetSlot.count;
+        int amountToMove = Mathf.Min(sourceSlot.count, spaceInTarget);
 
-        Slot sourceSlot = this.slots[sourceID];
-        Slot targetSlot = targetInv.slots[targetID];
-
-        // 1. Si la source est vide, on ne fait rien
-        if (string.IsNullOrEmpty(sourceSlot.itemName)) return;
-
-        // 2. TENTATIVE DE STACK (Empilement)
-        if (sourceSlot.itemName == targetSlot.itemName)
+        if (amountToMove > 0)
         {
-            int spaceInTarget = targetSlot.maxPerStack - targetSlot.count;
-            int amountToMove = Mathf.Min(sourceSlot.count, spaceInTarget);
+            targetSlot.count += amountToMove;
+            sourceSlot.count -= amountToMove;
 
-            if (amountToMove > 0)
+            if (sourceSlot.count <= 0)
             {
-                targetSlot.count += amountToMove;
-                sourceSlot.count -= amountToMove;
-
-                if (sourceSlot.count <= 0)
-                {
-                    // On vide le slot source s'il n'y a plus rien
-                    this.slots[sourceID] = new Slot(); 
-                }
-                return; // Fin de l'opération
+                // On réinitialise proprement le slot source
+                sourceSlot.itemName = "";
+                sourceSlot.item = null;
+                sourceSlot.icon = null;
             }
+            return; 
         }
-
-        // 3. LOGIQUE D'ÉCHANGE (Swap) ou Transfert simple
-        // On n'échange que si les inventaires sont identiques ou si la cible est vide
-        // Sinon, on intervertit les références des slots
-        this.slots[sourceID] = targetSlot;
-        targetInv.slots[targetID] = sourceSlot;
     }
+
+    // 3. ÉCHANGE DE CONTENU (Swap)
+    // On crée une copie temporaire des DONNÉES du slot source
+    string tempName = sourceSlot.itemName;
+    int tempCount = sourceSlot.count;
+    int tempMax = sourceSlot.maxPerStack;
+    Sprite tempIcon = sourceSlot.icon;
+    Item tempItem = sourceSlot.item;
+
+    // On transfère les données de la cible vers la source
+    sourceSlot.itemName = targetSlot.itemName;
+    sourceSlot.count = targetSlot.count;
+    sourceSlot.maxPerStack = targetSlot.maxPerStack;
+    sourceSlot.icon = targetSlot.icon;
+    sourceSlot.item = targetSlot.item;
+
+    // On transfère les données temporaires (ex-source) vers la cible
+    targetSlot.itemName = tempName;
+    targetSlot.count = tempCount;
+    targetSlot.maxPerStack = tempMax;
+    targetSlot.icon = tempIcon;
+    targetSlot.item = tempItem;
+}
 
     public void SelectSlot(int index)
     {
         if (index < 0 || index >= slots.Count)
         {
-            Debug.LogWarning($"Tentative d'acc�s � un slot hors limite: {index}. Taille actuelle: {slots.Count}");
-            return;
+            Debug.LogWarning($"Tentative d'acc�s � un slot hors limite: {index + 1}. Taille actuelle: {slots.Count}");
         }
         else
         {
             selectSlot = slots[index];
-            Debug.Log($"Slot {index} s�lectionn�.");
+            Debug.Log($"Slot {index + 1} s�lectionn�.");
         }
-
-
     }
-
 }

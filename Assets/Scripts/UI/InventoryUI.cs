@@ -36,16 +36,8 @@ public class InventoryUI : MonoBehaviour
             Debug.LogError("⚠️ UI: `craftInventory` est null !");
         }
     }
-
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.LeftShift)) { dragSingle = true; } else {  dragSingle = false; }
-        Refresh();// TODO: à enlever et à mettre à chaque modif pour moins de calcul
-    }
-
-
-
-    void Refresh()
+    
+    public void Refresh()
     {
         var inventory = GameManager.instance.playerController.playerInventory;
         displayedGridIndices.Clear();
@@ -140,7 +132,7 @@ public class InventoryUI : MonoBehaviour
             }
         }
         draggedSlot = null;
-
+        Refresh();
     }
     public void NextPage()
     {
@@ -153,6 +145,7 @@ public class InventoryUI : MonoBehaviour
         {
             pageNumber += 1; 
         }
+        Refresh();
     }
 
     public void PreviousPage()
@@ -166,6 +159,7 @@ public class InventoryUI : MonoBehaviour
         {
             pageNumber -= 1;
         }
+        Refresh();
     }
     public void SlotBeginDrag(SlotUI slot)
     {
@@ -175,7 +169,6 @@ public class InventoryUI : MonoBehaviour
         draggedIcon.raycastTarget = false;
         draggedIcon.rectTransform.sizeDelta = new Vector2(100,100);
         MoveToMousePosition(draggedIcon.gameObject);
-        Debug.Log("Start Drag " );
     }
 
     public void SlotDrag()
@@ -186,29 +179,24 @@ public class InventoryUI : MonoBehaviour
     public void SlotEndDrag()
     {
         Destroy(draggedIcon.gameObject);
+        Refresh();
     }
 
     public void SlotDrop(SlotUI slot)
     {
+        // 1. Récupérer les vrais index de la grille
         int fromIndex = GetRealIndex(draggedSlot.slotID);
         int toIndex = GetRealIndex(slot.slotID);
-        int maxCount = GameManager.instance.playerController.playerInventory.slots.Count;
 
-        if (fromIndex < maxCount && toIndex < maxCount)
-        {
-            if (dragSingle)
-            {
-                GameManager.instance.playerController.playerInventory.Deplace(fromIndex, toIndex, GameManager.instance.playerInventory);
-            }
-            else
-            {
-                GameManager.instance.playerController.playerInventory.Deplace(fromIndex, toIndex);
-            }
-        }
-        else
-        {
-            Debug.LogWarning("deplacement hors des limites de l'inventaire");
-        }
+        // 2. Appeler le déplacement sur les DATA
+        // Note: On passe l'inventaire du joueur pour les deux car c'est le même conteneur
+        GameManager.instance.playerInventory.Deplace(fromIndex, toIndex);
+
+        // 3. Forcer le rafraîchissement visuel de TOUTES les parties de l'UI
+        // (Cela mettra à jour la toolbar ET la grille d'inventaire en même temps)
+        Refresh(); 
+        if(GameManager.instance.inventoryManager.toolbarInventoryUI)
+            GameManager.instance.inventoryManager.toolbarInventoryUI.RefreshUI();
     }
 
     // Convertit l'index du slot UI (0-35) en index réel dans l'inventaire (0-n)

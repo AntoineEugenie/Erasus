@@ -1,6 +1,4 @@
-using Manager;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -15,32 +13,31 @@ public class InventoryManager : MonoBehaviour
 
     public void MoveItem(SlotUI sourceUI, SlotUI targetUI)
     {
-        Inventory sourceData = sourceUI.parentInventory;
-        Inventory targetData = targetUI.parentInventory;
+        Inventory sourceInv = sourceUI.parentInventory;
+        Inventory targetInv = targetUI.parentInventory;
 
-        // VÉRIFICATION DE SÉCURITÉ
-        // VÉRIFICATION DE SÉCURITÉ
-        if (sourceData == targetData)
-        {
-            sourceData.Deplace(sourceUI.slotID, targetUI.slotID);
-        }
-        else if (sourceUI.slotID >= sourceData.slots.Count || targetUI.slotID >= targetData.slots.Count)
-        {
-            Debug.LogError($"Index hors limite ! Source: {sourceUI.slotID}/{sourceData.slots.Count}, Cible: {targetUI.slotID}/{targetData.slots.Count}");
-            return;
-        }
+        // Récupérer les vrais index (si c'est l'UI principale avec pagination)
+        int sourceIdx = sourceUI.slotID;
+        int targetIdx = targetUI.slotID;
 
-        // Récupération des données
-        Inventory.Slot itemToMove = sourceData.slots[sourceUI.slotID];
-        Inventory.Slot itemAtTarget = targetData.slots[targetUI.slotID];
+        // Si on est dans l'InventoryUI principale, il faut convertir l'index
+        // car le slot 10 de l'UI n'est pas forcément le slot 10 de la List<Slot>
+        if (sourceUI.GetComponentInParent<InventoryUI>()) 
+            sourceIdx = sourceUI.GetComponentInParent<InventoryUI>().GetRealIndex(sourceIdx);
+    
+        if (targetUI.GetComponentInParent<InventoryUI>())
+            targetIdx = targetUI.GetComponentInParent<InventoryUI>().GetRealIndex(targetIdx);
 
-        // Logique d'échange (Swap)
-        Inventory.Slot temp = new Inventory.Slot(itemAtTarget);
-        targetData.slots[targetUI.slotID] = new Inventory.Slot(itemToMove);
-        sourceData.slots[sourceUI.slotID] = temp;
+        // Utilise la méthode Deplace de la classe Inventory pour gérer la logique
+        sourceInv.Deplace(sourceIdx, targetIdx, targetInv);
 
-        // Rafraîchissement
-        toolbarInventoryUI.RefreshUI();
-        craftInventoryUI.RefreshUI();
+        // Rafraîchir toutes les interfaces
+        RefreshAllUIs();
+    }
+    
+    private void RefreshAllUIs()
+    {
+        if(toolbarInventoryUI) toolbarInventoryUI.RefreshUI();
+        if(craftInventoryUI) craftInventoryUI.RefreshUI();
     }
 }
