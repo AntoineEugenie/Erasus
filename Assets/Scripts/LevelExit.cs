@@ -9,6 +9,7 @@ public class LevelExit : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        if (GameManager.instance.isLoadingSave) return;
         if (sceneToLoad != null)
         {
             PlayerController player = collision.GetComponent<PlayerController>();

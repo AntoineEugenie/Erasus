@@ -14,12 +14,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory:
     selectSlot:
-      itemName: 
-      count: 0
+      itemName: "Graine d'H\xE9olia"
+      count: 89
       maxPerStack: 100
-      icon: {fileID: 0}
-      item: {fileID: 0}
+      icon: {fileID: 21300000, guid: 33a85e0198af10a4a8bb7a2c64d72fb7, type: 3}
+      item: {fileID: 4311662043822049808, guid: 5b2187d6982385544b37735a5e6ef7ef, type: 3}
     slots:
+    - itemName: "Graine d'H\xE9olia"
+      count: 89
+      maxPerStack: 100
+      icon: {fileID: 21300000, guid: 33a85e0198af10a4a8bb7a2c64d72fb7, type: 3}
+      item: {fileID: 4311662043822049808, guid: 5b2187d6982385544b37735a5e6ef7ef, type: 3}
+    - itemName: Hoe
+      count: 1
+      maxPerStack: 1
+      icon: {fileID: 1257465636, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
+      item: {fileID: 2929873064216823230, guid: 0530af717d0152b4a8c245d38c09550d, type: 3}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: "Graine d'H\xE9olia"
+      count: 99
+      maxPerStack: 100
+      icon: {fileID: 21300000, guid: 33a85e0198af10a4a8bb7a2c64d72fb7, type: 3}
+      item: {fileID: 4311662043822049808, guid: 5b2187d6982385544b37735a5e6ef7ef, type: 3}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
     - itemName: 
       count: 0
       maxPerStack: 100
@@ -38,7 +68,137 @@ MonoBehaviour:
     - itemName: 
       count: 0
       maxPerStack: 0
-      icon: {fileID: 0}
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 100
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: "Graine de Gal\xE9odia"
+      count: 4
+      maxPerStack: 100
+      icon: {fileID: 21300000, guid: 69e9ccb605556d247bad2d572ce40818, type: 3}
+      item: {fileID: 8649598491943237670, guid: de59dd6386a336045bc95d98c4001ed7, type: 3}
+    - itemName: 
+      count: 0
+      maxPerStack: 1
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 1
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
       item: {fileID: 0}
     - itemName: 
       count: 0
@@ -160,6 +320,11 @@ MonoBehaviour:
       maxPerStack: 0
       icon: {fileID: 0}
       item: {fileID: 0}
+    - itemName: "Graine de N\xE9buleuse"
+      count: 60
+      maxPerStack: 100
+      icon: {fileID: 21300000, guid: c1521030d3106b140a5c945ef0537cbe, type: 3}
+      item: {fileID: 5973549178752201895, guid: f5d8b458adf75e148aa101d2f44ce1ca, type: 3}
     - itemName: 
       count: 0
       maxPerStack: 0
@@ -170,37 +335,7 @@ MonoBehaviour:
       maxPerStack: 0
       icon: {fileID: 0}
       item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 0
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 0
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 0
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 0
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 0
-      icon: {fileID: 0}
-      item: {fileID: 0}
-    - itemName: 
-      count: 0
-      maxPerStack: 0
-      icon: {fileID: 0}
-      item: {fileID: 0}
-  lastPosition: {x: -1.6520629, y: -3.987936, z: 0}
-  lastScene: Spawn
+  lastPosition: {x: -4.17, y: -0.22, z: 0}
+  lastScene: SpawnAntoine
   spawnName: Sortie de la maison
   selectSlot: 0

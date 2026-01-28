@@ -11,11 +11,6 @@ public class PlantManager : MonoBehaviour
     public List<PlantData> activePlants;
     private Dictionary<string, PlantData> nameToPlantDict = new();
 
-
-
-
-    
-
     private void Awake()
     {
         foreach (PlantData plant in plantsLibrary)
@@ -168,7 +163,15 @@ public class PlantManager : MonoBehaviour
         }
     }
 
-
+    public void DestroyAllPlants()
+    {
+        GameObject[] plantsInScene = GameObject.FindGameObjectsWithTag("Plant");
+        foreach (GameObject plant in plantsInScene)
+        {
+            Destroy(plant);
+        }
+        activePlants.Clear();
+    }
 
 
 

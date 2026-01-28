@@ -11,9 +11,11 @@ public class GameManager : MonoBehaviour
     public TileManager tileManager;
     public TimeManager timeManager;
     public PlayerController playerController;
+
+    [HideInInspector]
+    public bool isLoadingSave;
     
    
-
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -45,6 +47,11 @@ public class GameManager : MonoBehaviour
         // Initialisation de la première scène
         InitializeScene(SceneManager.GetActiveScene().name);
 
+    }
+
+    private void Start()
+    {
+        SaveManager.DebugPath();
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {

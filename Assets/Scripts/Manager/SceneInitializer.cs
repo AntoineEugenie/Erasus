@@ -20,8 +20,5 @@ public class SceneInitializer : MonoBehaviour
         {
           
         }
-        
-
-     
     }
 }
