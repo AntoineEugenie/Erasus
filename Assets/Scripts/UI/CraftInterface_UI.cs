@@ -30,5 +30,7 @@ public class CraftInterface_UI : MonoBehaviour
                 slots[i].SetItem(GameManager.instance.craftInventory.slots[i]);
             }
         }
+        if  (GameManager.instance.craftInventory.slots[0].itemName == ""){slots[0].SetEmpty();}
+        if  (GameManager.instance.craftInventory.slots[1].itemName == ""){slots[1].SetEmpty();}
     }
 }

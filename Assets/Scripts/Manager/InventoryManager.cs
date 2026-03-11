@@ -35,7 +35,7 @@ public class InventoryManager : MonoBehaviour
         RefreshAllUIs();
     }
     
-    private void RefreshAllUIs()
+    public void RefreshAllUIs()
     {
         if(toolbarInventoryUI) toolbarInventoryUI.RefreshUI();
         if(craftInventoryUI) craftInventoryUI.RefreshUI();

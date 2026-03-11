@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     MenuController menuController;
     public Player player;
     
-    Vector2 move;
+    public Vector2 move;
     Vector2 moveDirection;
     public float speed;
     public float defaultSpeed = 3.0f;
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
     // FixedUpdate has the same call rate as the physics system
     void FixedUpdate()
     {
-        Vector2 position = isSprinting ? (Vector2)rigidbody2d.position + move * (speed * sprintMultiplier) * Time.deltaTime : (Vector2)rigidbody2d.position + move * speed * Time.deltaTime;
+        Vector2 position = isSprinting ? (Vector2)rigidbody2d.position + move * speed * sprintMultiplier * Time.deltaTime : (Vector2)rigidbody2d.position + move * speed * Time.deltaTime;
         rigidbody2d.MovePosition(position);
     }
 

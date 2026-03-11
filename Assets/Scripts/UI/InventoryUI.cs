@@ -10,6 +10,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private List<SlotUI> slots = new();
     [SerializeField] private Canvas menu;
     [SerializeField] private TMPro.TMP_InputField inputField;
+    [SerializeField] private Sprite baseItemIcon;
     private string currentSearchQuery = "";
     private List<int> displayedGridIndices = new List<int>();
 

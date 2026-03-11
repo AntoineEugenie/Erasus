@@ -43,7 +43,7 @@ public class PotionManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
-            AddRecipeToInventory("cryolis", "elektra");
+            AddRecipeToInventory("Galéodia", "Héolia");
         }
     }
     
@@ -69,10 +69,11 @@ public class PotionManager : MonoBehaviour
         return "Elixir of Socks";
     }
     
-    private void AddRecipeToInventory(string plantA, string plantB)
+    public void AddRecipeToInventory(string plantA, string plantB)
     {
         // 1. Récupérer le nom de la potion (ex : "Potion1")
         string recipeName = GetRecipe(plantA, plantB);
+        Debug.Log($"La recette de plante obtenue est {recipeName}");
             
         // 2. Demander à l'ItemManager de fournir le Prefab Item correspondant
         // Vérifiez que l'itemManager est correctement attaché
@@ -94,6 +95,12 @@ public class PotionManager : MonoBehaviour
             Debug.LogError($"❌ [GameManager] Impossible d'instancier l'objet '{recipeName}'. " +
                            "Vérifiez que le Prefab est bien référencé dans l'ItemManager.");
         }
+        
+        foreach ( var slot in GameManager.instance.craftInventory.slots) // supprime tous les éléments des slots (actuellement 2 slots)
+        {
+            slot.RemoveItem();
+        }
+        
+        GameManager.instance.inventoryManager.RefreshAllUIs();
     }
-    
 }

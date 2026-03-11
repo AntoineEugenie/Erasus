@@ -1,8 +1,8 @@
 {
     "recipes": [
         {
-            "plantA": "cryolis",
-            "plantB": "elektra",
+            "plantA": "galéodia",
+            "plantB": "héolia",
             "resultPotion": "potion1"
         },
         {
@@ -11,8 +11,8 @@
             "resultPotion": "potion2"
         },
         {
-            "plantA": "galéodia",
-            "plantB": "héolia",
+            "plantA": "cryolis",
+            "plantB": "elektra",
             "resultPotion": "potion3"
         },
         {
