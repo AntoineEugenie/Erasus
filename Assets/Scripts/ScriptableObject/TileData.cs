@@ -7,10 +7,11 @@ using UnityEngine.Tilemaps;
 public class TileData : ScriptableObject
 {
     public TileBase[] tiles;
+    public string sceneName;
+    public Vector3Int position;
     public bool isPlowtable;
     public bool isPlowted;
     public bool isOccupied;
     public int Temperature = 0;
-
     public int WaterLevel = 0;
 }

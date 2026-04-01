@@ -1,10 +1,10 @@
-using UnityEditor;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelExit : MonoBehaviour
 {
-    public SceneAsset sceneToLoad;
+    [SerializeField] private string sceneToLoad;
     public string spawnName;
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -16,9 +16,10 @@ public class LevelExit : MonoBehaviour
             if (player != null)
             {
                 GameManager.instance.playerController.player.spawnName = spawnName;
-                SceneManager.LoadScene(sceneToLoad.name);
+                SceneManager.LoadScene(sceneToLoad);
             }
 
         }
     }
 }
+

@@ -29,7 +29,7 @@ public class Toolbar_UI : MonoBehaviour
             }    
             selectedSlots = slots[index];
             selectedSlots.SetHightlight(true);
-            Debug.Log(selectedSlots);
+  
         }
     }
     public void OnToolbarOne()

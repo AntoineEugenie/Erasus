@@ -4,24 +4,25 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 
+
 public class TileManager : MonoBehaviour
 {
     [SerializeField] private Tile plowedTile;
     private Tilemap map;
     [SerializeField] private List<TileData> tileDatas;
 
-    private Dictionary<TileBase, TileData> dataFromTiles; // Associé aux types de tiles
+    // Le dictionnaire des règles (ScriptableObjects intacts)
+    [SerializeField] private Dictionary<TileBase, TileData> dataFromTiles;
 
-    
-    private Dictionary<Vector3Int, TileData> positionData; // Associé aux positions spécifiques
-    private Dictionary<string, Dictionary<Vector3Int, TileData>> scenemap;
+    // 2. MODIFIÉ : On stocke des TileState (légers) au lieu de TileData (lourds)
+    private Dictionary<string, Dictionary<Vector3Int, TileState>> scenemap;
 
     private void Awake()
     {
-        scenemap = new();
-        dataFromTiles = new();
+        scenemap = new Dictionary<string, Dictionary<Vector3Int, TileState>>();
+        dataFromTiles = new Dictionary<TileBase, TileData>();
 
-        // Initialisation des données des tiles
+        // Initialisation des données des tiles de base
         foreach (var tileData in tileDatas)
         {
             foreach (var tile in tileData.tiles)
@@ -29,13 +30,10 @@ public class TileManager : MonoBehaviour
                 dataFromTiles.Add(tile, tileData);
             }
         }
-
-       
     }
 
     public void InitializeScene(string sceneName)
     {
-        
         map = GameObject.Find("Ground")?.GetComponent<Tilemap>();
 
         if (map == null)
@@ -46,18 +44,21 @@ public class TileManager : MonoBehaviour
 
         if (!scenemap.ContainsKey(sceneName))
         {
-            scenemap[sceneName] = new();
+            scenemap[sceneName] = new Dictionary<Vector3Int, TileState>();
             Debug.Log($"Nouvelle scène ajoutée : {sceneName}");
         }
-        foreach(var tile in scenemap[sceneName])
+
+        // On affiche visuellement les tuiles qui ont été labourées
+        foreach (var tile in scenemap[sceneName])
         {
             if (tile.Value.isPlowted)
             {
-                SetPlowed(tile.Key, sceneName);
+                map.SetTile(tile.Key, plowedTile);
             }
         }
         Debug.Log($"Scène active : {sceneName}, Tilemap récupéré.");
     }
+
     public bool IsInteractable(Vector3Int position, string sceneName)
     {
         TileBase tile = map.GetTile(position);
@@ -70,27 +71,27 @@ public class TileManager : MonoBehaviour
 
     public void SetPlowed(Vector3Int position, string sceneName)
     {
-
         map.SetTile(position, plowedTile);
+
         if (!scenemap[sceneName].ContainsKey(position))
         {
-            // Crée une nouvelle instance de TileData en utilisant ScriptableObject.CreateInstance
-            scenemap[sceneName][position] = CreateTileDataInstance(position, sceneName);
+            CreateTileState(position, sceneName);
         }
+
+        scenemap[sceneName][position].isPlowted = true;
     }
 
-    public bool CanPlant(Vector3Int position , string sceneName)
+    public bool CanPlant(Vector3Int position, string sceneName)
     {
-        TileBase tile = map.GetTile(position);
-
-        // Vérifie si cette position a des données spécifiques
+        // 1. On regarde s'il y a des données modifiées à cette position
         if (scenemap[sceneName].ContainsKey(position))
         {
             var data = scenemap[sceneName][position];
             return data.isPlowted && !data.isOccupied;
         }
 
-        // Sinon, vérifie les données générales des tiles
+        // 2. Sinon on regarde la règle de base
+        TileBase tile = map.GetTile(position);
         if (tile != null && dataFromTiles.ContainsKey(tile))
         {
             var data = dataFromTiles[tile];
@@ -102,38 +103,19 @@ public class TileManager : MonoBehaviour
 
     public void SetOccupied(Vector3Int position, string sceneName)
     {
-        if (!scenemap[sceneName].ContainsKey(position))
-        {
-            // Crée une nouvelle instance de TileData en utilisant ScriptableObject.CreateInstance
-            scenemap[sceneName][position] = CreateTileDataInstance(position, sceneName);
-        }
-
+        if (!scenemap[sceneName].ContainsKey(position)) CreateTileState(position, sceneName);
         scenemap[sceneName][position].isOccupied = true;
-
-        Debug.Log($"Tile at position {position} is now occupied.");
     }
+
     public void SetFree(Vector3Int position, string sceneName)
     {
-        if (!scenemap[sceneName].ContainsKey(position))
-        {
-            // Crée une nouvelle instance de TileData en utilisant ScriptableObject.CreateInstance
-            scenemap[sceneName][position] = CreateTileDataInstance(position , sceneName);
-        }
-
+        if (!scenemap[sceneName].ContainsKey(position)) CreateTileState(position, sceneName);
         scenemap[sceneName][position].isOccupied = false;
-        Debug.Log(scenemap[sceneName][position].isOccupied);
-        Debug.Log($"Tile at position {position} is now free.");
     }
-    public int GetWaterLevel(Vector3Int position, string sceneName)
 
+    public int GetWaterLevel(Vector3Int position, string sceneName)
     {
-        TileBase tile = map.GetTile(position);
-        TileData tileData = dataFromTiles[tile];
-        if (!scenemap[sceneName].ContainsKey(position))
-        {
-            // Crée une nouvelle instance de TileData en utilisant ScriptableObject.CreateInstance
-            scenemap[sceneName][position] = CreateTileDataInstance(position, sceneName);
-        }
+        if (!scenemap[sceneName].ContainsKey(position)) CreateTileState(position, sceneName);
         return scenemap[sceneName][position].WaterLevel;
     }
 
@@ -141,27 +123,14 @@ public class TileManager : MonoBehaviour
     {
         if (map.GetTile(position) != null)
         {
-            if (!scenemap[sceneName].ContainsKey(position))
-            {
-                // Crée une nouvelle instance de TileData en utilisant ScriptableObject.CreateInstance
-                scenemap[sceneName][position] = CreateTileDataInstance(position, sceneName);
-                Debug.Log($"Created new TileData instance for position {position}.");
-            }
-
+            if (!scenemap[sceneName].ContainsKey(position)) CreateTileState(position, sceneName);
             scenemap[sceneName][position].WaterLevel += amount;
-
-            Debug.Log($"Tile at position {position} have {scenemap[sceneName][position].WaterLevel}L.");
         }
     }
 
     public int GetTemperature(Vector3Int position, string sceneName)
     {
-        if (!scenemap[sceneName].ContainsKey(position))
-        {
-            // Crée une nouvelle instance de TileData en utilisant ScriptableObject.CreateInstance
-            scenemap[sceneName][position] = CreateTileDataInstance(position, sceneName);
-            Debug.Log($"Created new TileData instance for position {position}.");
-        }
+        if (!scenemap[sceneName].ContainsKey(position)) CreateTileState(position, sceneName);
         return scenemap[sceneName][position].Temperature;
     }
 
@@ -169,59 +138,68 @@ public class TileManager : MonoBehaviour
     {
         if (map.GetTile(position) != null)
         {
-            if (!scenemap[sceneName].ContainsKey(position))
-            {
-                // Crée une nouvelle instance de TileData en utilisant ScriptableObject.CreateInstance
-                scenemap[sceneName][position] = CreateTileDataInstance(position, sceneName);
-                Debug.Log($"Created new TileData instance for position {position}.");
-            }
-
+            if (!scenemap[sceneName].ContainsKey(position)) CreateTileState(position, sceneName);
             scenemap[sceneName][position].Temperature += amount;
-
-            Debug.Log($"Tile at position {position} is now at {scenemap[sceneName][position].Temperature}°c.");
         }
     }
 
     public void ResetWaterLevel(string sceneName)
     {
+        if (!scenemap.ContainsKey(sceneName)) return;
+
         foreach (var tile in scenemap[sceneName])
         {
             Vector3Int position = tile.Key;
-            TileBase tileData = map.GetTile(position);
-            tile.Value.WaterLevel = dataFromTiles[tileData].WaterLevel;
+            TileBase baseTile = map.GetTile(position);
+
+            // On remet au niveau d'eau par défaut du TileData de base
+            if (baseTile != null && dataFromTiles.ContainsKey(baseTile))
+            {
+                tile.Value.WaterLevel = dataFromTiles[baseTile].WaterLevel;
+            }
         }
     }
 
-    public TileData CreateTileDataInstance(Vector3Int position, string sceneName)
+    // 3. MODIFIÉ : Crée une classe légère au lieu d'un ScriptableObject
+    private TileState CreateTileState(Vector3Int position, string sceneName)
     {
-        TileBase tile = map.GetTile(position); // Récupère le TileBase à cette position
+        TileBase tile = map.GetTile(position);
 
         if (tile != null && dataFromTiles.ContainsKey(tile))
         {
-            // Récupère le TileData général correspondant à la tuile
             TileData baseTileData = dataFromTiles[tile];
 
-            // Crée une nouvelle instance en dupliquant les données de base
-            TileData newTileData = ScriptableObject.CreateInstance<TileData>();
+            // On copie les valeurs du ScriptableObject vers notre classe légère
+            TileState newState = new TileState(
+                baseTileData.isPlowted,
+                baseTileData.isOccupied,
+                baseTileData.Temperature,
+                baseTileData.WaterLevel
+            );
 
-            // Copie les propriétés de base
-            newTileData.tiles = baseTileData.tiles;
-            newTileData.isPlowtable = baseTileData.isPlowtable;
-            newTileData.isPlowted = baseTileData.isPlowted;
-            newTileData.isOccupied = baseTileData.isOccupied;
-            newTileData.Temperature = baseTileData.Temperature;
-            newTileData.WaterLevel = baseTileData.WaterLevel;
-
-            // Stocke cette nouvelle instance dans le dictionnaire de données par position
-            scenemap[sceneName][position] = newTileData;
-
-            Debug.Log($"Created new TileData instance for position {position}.");
-            return newTileData;
+            scenemap[sceneName][position] = newState;
+            return newState;
         }
 
-        Debug.LogWarning($"No TileData found for tile at position {position}. Cannot create instance.");
-        return null;
+        // Sécurité par défaut si la tuile n'a pas de règles
+        TileState emptyState = new TileState(false, false, 0, 0);
+        scenemap[sceneName][position] = emptyState;
+        return emptyState;
     }
 
+    // ---------------------------------------------------------
+    // FONCTIONS POUR LE SAVE MANAGER
+    // ---------------------------------------------------------
 
+    // Pour donner la boîte de données au SaveManager
+    public Dictionary<string, Dictionary<Vector3Int, TileState>> GetAllScenesData()
+    {
+        return scenemap;
+    }
+
+    // Pour recevoir la boîte de données du SaveManager
+    public void LoadAllScenesData(Dictionary<string, Dictionary<Vector3Int, TileState>> savedData)
+    {
+        scenemap = savedData;
+    }
 }

@@ -34,8 +34,6 @@ public class PlantManager : MonoBehaviour
 
     public void InitializeScene(string sceneName)
     {
-
-        
         foreach (PlantData plant in activePlants)
         {
             Debug.Log(plant.harvestData.sceneName == sceneName);
@@ -48,7 +46,7 @@ public class PlantManager : MonoBehaviour
 
                 // Et donne-lui sa data 
                 Plant newPlant = newPlantGO.GetComponent<Plant>();
-                newPlant.Initialize(plant);
+                newPlant.Initialize(plant, true);
             }
         }
     }

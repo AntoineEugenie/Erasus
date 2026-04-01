@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [System.Serializable] 
 public class GameSaveData
@@ -10,7 +11,9 @@ public class GameSaveData
     public List<InventorySlotData> inventoryData = new List<InventorySlotData>();
 
     // --- Plantes ---
-    public List<ActivePlantSaveData> plantsData = new List<ActivePlantSaveData>();
+    public List<PlantSaveData> plantsData = new List<PlantSaveData>();
+
+    public List<SceneTileSaveData> scenesTileData = new List<SceneTileSaveData>();
 }
 
 
@@ -23,8 +26,23 @@ public struct InventorySlotData
 
 
 [System.Serializable]
-public struct ActivePlantSaveData
+public struct PlantSaveData
 {
     public string plantNameID; 
     public PlantData.HarvestData harvestData;
+}
+
+[System.Serializable]
+public class SceneTileSaveData
+{
+    public string sceneName;
+    public List<TileInfo> savedTiles = new List<TileInfo>();
+}
+
+// 2. La "Boîte" pour une seule tuile
+[System.Serializable]
+public struct TileInfo
+{
+    public Vector3Int position;
+    public TileState state; 
 }

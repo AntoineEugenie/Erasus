@@ -32,12 +32,14 @@ public class Plant : MonoBehaviour, IRaycastable
 
 
 
-    public void Initialize(PlantData plantData)
+    public void Initialize(PlantData plantData, bool isLoaded = false)
     {
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         heatZone = new Zone().MakeZone(data.effectsData.temperatureEmissionRadius, data.harvestData.position);
-        if (plantData.growthData.isCopy)
+
+        // CORRECTION ICI : On clone uniquement si c'est une nouvelle graine ET qu'on ne charge pas
+        if (plantData.growthData.isCopy && !isLoaded)
         {
             data = ScriptableObject.Instantiate(plantData);
             DontDestroyOnLoad(data);
@@ -48,15 +50,17 @@ public class Plant : MonoBehaviour, IRaycastable
             data.harvestData.sceneName = SceneManager.GetActiveScene().name;
             Debug.Log(SceneManager.GetActiveScene().name + " " + data.harvestData.sceneName);
             data.growthData.isCopy = false;
-
         }
         else
         {
+            // Si on charge une partie, on utilise directement les données qu'on a reçues !
             data = plantData;
             SpriteChanger();
         }
+
         Debug.Log(data.harvestData.position);
-        Debug.Log(String.Join(", ",heatZone));
+        Debug.Log(String.Join(", ", heatZone));
+
         if (GameManager.instance == null || GameManager.instance.tileManager == null)
         {
             Debug.LogError("GameManager ou tileManager n'est pas assigné !");
@@ -65,9 +69,8 @@ public class Plant : MonoBehaviour, IRaycastable
 
         for (int i = 0; i < heatZone.Count; i++)
         {
-            GameManager.instance.tileManager.ChangeTemperature(heatZone[i],data.effectsData.temperatureEmission, data.harvestData.sceneName);
+            GameManager.instance.tileManager.ChangeTemperature(heatZone[i], data.effectsData.temperatureEmission, data.harvestData.sceneName);
         }
-
     }
 
     void SpriteChanger()

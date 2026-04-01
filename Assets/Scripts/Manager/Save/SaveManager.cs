@@ -39,10 +39,32 @@ public static class SaveManager
         {
             foreach (PlantData plant in gm.plantManager.activePlants)
             {
-                ActivePlantSaveData pData = new ActivePlantSaveData();
+                PlantSaveData pData = new PlantSaveData();
                 pData.plantNameID = plant.inventoryData.itemName;
                 pData.harvestData = plant.harvestData;
                 data.plantsData.Add(pData);
+            }
+        }
+
+        if (gm.tileManager != null)
+        {
+            var allScenesData = gm.tileManager.GetAllScenesData();
+
+            foreach (var sceneEntry in allScenesData)
+            {
+                SceneTileSaveData sceneData = new SceneTileSaveData();
+                sceneData.sceneName = sceneEntry.Key;
+                foreach (var tileEntry in sceneEntry.Value)
+                {
+                    TileInfo tInfo = new TileInfo();
+                    tInfo.position = tileEntry.Key;
+                    tInfo.state = tileEntry.Value; 
+
+                    sceneData.savedTiles.Add(tInfo);
+                }
+
+                
+                data.scenesTileData.Add(sceneData);
             }
         }
 
@@ -113,12 +135,12 @@ public static class SaveManager
             }
         }
 
-      
+
         if (gm.plantManager != null)
         {
-            gm.plantManager.activePlants.Clear();
+            gm.plantManager.DestroyAllPlants();
 
-            foreach (ActivePlantSaveData savedPlant in pendingData.plantsData)
+            foreach (PlantSaveData savedPlant in pendingData.plantsData)
             {
                 PlantData originalData = gm.plantManager.GetPlantbyName(savedPlant.plantNameID);
                 if (originalData != null)
@@ -131,6 +153,27 @@ public static class SaveManager
             }
 
             gm.plantManager.InitializeScene(pendingData.currentSceneName);
+        }
+
+        if (gm.tileManager != null)
+        {
+            
+            Dictionary<string, Dictionary<Vector3Int, TileState>> reconstructedMap = new Dictionary<string, Dictionary<Vector3Int, TileState>>();
+
+            foreach (SceneTileSaveData sceneData in pendingData.scenesTileData)
+            {
+                Dictionary<Vector3Int, TileState> sceneTiles = new Dictionary<Vector3Int, TileState>();
+
+                foreach (TileInfo tInfo in sceneData.savedTiles)
+                {
+                    sceneTiles[tInfo.position] = tInfo.state;
+                }
+
+                reconstructedMap[sceneData.sceneName] = sceneTiles;
+            }
+            gm.tileManager.LoadAllScenesData(reconstructedMap);
+            gm.tileManager.InitializeScene(pendingData.currentSceneName);
+        
         }
 
         Debug.Log("Chargement complet terminé !");
