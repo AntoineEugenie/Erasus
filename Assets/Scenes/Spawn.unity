@@ -1037,6 +1037,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toolbarInventoryUI: {fileID: 844867226}
   craftInventoryUI: {fileID: 905835537}
+  inventoryUI: {fileID: 1182416859}
+--- !u!114 &323046507 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2469622986070924573, guid: 29d04ecb8e7543c4d978704eb66b9f46, type: 3}
+  m_PrefabInstance: {fileID: 7474747556006786706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323046498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41250eefaef3364dbaa9d1205aa212a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &323046508 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8544277369578613339, guid: 29d04ecb8e7543c4d978704eb66b9f46, type: 3}
+  m_PrefabInstance: {fileID: 7474747556006786706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323046498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9290f48a0fe4fc14ca887cf3c99fa367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &323046509 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 102829592254645820, guid: 29d04ecb8e7543c4d978704eb66b9f46, type: 3}
+  m_PrefabInstance: {fileID: 7474747556006786706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323046498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd10570f1384fb34a98894c490e97305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &365081924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2183,6 +2217,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de59dd6386a336045bc95d98c4001ed7, type: 3}
+--- !u!114 &895598998 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3447721987020645267, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+  m_PrefabInstance: {fileID: 2089522788225900918}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52026905efe332347bca08d29837ddf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &899580877 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7111621814084577827, guid: 4bf81aeee5b86c842a8ec8c46e2cfebd, type: 3}
@@ -5611,9 +5656,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1182416859}
     - target: {fileID: 1713109735746855787, guid: 29d04ecb8e7543c4d978704eb66b9f46, type: 3}
+      propertyPath: itemManager
+      value: 
+      objectReference: {fileID: 323046508}
+    - target: {fileID: 1713109735746855787, guid: 29d04ecb8e7543c4d978704eb66b9f46, type: 3}
+      propertyPath: tileManager
+      value: 
+      objectReference: {fileID: 323046509}
+    - target: {fileID: 1713109735746855787, guid: 29d04ecb8e7543c4d978704eb66b9f46, type: 3}
+      propertyPath: plantManager
+      value: 
+      objectReference: {fileID: 323046507}
+    - target: {fileID: 1713109735746855787, guid: 29d04ecb8e7543c4d978704eb66b9f46, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 323046506}
+    - target: {fileID: 1713109735746855787, guid: 29d04ecb8e7543c4d978704eb66b9f46, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 895598998}
     - target: {fileID: 2469622986070924573, guid: 29d04ecb8e7543c4d978704eb66b9f46, type: 3}
       propertyPath: basePlantPrefab
       value: 
