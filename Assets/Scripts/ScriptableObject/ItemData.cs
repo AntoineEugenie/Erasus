@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using Unity.VisualScripting;
 using UnityEngine;
 using NaughtyAttributes;
 
 [CreateAssetMenu(fileName = "NewItem", menuName = "Item Data")]
+[SuppressMessage("ReSharper", "CheckNamespace")]
 public class ItemData : ScriptableObject
 {
     public Sprite icon;

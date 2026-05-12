@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Manager;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -9,6 +10,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private List<SlotUI> slots = new();
     [SerializeField] private Canvas menu;
     [SerializeField] private TMPro.TMP_InputField inputField;
+    [SerializeField] private Sprite baseItemIcon;
     private string currentSearchQuery = "";
     private List<int> displayedGridIndices = new List<int>();
 
@@ -26,23 +28,19 @@ public class InventoryUI : MonoBehaviour
         {
             Debug.LogError("⚠️ UI: Le `player` n'est pas assigné !");
         }
-        else if (GameManager.instance.playerController.inventory == null)
+        else if (GameManager.instance.playerController.playerInventory == null)
         {
-            Debug.LogError("⚠️ UI: `player.inventory` est null !");
+            Debug.LogError("⚠️ UI: `playerInventory` est null !");
+        }
+        else if (GameManager.instance.playerController.craftInventory == null)
+        {
+            Debug.LogError("⚠️ UI: `craftInventory` est null !");
         }
     }
-
-    private void Update()
+    
+    public void Refresh()
     {
-        if (Input.GetKey(KeyCode.LeftShift)) { dragSingle = true; } else {  dragSingle = false; }
-        Refresh();// TODO: à enlever et à mettre à chaque modif pour moins de calcul
-    }
-
-
-
-    void Refresh()
-    {
-        var inventory = GameManager.instance.playerController.inventory;
+        var inventory = GameManager.instance.playerController.playerInventory;
         displayedGridIndices.Clear();
 
         // --- 1 : LA TOOLBAR (Ne change jamais) ---
@@ -113,30 +111,30 @@ public class InventoryUI : MonoBehaviour
             }
         }
     }
-    //public void Remove()
-    //{
+    public void Remove()
+    {
 
-    //    Item itemToDrop = GameManager.instance.itemManager.GetItembyName(GameManager.instance.playerController.inventory.slots[draggedSlot.slotID].itemName);
+        Item itemToDrop = GameManager.instance.itemManager.GetItembyName(GameManager.instance.playerController.playerInventory.slots[draggedSlot.slotID].itemName);
 
-    //    if (itemToDrop != null)
-    //    {
+        if (itemToDrop != null)
+        {
 
-    //        Debug.Log(dragSingle);
-    //        if (dragSingle) 
-    //        {
-    //            GameManager.instance.playerController.DropItem(itemToDrop, 1);
+            Debug.Log(dragSingle);
+            if (dragSingle) 
+            {
+                GameManager.instance.playerController.DropItem(itemToDrop, 1);
 
-    //            GameManager.instance.playerController.inventory.Remove(draggedSlot.slotID);
-    //         }
-    //        else
-    //        {
-    //            GameManager.instance.playerController.DropItem(itemToDrop);
-    //            GameManager.instance.playerController.inventory.Remove(draggedSlot.slotID, GameManager.instance.playerController.inventory.slots[draggedSlot.slotID].count);
-    //        }
-    //    }
-    //    draggedSlot = null;
-
-    //}
+                GameManager.instance.playerController.playerInventory.Remove(draggedSlot.slotID);
+             }
+            else
+            {
+                GameManager.instance.playerController.DropItem(itemToDrop);
+                GameManager.instance.playerController.playerInventory.Remove(draggedSlot.slotID, GameManager.instance.playerController.playerInventory.slots[draggedSlot.slotID].count);
+            }
+        }
+        draggedSlot = null;
+        Refresh();
+    }
     public void NextPage()
     {
         Debug.Log("Next :  {pageNumber}");
@@ -148,6 +146,7 @@ public class InventoryUI : MonoBehaviour
         {
             pageNumber += 1; 
         }
+        Refresh();
     }
 
     public void PreviousPage()
@@ -161,6 +160,7 @@ public class InventoryUI : MonoBehaviour
         {
             pageNumber -= 1;
         }
+        Refresh();
     }
     public void SlotBeginDrag(SlotUI slot)
     {
@@ -170,43 +170,34 @@ public class InventoryUI : MonoBehaviour
         draggedIcon.raycastTarget = false;
         draggedIcon.rectTransform.sizeDelta = new Vector2(100,100);
         MoveToMousePosition(draggedIcon.gameObject);
-        Debug.Log("Start Drag " );
     }
 
     public void SlotDrag()
     {
         MoveToMousePosition(draggedIcon.gameObject);
-        Debug.Log(" Drag " );
     }
 
     public void SlotEndDrag()
     {
         Destroy(draggedIcon.gameObject);
-      
-        Debug.Log("End Drag " );
+        Refresh();
     }
 
     public void SlotDrop(SlotUI slot)
     {
+        // 1. Récupérer les vrais index de la grille
         int fromIndex = GetRealIndex(draggedSlot.slotID);
         int toIndex = GetRealIndex(slot.slotID);
-        int maxCount = GameManager.instance.playerController.inventory.slots.Count;
 
-        if (fromIndex < maxCount && toIndex < maxCount)
-        {
-            if (dragSingle)
-            {
-                GameManager.instance.playerController.inventory.Deplace(fromIndex, toIndex, 1);
-            }
-            else
-            {
-                GameManager.instance.playerController.inventory.Deplace(fromIndex, toIndex);
-            }
-        }
-        else
-        {
-            Debug.LogWarning("deplacement hors des limites de l'inventaire");
-        }
+        // 2. Appeler le déplacement sur les DATA
+        // Note: On passe l'inventaire du joueur pour les deux car c'est le même conteneur
+        GameManager.instance.playerInventory.Deplace(fromIndex, toIndex);
+
+        // 3. Forcer le rafraîchissement visuel de TOUTES les parties de l'UI
+        // (Cela mettra à jour la toolbar ET la grille d'inventaire en même temps)
+        Refresh(); 
+        if(GameManager.instance.inventoryManager.toolbarInventoryUI)
+            GameManager.instance.inventoryManager.toolbarInventoryUI.RefreshUI();
     }
 
     // Convertit l'index du slot UI (0-35) en index réel dans l'inventaire (0-n)

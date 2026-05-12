@@ -14,13 +14,13 @@
 //    }
 
 //    // Update is called once per frame
-   
+
 //    private void Update()
 //        {
 //        time -= Time.deltaTime;
 //        if (time <= 0)
 //        {
-//            TimeEvents.newDay.Invoke(); // Invoque l'événement pour signaler un nouveau jour
+//            TimeEvents.newDay.Invoke(); // Invoque l'ï¿½vï¿½nement pour signaler un nouveau jour
 //            time = cycle;
 //        }
 //    }

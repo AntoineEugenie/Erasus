@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Manager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -25,11 +26,11 @@ public class Galapadeau : MonoBehaviour, IRaycastable
         {
            
             Debug.Log("Target pos: "+target);
-            // Déplacement
+            // Dï¿½placement
             
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
-            // Vérifie si la cible est atteinte (avec une tolérance)
+            // Vï¿½rifie si la cible est atteinte (avec une tolï¿½rance)
             if (Vector3.Distance(transform.position, target) < 0.05f)
             {
                 if (Targets.ContainsKey(target) && !Targets[target])
@@ -42,7 +43,7 @@ public class Galapadeau : MonoBehaviour, IRaycastable
                     if (AllTargetsVisited())
                     {
                         finished = true;
-                        Debug.Log("Galapadeau a fini d’arroser toutes les plantes.");
+                        Debug.Log("Galapadeau a fini dï¿½arroser toutes les plantes.");
                     }
                     else
                     {
@@ -91,7 +92,7 @@ public class Galapadeau : MonoBehaviour, IRaycastable
 
     public void OnHitByRaycast()
     {
-        Debug.Log("Galapadeau touchée ! Arrosage en cours...");
+        Debug.Log("Galapadeau touchï¿½e ! Arrosage en cours...");
         FindPlant();
         target = NextPlant();
     }

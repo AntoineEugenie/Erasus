@@ -1,3 +1,4 @@
+using Manager;
 using UnityEngine;
 
 [RequireComponent(typeof(Item))]
@@ -16,10 +17,19 @@ public class Collectable : MonoBehaviour
             Item item = GetComponent<Item>();
             for (int i = 0; i < item.amount; i++)
             {
-                player.inventory.Add(item);
+                player.playerInventory.Add(item);
             }
             
             Destroy(gameObject);
+            if (GameManager.instance.inventoryUI != null)
+            {
+                GameManager.instance.inventoryUI.Refresh();
+            }
+            else
+            {
+                Debug.LogWarning("Impossible de refresh inventoryUI car il est null dans le GameManager");
+            }
+            
         }
             //controller.PlaySound(collectedClip);
             

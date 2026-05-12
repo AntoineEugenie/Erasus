@@ -1,8 +1,6 @@
-﻿using UnityEngine;
+﻿using Manager;
+using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
-
-
 
 
 public class PlayerController : MonoBehaviour
@@ -13,26 +11,18 @@ public class PlayerController : MonoBehaviour
     PlayerInput input;
     MenuController menuController;
     public Player player;
-  
-   
-
-   
-
-    Vector2 move;
+    
+    public Vector2 move;
     Vector2 moveDirection;
     public float speed;
     public float defaultSpeed = 3.0f;
     private float sprintMultiplier = 2f;
-
     public bool isSprinting = false;
-
-    [System.NonSerialized]public Inventory inventory;
-   
-
-
-
+    public Inventory playerInventory;
+    public Inventory craftInventory;
+    
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {   
         // TODO : Ajouter les verifs
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -42,31 +32,38 @@ public class PlayerController : MonoBehaviour
         input = GetComponent<PlayerInput>();
         speed = defaultSpeed;
 
-
+        
         if (player != null)
         {
-            if (player.inventory == null)
+            // Inventaire du joueur
+            if (GameManager.instance.playerInventory != null)
             {
-                player.inventory = new(36);
-                Debug.Log("Inventaire cr�er");
-                inventory = player.inventory;
+                playerInventory = GameManager.instance.playerInventory;
+                playerInventory.SelectSlot(player.selectSlot);
+                transform.position = player.lastPosition;
             }
             else
             {
-                inventory = player.inventory;
-                Debug.Log("Inventaire copier");
+                Debug.LogWarning("L'inventaire du joueur a mal été initialisé dans le GamerManager");
             }
-            inventory.SelectSlot(player.selectSlot);
-            transform.position = player.lastPosition;
-
-
+            
+            
+            // Inventaire de la table des potions
+            if (GameManager.instance.craftInventory != null)
+            {
+                craftInventory = GameManager.instance.craftInventory;
+                transform.position = player.lastPosition;
+            }
+            else
+            {
+                Debug.LogWarning("L'inventaire de la table des potions a mal été initialisé dans le GamerManager");
+            }
+            
         }
         else
         {
             Debug.LogWarning("Les player data sont nulles");
         }
-
-
     }
 
     // Update is called once per frame
@@ -79,7 +76,7 @@ public class PlayerController : MonoBehaviour
     // FixedUpdate has the same call rate as the physics system
     void FixedUpdate()
     {
-        Vector2 position = isSprinting ? (Vector2)rigidbody2d.position + move * (speed * sprintMultiplier) * Time.deltaTime : (Vector2)rigidbody2d.position + move * speed * Time.deltaTime;
+        Vector2 position = isSprinting ? (Vector2)rigidbody2d.position + move * speed * sprintMultiplier * Time.deltaTime : (Vector2)rigidbody2d.position + move * speed * Time.deltaTime;
         rigidbody2d.MovePosition(position);
     }
 
@@ -154,7 +151,8 @@ public class PlayerController : MonoBehaviour
 
         if (GameManager.instance.tileManager.CanPlant(intPosition, player.lastScene))
         {
-            inventory.Remove(inventory.slots.IndexOf(inventory.selectSlot));
+            playerInventory.Remove(playerInventory.slots.IndexOf(playerInventory.selectSlot));
+            craftInventory.Remove(craftInventory.slots.IndexOf(craftInventory.selectSlot));
 
             // Instancie un prefab vide de plante
             GameObject newPlantGO = Instantiate(GameManager.instance.plantManager.basePlantPrefab, centerPosition, Quaternion.identity);
@@ -184,9 +182,9 @@ public class PlayerController : MonoBehaviour
 
     public void OnInteract(InputValue value)
     {
-        if (inventory.selectSlot.itemName != "")
+        if (playerInventory.selectSlot.itemName != "")
         {
-            Item item = GameManager.instance.itemManager.GetItembyName(inventory.selectSlot.itemName);
+            Item item = GameManager.instance.itemManager.GetItembyName(playerInventory.selectSlot.itemName);
             Debug.Log(item.name);
             if (item.data.itemType == ItemType.Seed)
             {
@@ -236,49 +234,49 @@ public class PlayerController : MonoBehaviour
     public void OnToolbarOne()
     {
         player.selectSlot = 0;
-        inventory.SelectSlot(0);
+        playerInventory.SelectSlot(0);
     }
 
     public void OnToolbarTwo()
     {
         player.selectSlot = 1;
-        inventory.SelectSlot(1);
+        playerInventory.SelectSlot(1);
     }
     public void OnToolbarThree()
     {
         player.selectSlot = 2;
-        inventory.SelectSlot(2);
+        playerInventory.SelectSlot(2);
     }
     public void OnToolbarFour()
     {
         player.selectSlot = 3;
-        inventory.SelectSlot(3);
+        playerInventory.SelectSlot(3);
     }
     public void OnToolbarFive()
     {
         player.selectSlot = 4;
-        inventory.SelectSlot(4);
+        playerInventory.SelectSlot(4);
     }
 
     public void OnToolbarSix()
     {
         player.selectSlot = 5;
-        inventory.SelectSlot(5);
+        playerInventory.SelectSlot(5);
     }
     public void OnToolbarSeven()
     {
         player.selectSlot = 6;
-        inventory.SelectSlot(6);
+        playerInventory.SelectSlot(6);
     }
     public void OnToolbarEight()
     {
         player.selectSlot = 7;
-        inventory.SelectSlot(7);
+        playerInventory.SelectSlot(7);
     }
     public void OnToolbarNine()
     {
         player.selectSlot = 8;
-        inventory.SelectSlot(8);
+        playerInventory.SelectSlot(8);
     }
 
 

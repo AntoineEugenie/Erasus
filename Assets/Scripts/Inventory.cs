@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Manager;
 using UnityEngine;
 
 [System.Serializable]
@@ -64,8 +65,7 @@ public class Inventory
 
     }
 
-    public Slot selectSlot = null;
-
+    public Slot selectSlot;
     public List<Slot> slots = new();
 
     public Inventory(int numSlots)
@@ -92,7 +92,7 @@ public class Inventory
             if (slot.itemName == "")
             {
                 slot.AddItem(item);
-                
+
                 return;
             }
         }
@@ -102,7 +102,15 @@ public class Inventory
 
     public void Remove(int index)
     {
+        // Ajout d'une sécurité pour vérifier si l'index est bien dans la liste
+        if (index < 0 || index >= slots.Count)
+        {
+            Debug.LogError($"Tentative de retrait à un index invalide : {index}. Taille inventaire : {slots.Count}");
+            return;
+        }
+
         slots[index].RemoveItem();
+        GameManager.instance.inventoryUI.Refresh();
     }
     public void Remove(int index, int quantity)
     {
@@ -113,56 +121,81 @@ public class Inventory
         }
     }
 
-    public void Deplace(int slotId, int DestinationId)
+    public void Deplace(int sourceID, int targetID, Inventory targetInventory = null)
     {
-        if (this.slots[DestinationId].itemName == this.slots[slotId].itemName)
-        {
-            Deplace(slotId, DestinationId, this.slots[slotId].count);
-        }
-        else
-        {
-            Slot temp = this.slots[DestinationId];
-            this.slots[DestinationId] = this.slots[slotId];
-            this.slots[slotId] = temp;
-        }
-    }
+        // Si targetInventory est nul, on travaille dans le même inventaire
+        Inventory targetInv = targetInventory ?? this;
 
-    public void Deplace(int slotId, int destinationId, int quantity)
-    {//currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        if (this.slots[destinationId].itemName == this.slots[slotId].itemName)
+        // Sécurité index
+        if (sourceID < 0 || sourceID >= this.slots.Count || targetID < 0 || targetID >= targetInv.slots.Count)
+            return;
+
+        Slot sourceSlot = this.slots[sourceID];
+        Slot targetSlot = targetInv.slots[targetID];
+
+        // 1. Si la source est vide, rien à déplacer
+        if (string.IsNullOrEmpty(sourceSlot.itemName)) return;
+
+        // 2. TENTATIVE DE STACK (Empilement)
+        if (sourceSlot.itemName == targetSlot.itemName)
         {
-            quantity = Mathf.Clamp(quantity, 0, this.slots[slotId].count);// ne d�passe le nombre d'item du slot envoyeur
-            quantity = Mathf.Clamp(quantity, 0, this.slots[slotId].maxPerStack - this.slots[destinationId].count); // ne d�passe pas le stack max 
-            Remove(slotId, quantity);
-            this.slots[destinationId].count += quantity;
-        }
-        if (this.slots[destinationId].itemName == "")
-        {
-            this.slots[destinationId] = new Slot(this.slots[slotId]);
-            this.slots[destinationId].count = quantity;
-            Remove(slotId, quantity);
+            int spaceInTarget = targetSlot.maxPerStack - targetSlot.count;
+            int amountToMove = Mathf.Min(sourceSlot.count, spaceInTarget);
+
+            if (amountToMove > 0)
+            {
+                targetSlot.count += amountToMove;
+                sourceSlot.count -= amountToMove;
+
+                if (sourceSlot.count <= 0)
+                {
+                    // On réinitialise proprement le slot source
+                    sourceSlot.itemName = "";
+                    sourceSlot.item = null;
+                    sourceSlot.icon = null;
+                }
+                return;
+            }
         }
 
+        // 3. ÉCHANGE DE CONTENU (Swap)
+        // On crée une copie temporaire des DONNÉES du slot source
+        string tempName = sourceSlot.itemName;
+        int tempCount = sourceSlot.count;
+        int tempMax = sourceSlot.maxPerStack;
+        Sprite tempIcon = sourceSlot.icon;
+        Item tempItem = sourceSlot.item;
+
+        // On transfère les données de la cible vers la source
+        sourceSlot.itemName = targetSlot.itemName;
+        sourceSlot.count = targetSlot.count;
+        sourceSlot.maxPerStack = targetSlot.maxPerStack;
+        sourceSlot.icon = targetSlot.icon;
+        sourceSlot.item = targetSlot.item;
+
+        // On transfère les données temporaires (ex-source) vers la cible
+        targetSlot.itemName = tempName;
+        targetSlot.count = tempCount;
+        targetSlot.maxPerStack = tempMax;
+        targetSlot.icon = tempIcon;
+        targetSlot.item = tempItem;
     }
 
     public void SelectSlot(int index)
     {
         if (index < 0 || index >= slots.Count)
         {
-            Debug.LogWarning($"Tentative d'acc�s � un slot hors limite: {index}. Taille actuelle: {slots.Count}");
-            return;
+            Debug.LogWarning($"Tentative d'acc�s � un slot hors limite: {index + 1}. Taille actuelle: {slots.Count}");
         }
         else
         {
             selectSlot = slots[index];
-            Debug.Log($"Slot {index} s�lectionn�.");
+            Debug.Log($"Slot {index + 1} s�lectionn�.");
         }
-
-
     }
 
 
-    
+
     public void LoadSlotFromSave(int index, Item itemModel, int quantity)
     {
         if (index < slots.Count)
@@ -175,7 +208,7 @@ public class Inventory
         }
     }
 
-   
+
     public void ClearSlot(int index)
     {
         if (index < slots.Count)

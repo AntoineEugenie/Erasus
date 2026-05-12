@@ -53,7 +53,167 @@ MonoBehaviour:
     - itemName: 
       count: 0
       maxPerStack: 100
-      icon: {fileID: 0}
+      icon: {fileID: 21300000, guid: 69e9ccb605556d247bad2d572ce40818, type: 3}
+      item: {fileID: 0}
+    - itemName: "Graine d'H\xE9olia"
+      count: 99
+      maxPerStack: 100
+      icon: {fileID: 21300000, guid: 33a85e0198af10a4a8bb7a2c64d72fb7, type: 3}
+      item: {fileID: 0}
+    - itemName: "Graine d'H\xE9olia"
+      count: 98
+      maxPerStack: 100
+      icon: {fileID: 21300000, guid: 33a85e0198af10a4a8bb7a2c64d72fb7, type: 3}
+      item: {fileID: 0}
+    - itemName: "Graine de N\xE9buleuse"
+      count: 30
+      maxPerStack: 100
+      icon: {fileID: 21300000, guid: c1521030d3106b140a5c945ef0537cbe, type: 3}
+      item: {fileID: 0}
+    - itemName: Watering can
+      count: 1
+      maxPerStack: 1
+      icon: {fileID: 1150208678, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
+      item: {fileID: 0}
+    - itemName: potion1
+      count: 1
+      maxPerStack: 1
+      icon: {fileID: -1216024403, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: potion1
+      count: 1
+      maxPerStack: 1
+      icon: {fileID: -1216024403, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
+      item: {fileID: 0}
+    - itemName: potion1
+      count: 1
+      maxPerStack: 1
+      icon: {fileID: -1216024403, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
+      item: {fileID: 0}
+    - itemName: potion1
+      count: 1
+      maxPerStack: 1
+      icon: {fileID: -1216024403, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: "Graine d'H\xE9olia"
+      count: 100
+      maxPerStack: 100
+      icon: {fileID: 21300000, guid: 33a85e0198af10a4a8bb7a2c64d72fb7, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 21300000, guid: 0c091f5d66067564ca27e3304e6a6c1c, type: 3}
       item: {fileID: 0}
     - itemName: 
       count: 0
@@ -320,12 +480,9 @@ MonoBehaviour:
       maxPerStack: 0
       icon: {fileID: 0}
       item: {fileID: 0}
-    - itemName: "Graine de N\xE9buleuse"
-      count: 60
-      maxPerStack: 100
-      icon: {fileID: 21300000, guid: c1521030d3106b140a5c945ef0537cbe, type: 3}
-      item: {fileID: 5973549178752201895, guid: f5d8b458adf75e148aa101d2f44ce1ca, type: 3}
-    - itemName: 
+  craftTable:
+    selectSlot:
+      itemName: 
       count: 0
       maxPerStack: 0
       icon: {fileID: 0}

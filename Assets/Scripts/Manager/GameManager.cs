@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 
-public class GameManager : MonoBehaviour 
+public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public ItemManager itemManager;
@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public bool isLoadingSave;
-    
-   
+
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         tileManager = GetComponent<TileManager>();
         itemManager = GetComponent<ItemManager>();
         plantManager = GetComponent<PlantManager>();
-        
+
         //timeManager = GetComponent<TimeManager>();
         if (TimeEvents.newDay == null)
         {
@@ -60,8 +60,8 @@ public class GameManager : MonoBehaviour
 
 
     private void InitializeScene(string sceneName)//!\\
-    {   
-        
+    {
+
         tileManager.InitializeScene(sceneName);
         plantManager.InitializeScene(sceneName);
         playerController = GameObject.Find("Player")?.GetComponent<PlayerController>();
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         if (spawnPoint == null)
         {
             Debug.Log($"Aucun point de spawn nommé {playerController.player.spawnName} trouvé !");
-        
+
         }
         else
         {
