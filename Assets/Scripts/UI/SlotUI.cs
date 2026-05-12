@@ -13,9 +13,7 @@ public class SlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
 
     [Header("Data")]
     public int slotID; 
-    public Inventory parentInventory; // L'inventaire (Toolbar ou Craft) auquel ce slot appartient
-
-    // --- TES ANCIENNES FONCTIONS (GARDÉES ET NETTOYÉES) ---
+    public Inventory parentInventory; 
 
     public void SetItem(Inventory.Slot slot)
     {
