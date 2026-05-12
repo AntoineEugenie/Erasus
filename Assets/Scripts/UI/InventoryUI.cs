@@ -191,12 +191,12 @@ public class InventoryUI : MonoBehaviour
 
         // 2. Appeler le déplacement sur les DATA
         // Note: On passe l'inventaire du joueur pour les deux car c'est le même conteneur
-        GameManager.instance.playerInventory.Deplace(fromIndex, toIndex);
+        GameManager.instance.playerController.playerInventory.Deplace(fromIndex, toIndex);
 
         // 3. Forcer le rafraîchissement visuel de TOUTES les parties de l'UI
         // (Cela mettra à jour la toolbar ET la grille d'inventaire en même temps)
-        Refresh(); 
-        if(GameManager.instance.inventoryManager.toolbarInventoryUI)
+        Refresh();
+        if (GameManager.instance.inventoryManager.toolbarInventoryUI)
             GameManager.instance.inventoryManager.toolbarInventoryUI.RefreshUI();
     }
 

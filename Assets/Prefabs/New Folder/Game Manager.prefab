@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 102829592254645820}
   - component: {fileID: 8544277369578613339}
   - component: {fileID: 2469622986070924573}
-  - component: {fileID: 3070850334391908128}
-  - component: {fileID: 1221122535805720352}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -49,11 +47,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d899a9a2ca1eb024895a211e03595ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemManager: {fileID: 8544277369578613339}
-  plantManager: {fileID: 2469622986070924573}
-  tileManager: {fileID: 102829592254645820}
+  itemManager: {fileID: 0}
+  plantManager: {fileID: 0}
+  tileManager: {fileID: 0}
+  timeManager: {fileID: 0}
+  potionManager: {fileID: 0}
   playerController: {fileID: 0}
-  isLoadingSave: 0
+  playerInventory:
+    selectSlot:
+      itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    slots: []
+  craftInventory:
+    selectSlot:
+      itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    slots: []
+  inventoryManager: {fileID: 0}
+  inventoryUI: {fileID: 0}
 --- !u!114 &102829592254645820
 MonoBehaviour:
   m_ObjectHideFlags: 0

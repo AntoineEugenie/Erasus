@@ -1375,9 +1375,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 11400000, guid: 9886ddd257cd0e743b9bbfc74636a891, type: 2}
+  move: {x: 0, y: 0}
   speed: 3
   defaultSpeed: 3
   isSprinting: 0
+  playerInventory:
+    selectSlot:
+      itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    slots:
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    - itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+  craftInventory:
+    selectSlot:
+      itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    slots: []
 --- !u!114 &6315196033885822648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4861,6 +4923,7 @@ MonoBehaviour:
   - {fileID: 1136215388408867177}
   menu: {fileID: 1003795754732398635}
   inputField: {fileID: 8197822629099701310}
+  baseItemIcon: {fileID: 0}
 --- !u!114 &6608215361139038218
 MonoBehaviour:
   m_ObjectHideFlags: 0

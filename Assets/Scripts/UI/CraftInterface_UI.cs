@@ -8,12 +8,12 @@ public class CraftInterface_UI : MonoBehaviour
     private SlotUI _selectedSlots;
     private void Start()
     {
-        if (GameManager.instance != null && GameManager.instance.craftInventory != null)
+        if (GameManager.instance != null && GameManager.instance.playerController.craftInventory != null)
         {
             for (int i = 0; i < slots.Count; i++)
             {
                 slots[i].slotID = i;
-                slots[i].parentInventory = GameManager.instance.craftInventory;
+                slots[i].parentInventory = GameManager.instance.playerController.craftInventory;
             }
         }
         RefreshUI();
@@ -21,16 +21,16 @@ public class CraftInterface_UI : MonoBehaviour
     
     public void RefreshUI()
     {
-        if (GameManager.instance.craftInventory == null) return;
+        if (GameManager.instance.playerController.craftInventory == null) return;
 
         for (int i = 0; i < slots.Count; i++)
         {
-            if (i < GameManager.instance.craftInventory.slots.Count)
+            if (i < GameManager.instance.playerController.craftInventory.slots.Count)
             {
-                slots[i].SetItem(GameManager.instance.craftInventory.slots[i]);
+                slots[i].SetItem(GameManager.instance.playerController.craftInventory.slots[i]);
             }
         }
-        if  (GameManager.instance.craftInventory.slots[0].itemName == ""){slots[0].SetEmpty();}
-        if  (GameManager.instance.craftInventory.slots[1].itemName == ""){slots[1].SetEmpty();}
+        if  (GameManager.instance.playerController.craftInventory.slots[0].itemName == ""){slots[0].SetEmpty();}
+        if  (GameManager.instance.playerController.craftInventory.slots[1].itemName == ""){slots[1].SetEmpty();}
     }
 }

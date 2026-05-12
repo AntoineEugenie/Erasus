@@ -1,3 +1,4 @@
+using Manager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
@@ -11,6 +12,11 @@ public class GameManager : MonoBehaviour
     public TileManager tileManager;
     //public TimeManager timeManager;
     public PlayerController playerController;
+    public Inventory playerInventory;
+    public Inventory craftInventory;
+    public InventoryManager inventoryManager;
+    public InventoryUI inventoryUI;
+    public PotionManager potionManager;
 
     [HideInInspector]
     public bool isLoadingSave;
@@ -65,6 +71,7 @@ public class GameManager : MonoBehaviour
         tileManager.InitializeScene(sceneName);
         plantManager.InitializeScene(sceneName);
         playerController = GameObject.Find("Player")?.GetComponent<PlayerController>();
+        inventoryUI = playerController.GetComponentInChildren<InventoryUI>();
 
         if (playerController == null)
         {

@@ -24,9 +24,9 @@ public static class SaveManager
             data.playerPosition = gm.playerController.transform.position;
 
 
-        if (gm.playerController != null && gm.playerController.inventory != null)
+        if (gm.playerController != null && gm.playerController.playerInventory != null)
         {
-            foreach (var slot in gm.playerController.inventory.slots)
+            foreach (var slot in gm.playerController.playerInventory.slots)
             {
                 InventorySlotData slotData = new InventorySlotData();
                 slotData.itemName = slot.itemName;
@@ -109,7 +109,7 @@ public static class SaveManager
      
         if (gm.playerController != null)
         {
-            var inventory = gm.playerController.inventory;
+            var inventory = gm.playerController.playerInventory;
             for (int i = 0; i < pendingData.inventoryData.Count; i++)
             {
                 InventorySlotData savedSlot = pendingData.inventoryData[i];

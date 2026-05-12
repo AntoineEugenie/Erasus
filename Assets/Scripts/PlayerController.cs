@@ -36,9 +36,9 @@ public class PlayerController : MonoBehaviour
         if (player != null)
         {
             // Inventaire du joueur
-            if (GameManager.instance.playerInventory != null)
+            if (GameManager.instance.playerController.playerInventory != null)
             {
-                playerInventory = GameManager.instance.playerInventory;
+                playerInventory = GameManager.instance.playerController.playerInventory;
                 playerInventory.SelectSlot(player.selectSlot);
                 transform.position = player.lastPosition;
             }
@@ -49,9 +49,9 @@ public class PlayerController : MonoBehaviour
             
             
             // Inventaire de la table des potions
-            if (GameManager.instance.craftInventory != null)
+            if (GameManager.instance.playerController.craftInventory != null)
             {
-                craftInventory = GameManager.instance.craftInventory;
+                craftInventory = GameManager.instance.playerController.craftInventory;
                 transform.position = player.lastPosition;
             }
             else

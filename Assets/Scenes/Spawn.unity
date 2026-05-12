@@ -4575,6 +4575,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -350
       objectReference: {fileID: 0}
+    - target: {fileID: 3447721987020645267, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+      propertyPath: playerInventory.slots.Array.size
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3541506489402278061, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
       propertyPath: m_Name
       value: Bag Slot 2
