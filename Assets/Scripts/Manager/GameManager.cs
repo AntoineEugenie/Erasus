@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public ItemManager itemManager;
     public PlantManager plantManager;
     public TileManager tileManager;
-    public TimeManager timeManager;
+    //public TimeManager timeManager;
     public PlayerController playerController;
 
     [HideInInspector]
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         itemManager = GetComponent<ItemManager>();
         plantManager = GetComponent<PlantManager>();
         
-        timeManager = GetComponent<TimeManager>();
+        //timeManager = GetComponent<TimeManager>();
         if (TimeEvents.newDay == null)
         {
             Debug.LogError("TimeEvents.newDay is null. Ensure it is initialized.");
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    private void InitializeScene(string sceneName)
+    private void InitializeScene(string sceneName)//!\\
     {   
         
         tileManager.InitializeScene(sceneName);
