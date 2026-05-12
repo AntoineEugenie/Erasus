@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11155b2b8baea414780f125362ceee11, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  lastPosition: {x: 0, y: 0, z: 0}
+  lastPosition: {x: 1, y: 1, z: 0}
   lastScene: Spawn
   spawnName: 
   selectSlot: 0

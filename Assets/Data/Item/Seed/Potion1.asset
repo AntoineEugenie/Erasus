@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: -1216024403, guid: f5b7c8603a0c5704bad08b211831efed, type: 3}
   itemName: potion1
   itemType: 2
-  description: 
+  description: potion de test
   maxStackSize: 10
   associatedPlant: {fileID: 0}
   action: 0

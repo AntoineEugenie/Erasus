@@ -12,10 +12,11 @@ public class SlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
     [SerializeField] private Sprite baseItemIcon;
 
     [Header("Data")]
-    public int slotID; 
-    public Inventory parentInventory; // L'inventaire (Toolbar ou Craft) auquel ce slot appartient
+    public int slotID;
+    public Inventory parentInventory;
 
-    // --- TES ANCIENNES FONCTIONS (GARDÉES ET NETTOYÉES) ---
+    // Parent d'origine de l'icône, sauvegardé avant le drag
+    private Transform _iconOriginalParent;
 
     public void SetItem(Inventory.Slot slot)
     {
@@ -28,30 +29,37 @@ public class SlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
 
         itemIcon.sprite = slot.icon != null ? slot.icon : baseItemIcon;
         itemIcon.color = Color.white;
-        quantityText.text = slot.count > 1 ? slot.count.ToString() : ""; // N'affiche "1" que si nécessaire
+        quantityText.text = slot.count > 1 ? slot.count.ToString() : "";
     }
 
     public void SetEmpty()
     {
         itemIcon.sprite = baseItemIcon;
-        itemIcon.color = new Color(1, 1, 1, 0); // Optionnel: mettre l'alpha à 0 si pas d'icône
+        itemIcon.color = new Color(1, 1, 1, 0);
         quantityText.text = "";
     }
 
     public void SetHightlight(bool isOn)
     {
-        if(highlight != null) highlight.SetActive(isOn);
+        if (highlight != null) highlight.SetActive(isOn);
     }
 
-    // --- NOUVELLES FONCTIONS : GESTION DU DRAG & DROP ---
+    // --- GESTION DU DRAG & DROP ---
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         // On ne peut drag que s'il y a un item
         if (itemIcon.sprite == baseItemIcon || itemIcon.color.a == 0) return;
 
-        itemIcon.raycastTarget = false; // Permet de détecter ce qu'il y a DERRIÈRE l'icône pendant qu'on glisse
-        itemIcon.transform.SetParent(GameObject.FindGameObjectWithTag("MainCanvas").transform); // Sortir l'icône du slot pour qu'elle passe au dessus de tout
+        // Désactive le raycast pour détecter le slot cible derrière l'icône
+        itemIcon.raycastTarget = false;
+
+        // Sauvegarde le parent d'origine et remonte l'icône au Canvas racine
+        // pour qu'elle passe visuellement au-dessus de tout
+        _iconOriginalParent = itemIcon.transform.parent;
+        GameObject mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
+        if (mainCanvas != null)
+            itemIcon.transform.SetParent(mainCanvas.transform, true);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -61,20 +69,20 @@ public class SlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        // Remet toujours l'icône dans son slot d'origine, même si le drop échoue
         itemIcon.raycastTarget = true;
-        itemIcon.transform.SetParent(transform); // Remet l'icône dans son slot parent
-        itemIcon.transform.localPosition = Vector2.zero; // Recentrer
+        if (_iconOriginalParent != null)
+            itemIcon.transform.SetParent(_iconOriginalParent, false);
+        itemIcon.transform.localPosition = Vector2.zero;
+        _iconOriginalParent = null;
 
         // Vérifier si on a relâché sur un autre slot
         GameObject droppedOn = eventData.pointerCurrentRaycast.gameObject;
-        
-        // Si l'objet touché est un SlotUI (ou un de ses enfants comme l'image)
         if (droppedOn != null)
         {
             SlotUI targetSlot = droppedOn.GetComponentInParent<SlotUI>();
             if (targetSlot != null && targetSlot != this)
             {
-                // On appelle la logique de déplacement globale
                 InventoryManager.Instance.MoveItem(this, targetSlot);
             }
         }

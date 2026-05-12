@@ -6,6 +6,7 @@ public class CraftInterface_UI : MonoBehaviour
 {
     [SerializeField] private List<SlotUI> slots = new();
     private SlotUI _selectedSlots;
+
     private void Start()
     {
         if (GameManager.instance != null && GameManager.instance.playerController.craftInventory != null)
@@ -18,19 +19,30 @@ public class CraftInterface_UI : MonoBehaviour
         }
         RefreshUI();
     }
-    
+
     public void RefreshUI()
     {
+        // 1. On s'assure que l'inventaire de craft existe bien
         if (GameManager.instance.playerController.craftInventory == null) return;
 
+        var craftSlots = GameManager.instance.playerController.craftInventory.slots;
+
+        // 2. On parcourt nos slots d'UI
         for (int i = 0; i < slots.Count; i++)
         {
-            if (i < GameManager.instance.playerController.craftInventory.slots.Count)
+            // On vérifie que l'index i existe bien dans les données (slots de l'inventaire)
+            if (i < craftSlots.Count)
             {
-                slots[i].SetItem(GameManager.instance.playerController.craftInventory.slots[i]);
+                // Si l'item est vide, on vide visuellement la case
+                if (string.IsNullOrEmpty(craftSlots[i].itemName))
+                {
+                    slots[i].SetEmpty();
+                }
+                else
+                {
+                    slots[i].SetItem(craftSlots[i]);
+                }
             }
         }
-        if  (GameManager.instance.playerController.craftInventory.slots[0].itemName == ""){slots[0].SetEmpty();}
-        if  (GameManager.instance.playerController.craftInventory.slots[1].itemName == ""){slots[1].SetEmpty();}
     }
 }

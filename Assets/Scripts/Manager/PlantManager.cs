@@ -42,7 +42,7 @@ public class PlantManager : MonoBehaviour
                 Vector3 intPosition = plant.harvestData.position;
                 Vector3 centerPosition = new(intPosition.x + 0.5f, intPosition.y + 0.25f, 0f);
                 // Instancie un prefab vide de plante
-                GameObject newPlantGO = Instantiate(GameManager.instance.plantManager.basePlantPrefab, centerPosition, Quaternion.identity);
+                GameObject newPlantGO = Instantiate(Manager.GameManager.instance.plantManager.basePlantPrefab, centerPosition, Quaternion.identity);
 
                 // Et donne-lui sa data 
                 Plant newPlant = newPlantGO.GetComponent<Plant>();
@@ -141,7 +141,7 @@ public class PlantManager : MonoBehaviour
 
         int damage = 0;
         bool allGood = true;
-        if (GameManager.instance.tileManager.GetWaterLevel(data.harvestData.position, data.harvestData.sceneName) < data.growthData.waterQuantityNeeded)
+        if (Manager.GameManager.instance.tileManager.GetWaterLevel(data.harvestData.position, data.harvestData.sceneName) < data.growthData.waterQuantityNeeded)
         {
             damage++;
             allGood = false;

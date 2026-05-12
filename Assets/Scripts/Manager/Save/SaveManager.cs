@@ -16,7 +16,7 @@ public static class SaveManager
     public static void Save()
     {
         Debug.Log("Début de la sauvegarde...");
-        GameManager gm = GameManager.instance;
+        Manager.GameManager gm = Manager.GameManager.instance;
         GameSaveData data = new GameSaveData();
 
         data.currentSceneName = SceneManager.GetActiveScene().name;
@@ -100,7 +100,7 @@ public static class SaveManager
 
     private static void ApplyData()
     {
-        GameManager gm = GameManager.instance;
+        Manager.GameManager gm = Manager.GameManager.instance;
 
 
         if (gm.playerController == null)

@@ -3,98 +3,104 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
-
-public class GameManager : MonoBehaviour
-{
-    public static GameManager instance;
-    public ItemManager itemManager;
-    public PlantManager plantManager;
-    public TileManager tileManager;
-    //public TimeManager timeManager;
-    public PlayerController playerController;
-    public Inventory playerInventory;
-    public Inventory craftInventory;
-    public InventoryManager inventoryManager;
-    public InventoryUI inventoryUI;
-    public PotionManager potionManager;
-
-    [HideInInspector]
-    public bool isLoadingSave;
-
-
-    private void Awake()
+namespace Manager {
+    public class GameManager : MonoBehaviour
     {
-        if (instance != null && instance != this)
+        public static GameManager instance;
+        public ItemManager itemManager;
+        public PlantManager plantManager;
+        public TileManager tileManager;
+        //public TimeManager timeManager;
+        public PlayerController playerController;
+        public Inventory playerInventory;
+        public Inventory craftInventory;
+        public InventoryManager inventoryManager;
+        public InventoryUI inventoryUI;
+        public PotionManager potionManager;
+
+        [HideInInspector]
+        public bool isLoadingSave;
+
+
+        private void Awake()
         {
-            Destroy(this.gameObject);
-            return;
-        }
-        else
-        {
-            instance = this;
+            if (instance != null && instance != this)
+            {
+                Destroy(this.gameObject);
+                return;
+            }
+            else
+            {
+                instance = this;
 
-        }
+            }
 
-        DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(this.gameObject);
 
-        // Vérifiez que tous les managers sont correctement attachés
-        tileManager = GetComponent<TileManager>();
-        itemManager = GetComponent<ItemManager>();
-        plantManager = GetComponent<PlantManager>();
+            // Vérifiez que tous les managers sont correctement attachés
+            tileManager = GetComponent<TileManager>();
+            itemManager = GetComponent<ItemManager>();
+            plantManager = GetComponent<PlantManager>();
+            potionManager = GetComponent<PotionManager>();
+            inventoryManager = GetComponent<InventoryManager>();
 
-        //timeManager = GetComponent<TimeManager>();
-        if (TimeEvents.newDay == null)
-        {
-            Debug.LogError("TimeEvents.newDay is null. Ensure it is initialized.");
-        }
+            // Initialisation des inventaires
+            playerInventory = new Inventory(36);
+            craftInventory = new Inventory(2);
+            Debug.Log("Création des inventaires et leurs tailles");
 
-        SceneManager.sceneLoaded += OnSceneLoaded;
+            if (TimeEvents.newDay == null)
+            {
+                Debug.LogError("TimeEvents.newDay is null. Ensure it is initialized.");
+            }
 
-        // Initialisation de la première scène
-        InitializeScene(SceneManager.GetActiveScene().name);
+            SceneManager.sceneLoaded += OnSceneLoaded;
 
-    }
-
-    private void Start()
-    {
-        SaveManager.DebugPath();
-    }
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        InitializeScene(scene.name);
-    }
-
-
-    private void InitializeScene(string sceneName)//!\\
-    {
-
-        tileManager.InitializeScene(sceneName);
-        plantManager.InitializeScene(sceneName);
-        playerController = GameObject.Find("Player")?.GetComponent<PlayerController>();
-        inventoryUI = playerController.GetComponentInChildren<InventoryUI>();
-
-        if (playerController == null)
-        {
-            Debug.LogError("Aucun Player nommé trouvé !");
-            return;
-        }
-        playerController.player.lastScene = sceneName;
-        GameObject spawnPoint = GameObject.Find(playerController.player.spawnName);
-        if (spawnPoint == null)
-        {
-            Debug.Log($"Aucun point de spawn nommé {playerController.player.spawnName} trouvé !");
+            // Initialisation de la première scène
+            InitializeScene(SceneManager.GetActiveScene().name);
 
         }
-        else
+
+        private void Start()
         {
-            playerController.transform.position = spawnPoint.transform.position;
+            SaveManager.DebugPath();
+        }
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            InitializeScene(scene.name);
         }
 
 
-    }
+        private void InitializeScene(string sceneName)//!\\
+        {
+
+            tileManager.InitializeScene(sceneName);
+            plantManager.InitializeScene(sceneName);
+            playerController = GameObject.Find("Player")?.GetComponent<PlayerController>();
+            inventoryUI = playerController.GetComponentInChildren<InventoryUI>();
+
+            if (playerController == null)
+            {
+                Debug.LogError("Aucun Player nommé trouvé !");
+                return;
+            }
+            playerController.player.lastScene = sceneName;
+            GameObject spawnPoint = GameObject.Find(playerController.player.spawnName);
+            if (spawnPoint == null)
+            {
+                Debug.Log($"Aucun point de spawn nommé {playerController.player.spawnName} trouvé !");
+
+            }
+            else
+            {
+                playerController.transform.position = spawnPoint.transform.position;
+            }
+
+
+        }
 
 
 
 
 
-}
+    } }

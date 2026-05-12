@@ -3,12 +3,18 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
-    
+
     public Toolbar_UI toolbarInventoryUI;
     public CraftInterface_UI craftInventoryUI;
+    public InventoryUI inventoryUI;
+
     void Awake()
     {
         Instance = this;
+
+        // Fallback : si non assigné dans l'Inspector, on le cherche dans la scène (inclut les GO inactifs)
+        if (inventoryUI == null)
+            inventoryUI = FindAnyObjectByType<InventoryUI>(FindObjectsInactive.Include);
     }
 
     public void MoveItem(SlotUI sourceUI, SlotUI targetUI)
@@ -22,9 +28,9 @@ public class InventoryManager : MonoBehaviour
 
         // Si on est dans l'InventoryUI principale, il faut convertir l'index
         // car le slot 10 de l'UI n'est pas forcément le slot 10 de la List<Slot>
-        if (sourceUI.GetComponentInParent<InventoryUI>()) 
+        if (sourceUI.GetComponentInParent<InventoryUI>())
             sourceIdx = sourceUI.GetComponentInParent<InventoryUI>().GetRealIndex(sourceIdx);
-    
+
         if (targetUI.GetComponentInParent<InventoryUI>())
             targetIdx = targetUI.GetComponentInParent<InventoryUI>().GetRealIndex(targetIdx);
 
@@ -34,10 +40,14 @@ public class InventoryManager : MonoBehaviour
         // Rafraîchir toutes les interfaces
         RefreshAllUIs();
     }
-    
+
+    /// <summary>
+    /// Rafraîchit toutes les UIs liées à l'inventaire.
+    /// </summary>
     public void RefreshAllUIs()
     {
-        if(toolbarInventoryUI) toolbarInventoryUI.RefreshUI();
-        if(craftInventoryUI) craftInventoryUI.RefreshUI();
+        if (toolbarInventoryUI) toolbarInventoryUI.RefreshUI();
+        if (craftInventoryUI) craftInventoryUI.RefreshUI();
+        if (inventoryUI) inventoryUI.Refresh();
     }
 }

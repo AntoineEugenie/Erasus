@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: 8808217552398723399, guid: a6a00b436b83c30428ab97c1e8a90891, type: 3}
   itemName: Elixir of Socks
   itemType: 2
-  description: 
+  description: beurk
   maxStackSize: 10
   associatedPlant: {fileID: 0}
   action: 0

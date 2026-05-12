@@ -4507,8 +4507,12 @@ PrefabInstance:
       value: -350
       objectReference: {fileID: 0}
     - target: {fileID: 3447721987020645267, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 11400000, guid: 9886ddd257cd0e743b9bbfc74636a891, type: 2}
+    - target: {fileID: 3447721987020645267, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
       propertyPath: playerInventory.slots.Array.size
-      value: 9
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 3541506489402278061, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
       propertyPath: m_Name
@@ -5262,7 +5266,43 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7968221120202550813, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 7681950488899603475, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 4306858961827480290, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 4757789008617246425, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 253466610214618245, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 8435885186586281458, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 3642159115642837518, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 9160336525751856182, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 3313331126817068522, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 4607207233172839612, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 8056258583526191903, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 4991621860971775333, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 9119242737371346986, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 2345738751133260840, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 5767361493010687024, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 8348990164425792183, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 3472916753258629656, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 7270741141171025913, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 6583818993518920324, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 691253412062449144, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 4599111588293472497, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 2273369252287276173, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 8018126544412628888, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 162248801306000601, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 545856619078373368, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 5098913025924063908, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 7345569662245194408, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 2410310745733988249, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 6949814507137958822, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 6281424643316719970, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 2002461101667911766, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 7578488307001943856, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 1085788895172283096, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 3944182342214455106, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 356084640096989108, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
+    - {fileID: 4197945705760561929, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6876011053000329211, guid: 81f097b66ca1ba247958624c97402a8f, type: 3}
