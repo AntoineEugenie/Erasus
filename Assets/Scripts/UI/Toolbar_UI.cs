@@ -20,11 +20,10 @@ public class Toolbar_UI : MonoBehaviour
         SelectSlot(0);
     }
 
-    void Update()
-    {
-        SelectSlot(GameManager.instance.playerController.player.selectSlot);
-
-    }
+    //void Update()
+    //{
+    //    SelectSlot(GameManager.instance.playerController.player.selectSlot);
+    //}
 
     public void SelectSlot(int index)
     {

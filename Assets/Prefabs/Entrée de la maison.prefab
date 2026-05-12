@@ -27,9 +27,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6465458093107053744}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.54, y: -0.2951, z: 0}
-  m_LocalScale: {x: 0.84593856, y: 0.2659803, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.2, y: 0.69, z: 0}
+  m_LocalScale: {x: 1.1579207, y: 0.2659803, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.42314622, g: 1, b: 0.25471687, a: 0.20392157}
+  m_Color: {r: 0.42314622, g: 1, b: 0.25471687, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -147,5 +147,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbfcf1bd989bf0e4b82c4ce100e1250a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: {fileID: 102900000, guid: 2092328a69da36e43bf8444e96048772, type: 3}
+  sceneToLoad: Home
   spawnName: "Entr\xE9e de la maison"

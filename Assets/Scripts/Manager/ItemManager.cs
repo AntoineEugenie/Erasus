@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using TMPro.Examples;
 using UnityEngine;
 
 namespace Manager
@@ -16,6 +15,7 @@ namespace Manager
                 AddItem(item);
             }
         }
+
         private void AddItem(Item item)
         {
             if (!nameToItemDict.ContainsKey(item.data.itemName))
