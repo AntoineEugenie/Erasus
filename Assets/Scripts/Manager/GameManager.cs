@@ -9,14 +9,15 @@ namespace Manager
         public ItemManager itemManager;
         public PlantManager plantManager;
         public TileManager tileManager;
-        public TimeManager timeManager;
+        //public TimeManager timeManager;
         public PotionManager potionManager;
         public PlayerController playerController;
         public Inventory playerInventory;
         public Inventory craftInventory;
         public InventoryManager inventoryManager;
         public InventoryUI inventoryUI;
-        
+        [HideInInspector]
+        public bool isLoadingSave;
         private void Awake()
         {
             if (instance != null && instance != this)
@@ -37,7 +38,7 @@ namespace Manager
             itemManager = GetComponent<ItemManager>();
             plantManager = GetComponent<PlantManager>();
             potionManager = GetComponent<PotionManager>();
-            timeManager = GetComponent<TimeManager>();
+            //timeManager = GetComponent<TimeManager>();
             inventoryManager = GetComponent<InventoryManager>();
             
             // Initialisation des inventaires
@@ -61,6 +62,14 @@ namespace Manager
             InitializeScene(scene.name);
         }
 
+        private void Start()
+        {
+            SaveManager.DebugPath();
+        }
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            InitializeScene(scene.name);
+        }
 
         private void InitializeScene(string sceneName)
         {   

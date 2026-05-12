@@ -279,4 +279,14 @@ public class PlayerController : MonoBehaviour
         playerInventory.SelectSlot(8);
     }
 
+    void OnSave(InputValue value)
+    {
+        SaveManager.Save();
+    }
+
+    public void OnLoad(InputValue value)
+    {
+        SaveManager.Load();
+    }
+
 }

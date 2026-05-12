@@ -1,6 +1,6 @@
+using Manager;
 using System;
 using System.Collections.Generic;
-using Manager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class Plant : MonoBehaviour, IRaycastable
 {
 
-    
+
     public PlantData data;
     SpriteRenderer spriteRenderer;
     //private int growingLevels;
@@ -33,12 +33,14 @@ public class Plant : MonoBehaviour, IRaycastable
 
 
 
-    public void Initialize(PlantData plantData)
+    public void Initialize(PlantData plantData, bool isLoaded = false)
     {
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         heatZone = new Zone().MakeZone(data.effectsData.temperatureEmissionRadius, data.harvestData.position);
-        if (plantData.growthData.isCopy)
+
+        // CORRECTION ICI : On clone uniquement si c'est une nouvelle graine ET qu'on ne charge pas
+        if (plantData.growthData.isCopy && !isLoaded)
         {
             data = ScriptableObject.Instantiate(plantData);
             DontDestroyOnLoad(data);
@@ -49,15 +51,17 @@ public class Plant : MonoBehaviour, IRaycastable
             data.harvestData.sceneName = SceneManager.GetActiveScene().name;
             Debug.Log(SceneManager.GetActiveScene().name + " " + data.harvestData.sceneName);
             data.growthData.isCopy = false;
-
         }
         else
         {
+            // Si on charge une partie, on utilise directement les donn�es qu'on a re�ues !
             data = plantData;
             SpriteChanger();
         }
+
         Debug.Log(data.harvestData.position);
-        Debug.Log(String.Join(", ",heatZone));
+        Debug.Log(String.Join(", ", heatZone));
+
         if (GameManager.instance == null || GameManager.instance.tileManager == null)
         {
             Debug.LogError("GameManager ou tileManager n'est pas assign� !");
@@ -66,9 +70,8 @@ public class Plant : MonoBehaviour, IRaycastable
 
         for (int i = 0; i < heatZone.Count; i++)
         {
-            GameManager.instance.tileManager.ChangeTemperature(heatZone[i],data.effectsData.temperatureEmission, data.harvestData.sceneName);
+            GameManager.instance.tileManager.ChangeTemperature(heatZone[i], data.effectsData.temperatureEmission, data.harvestData.sceneName);
         }
-
     }
 
     void SpriteChanger()
@@ -76,13 +79,14 @@ public class Plant : MonoBehaviour, IRaycastable
         if (data.harvestData.plantState == PlantState.DEAD)
         {
             //spriteRenderer.sprite = data.growthData.deadSprite;
+            spriteRenderer.sprite = data.growthData.growProgressSprites[data.harvestData.growingLevels];
             spriteRenderer.color = Color.grey;
         }
         else
         {
             spriteRenderer.sprite = data.growthData.growProgressSprites[data.harvestData.growingLevels];
         }
-        
+
     }
 
     //public void Grow()
@@ -147,7 +151,7 @@ public class Plant : MonoBehaviour, IRaycastable
 
     //public void CheckCondition()
     //{
-        
+
     //    int damage = 0;
     //    bool allGood = true;
     //    if (GameManager.instance.tileManager.GetWaterLevel(data.harvestData.position) < data.growthData.waterQuantityNeeded)
@@ -173,9 +177,8 @@ public class Plant : MonoBehaviour, IRaycastable
     public void OnHitByRaycast()
     {
         Debug.Log("Plante touch�e ! R�colte en cours...");
-        DropFruit(); 
+        DropFruit();
     }
 
 
 }
-

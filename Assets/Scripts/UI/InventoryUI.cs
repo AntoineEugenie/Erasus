@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using Manager;
+using System.Collections;
 using System.Collections.Generic;
-using Manager;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -246,5 +247,7 @@ public class InventoryUI : MonoBehaviour
         pageNumber = 1;
         Refresh();
     }
+
+    
 }
  

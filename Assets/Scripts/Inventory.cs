@@ -192,4 +192,28 @@ public class Inventory
             Debug.Log($"Slot {index + 1} s�lectionn�.");
         }
     }
+
+    public void LoadSlotFromSave(int index, Item itemModel, int quantity)
+    {
+        if (index < slots.Count)
+        {
+            slots[index].itemName = itemModel.data.itemName;
+            slots[index].icon = itemModel.data.icon;
+            slots[index].maxPerStack = itemModel.data.maxStackSize;
+            slots[index].item = itemModel;
+            slots[index].count = quantity;
+        }
+    }
+
+
+    public void ClearSlot(int index)
+    {
+        if (index < slots.Count)
+        {
+            slots[index].count = 0;
+            slots[index].itemName = "";
+            slots[index].icon = null;
+            slots[index].item = null;
+        }
+    }
 }
