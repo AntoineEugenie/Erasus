@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: eaaf3d9e2e0d50a48b08b3749e9240d9
+guid: fca11c2e05b833247a2a1ac0e2f3084b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8296385383580801948
-    second: walk_0
+      213: 696524877502133369
+    second: FRONT_galapadeau_0
+  - first:
+      213: -7588023711132792614
+    second: FRONT_galapadeau_1
+  - first:
+      213: 8827117906161386512
+    second: FRONT_galapadeau_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walk_0
+      name: FRONT_galapadeau_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 19
         y: 0
-        width: 372
-        height: 500
+        width: 41
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4646ce323715ddc80800000000000000
-      internalID: -8296385383580801948
+      spriteID: 974bcbc8fad8aa900800000000000000
+      internalID: 696524877502133369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FRONT_galapadeau_1
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 43
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad840b643ace1b690800000000000000
+      internalID: -7588023711132792614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FRONT_galapadeau_2
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 17
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0144d33b7f8308a70800000000000000
+      internalID: 8827117906161386512
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      walk_0: -8296385383580801948
+      FRONT_galapadeau_0: 696524877502133369
+      FRONT_galapadeau_1: -7588023711132792614
+      FRONT_galapadeau_2: 8827117906161386512
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

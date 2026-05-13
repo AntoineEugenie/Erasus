@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PandaVoleur : MonoBehaviour, IRaycastable
+public class Ravageur : MonoBehaviour, IRaycastable
 {
     [Header("Paramètres de Mouvement")]
     public float walkSpeed = 3.5f; // Vitesse de balade
@@ -13,6 +13,9 @@ public class PandaVoleur : MonoBehaviour, IRaycastable
     private Vector3 currentTarget;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+
+    // --- NOUVEAU : Stockage de la direction ---
+    private Vector2 lastDirection;
 
     // --- États ---
     private bool isStealing = false;
@@ -31,7 +34,6 @@ public class PandaVoleur : MonoBehaviour, IRaycastable
     void Update()
     {
         // On détermine la vitesse actuelle selon l'état
-        // Si on vole -> vitesse course, sinon -> vitesse marche
         float currentMaxSpeed = isStealing ? runSpeed : walkSpeed;
 
         if (isStealing)
@@ -43,23 +45,25 @@ public class PandaVoleur : MonoBehaviour, IRaycastable
             HandleWanderBehavior(currentMaxSpeed);
         }
 
-        // MISE A JOUR ANIMATION
+        // Mise à jour de l'animation à chaque frame
         UpdateAnimation(currentMaxSpeed);
     }
 
-    void UpdateAnimation(float intentedSpeed)
+    void UpdateAnimation(float intendedSpeed)
     {
         float distance = Vector3.Distance(transform.position, currentTarget);
-        bool isMoving = !isWaiting && distance > 0.1f;
+        // On vérifie qu'on n'est pas en attente et qu'on a encore un peu de chemin à faire
+        bool isMoving = !isWaiting && distance > 0.05f;
 
-        float currentSpeedForAnim = isMoving ? intentedSpeed : 0f;
-
-        // AVANT (avec lissage) :
-        // animator.SetFloat("Speed", currentSpeedForAnim, 0.1f, Time.deltaTime);
-
-        // MAINTENANT (Instantané) :
-        // On envoie la valeur brute directement.
+        float currentSpeedForAnim = isMoving ? intendedSpeed : 0f;
         animator.SetFloat("Speed", currentSpeedForAnim);
+
+        // NOUVEAU : On envoie la direction au Blend Tree uniquement si on bouge
+        if (isMoving)
+        {
+            animator.SetFloat("MoveX", lastDirection.x);
+            animator.SetFloat("MoveY", lastDirection.y);
+        }
     }
 
     void HandleWanderBehavior(float moveSpeed)
@@ -97,46 +101,72 @@ public class PandaVoleur : MonoBehaviour, IRaycastable
         }
     }
 
-    // J'ai ajouté l'argument "speed" ici pour pouvoir varier entre marche et course
     void MoveTo(Vector3 target, float currentSpeed)
     {
+        // On mémorise la position de départ pour trouver la vraie direction
+        Vector3 startPos = transform.position;
+
+        // Déplacement effectif
         transform.position = Vector3.MoveTowards(transform.position, target, currentSpeed * Time.deltaTime);
 
-        Vector3 direction = target - transform.position;
+        // NOUVEAU : Calcul de la direction normalisée (entre -1 et 1)
+        Vector3 dir = (target - startPos).normalized;
 
-        // --- CORRECTION DU STRETCH ---
-        // On ne touche plus à transform.rotation !
+        // Si le personnage s'est physiquement déplacé ce coup-ci
+        if (dir.magnitude > 0.01f)
+        {
+            // On sauvegarde cette direction pour l'Animator
+            lastDirection = new Vector2(dir.x, dir.y);
 
-        // Si on va vers la gauche (x négatif), on flip le sprite
-        if (direction.x < 0)
-        {
-            spriteRenderer.flipX = true; // Ou false, ça dépend du sens de ton dessin original
-        }
-        // Si on va vers la droite (x positif), on remet le sprite normal
-        else if (direction.x > 0)
-        {
-            spriteRenderer.flipX = false;
+            // Gestion du Sprite miroir pour la Gauche/Droite
+            if (dir.x < -0.01f)
+            {
+                spriteRenderer.flipX = true; // Va vers la gauche : on inverse le sprite "Droite"
+            }
+            else if (dir.x > 0.01f)
+            {
+                spriteRenderer.flipX = false; // Va vers la droite : sprite normal
+            }
         }
     }
-
-    // ... (Le reste : WaitBeforeNextMove, SetRandomWanderTarget, OnHitByRaycast ne change pas) ...
-    // Je remets les fonctions manquantes pour que tu aies le bloc complet si besoin de copier-coller
 
     IEnumerator WaitBeforeNextMove()
     {
         isWaiting = true;
-        // Note: UpdateAnimation mettra la speed à 0 automatiquement ici
         float waitTime = Random.Range(pauseDurationRange.x, pauseDurationRange.y);
         yield return new WaitForSeconds(waitTime);
 
         SetRandomWanderTarget();
         isWaiting = false;
     }
-
     void SetRandomWanderTarget()
     {
-        Vector2 randomPoint = Random.insideUnitCircle * wanderRadius;
-        currentTarget = initialPos + new Vector3(randomPoint.x, randomPoint.y, 0);
+        // On tire à pile ou face l'axe de déplacement : 0 = Horizontal (X), 1 = Vertical (Y)
+        int axe = Random.Range(0, 2);
+
+        // On choisit une distance de déplacement aléatoire
+        float distance = Random.Range(-wanderRadius, wanderRadius);
+
+        // On part de la position ACTUELLE du panda pour garantir un mouvement en ligne droite
+        Vector3 newTarget = transform.position;
+
+        if (axe == 0)
+        {
+            // On modifie uniquement l'axe X
+            newTarget.x += distance;
+        }
+        else
+        {
+            // On modifie uniquement l'axe Y
+            newTarget.y += distance;
+        }
+
+        // Sécurité : On s'assure que le panda ne s'éloigne pas trop de son point de départ (initialPos)
+        // Mathf.Clamp bloque la valeur entre un minimum et un maximum
+        newTarget.x = Mathf.Clamp(newTarget.x, initialPos.x - wanderRadius, initialPos.x + wanderRadius);
+        newTarget.y = Mathf.Clamp(newTarget.y, initialPos.y - wanderRadius, initialPos.y + wanderRadius);
+
+        currentTarget = newTarget;
     }
 
     public void OnHitByRaycast()

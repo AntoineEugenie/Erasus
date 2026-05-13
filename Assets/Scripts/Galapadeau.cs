@@ -10,23 +10,34 @@ public class Galapadeau : MonoBehaviour, IRaycastable
     private bool finished = true;
     private Vector3 initialPos;
 
+    // --- NOUVEAU : Variables pour l'animation ---
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+    private Vector2 lastDirection;
+
     void OnEnable()
     {
         initialPos = transform.position;
+
+        // On récupère les composants attachés au Galapadeau
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         Debug.Log(initialPos + " / " + transform.position);
     }
 
     void Update()
     {
-        if (finished) {
+        // On mémorise la position AVANT le déplacement pour calculer la direction
+        Vector3 startPos = transform.position;
+
+        if (finished)
+        {
             transform.position = Vector3.MoveTowards(transform.position, initialPos, speed * Time.deltaTime);
         }
         else
         {
-           
-            Debug.Log("Target pos: "+target);
-            // Déplacement
-            
+            // Déplacement vers la plante
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
             // Vérifie si la cible est atteinte (avec une tolérance)
@@ -51,20 +62,50 @@ public class Galapadeau : MonoBehaviour, IRaycastable
                 }
             }
         }
+
+        // --- NOUVEAU : On met à jour l'animation ---
+        UpdateAnimation(startPos);
+    }
+
+    void UpdateAnimation(Vector3 startPos)
+    {
+        // On calcule la direction réelle prise pendant cette frame
+        Vector3 dir = (transform.position - startPos).normalized;
+
+        // S'il s'est déplacé, la magnitude sera supérieure à 0
+        bool isMoving = dir.magnitude > 0.01f;
+
+        if (isMoving)
+        {
+            // On sauvegarde la direction pour l'Animator
+            lastDirection = new Vector2(dir.x, dir.y);
+
+            // Gestion du Sprite miroir pour la Gauche/Droite
+            if (dir.x < -0.01f) spriteRenderer.flipX = true;
+            else if (dir.x > 0.01f) spriteRenderer.flipX = false;
+        }
+
+        // On envoie les infos à l'Animator (sécurité au cas où il n'y en a pas encore)
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", isMoving ? speed : 0f);
+
+            if (isMoving)
+            {
+                animator.SetFloat("MoveX", lastDirection.x);
+                animator.SetFloat("MoveY", lastDirection.y);
+            }
+        }
     }
 
     void FindPlant()
-    {   
+    {
         Targets = new();
         foreach (GameObject plant in GameObject.FindGameObjectsWithTag("Plant"))
         {
             Vector3 pos = plant.transform.position;
-            //Debug.Log(!Targets.ContainsKey(pos));
-            //if (!Targets.ContainsKey(pos))
-            //{
             Targets.Add(pos, false);
             finished = false; // Relance si une nouvelle plante arrive
-            //}
         }
     }
 
