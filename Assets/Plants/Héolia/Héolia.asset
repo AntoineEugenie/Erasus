@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbad4d957ae99744aeda475ef7fee82, type: 3}
   m_Name: "H\xE9olia"
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 113cb6275c42a1e4e94778cf7db8712e, type: 3}
+  icon: {fileID: -3247985735113339203, guid: 3e89bb3067ddf1644a79ef9de234063c, type: 3}
   itemName: "H\xE9olia"
   itemType: 2
   description: 

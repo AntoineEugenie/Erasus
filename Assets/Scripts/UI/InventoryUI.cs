@@ -22,7 +22,7 @@ public class InventoryUI : MonoBehaviour
     private int maxPage;
     int numberOfItemPerPage = 27;
 
-    void Start()
+    private void Start()
     {
         pageNumber = 1;
         if (GameManager.instance.playerController == null)

@@ -36,9 +36,9 @@ public class PlayerController : MonoBehaviour
         if (player != null)
         {
             // Inventaire du joueur
-            if (GameManager.instance.playerInventory != null)
+            if (Manager.GameManager.instance.playerInventory != null)
             {
-                playerInventory = GameManager.instance.playerInventory;
+                playerInventory = Manager.GameManager.instance.playerInventory;
                 playerInventory.SelectSlot(player.selectSlot);
                 transform.position = player.lastPosition;
             }
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
             
             
             // Inventaire de la table des potions
-            if (GameManager.instance.craftInventory != null)
+            if (Manager.GameManager.instance.craftInventory != null)
             {
                 craftInventory = GameManager.instance.craftInventory;
                 transform.position = player.lastPosition;
@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 Debug.LogWarning("L'inventaire de la table des potions a mal été initialisé dans le GamerManager");
+                craftInventory = GameObject.Find("CraftInventory")?.GetComponent<Inventory>();
             }
             
         }

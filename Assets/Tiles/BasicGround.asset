@@ -42,8 +42,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2257eea059197ab409ec02ecae0aac42, type: 2}
   - {fileID: 11400000, guid: d59f63f1cb7ab254893a9ab1983c283b, type: 2}
   - {fileID: 11400000, guid: aac982ee1eb2b88438f2caafb0af6fc1, type: 2}
+  - {fileID: 11400000, guid: b1dcb87f9b0eea145b056bb2045d8c8d, type: 2}
+  - {fileID: 11400000, guid: e70626b3dbdea1a42bc5ea81994b64a8, type: 2}
+  - {fileID: 11400000, guid: cc0d1ed98ad490f4bb2538081b1a1e99, type: 2}
+  - {fileID: 11400000, guid: 290138e210f9cba4083967fe0c83de2c, type: 2}
+  - {fileID: 11400000, guid: 2b1cca95e6e39d945a2d638413ee5474, type: 2}
+  - {fileID: 11400000, guid: f7199aa296db80145b62db0941a97e14, type: 2}
+  - {fileID: 11400000, guid: 769d8e5f084e7ec46a8ab062908e6494, type: 2}
+  - {fileID: 11400000, guid: 53c52b61a2e8e8247af328b70f7a0186, type: 2}
+  - {fileID: 11400000, guid: 734400cf1d1315c4197ca56252540c34, type: 2}
   isPlowtable: 0
   isPlowted: 0
   isOccupied: 0
   Temperature: 0
-  Waterlevel: 0
+  WaterLevel: 0

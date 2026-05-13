@@ -15,11 +15,9 @@ MonoBehaviour:
   growthData:
     numberOfCycleToGrow: 1
     growProgressSprites:
-    - {fileID: 21300000, guid: ecfffeb00340e3643b503c0a6932f79b, type: 3}
-    - {fileID: 21300000, guid: 23cdc2f74eccaa24d9a7d9e258c7722d, type: 3}
-    - {fileID: 21300000, guid: b42c130c0106809418b3a1de48979b05, type: 3}
-    - {fileID: 21300000, guid: 52c54dd759404714dbf53da135f654fb, type: 3}
-    - {fileID: 21300000, guid: 113cb6275c42a1e4e94778cf7db8712e, type: 3}
+    - {fileID: 593621911256608911, guid: 7f5d064693e4dac419eeacd4a3b704a9, type: 3}
+    - {fileID: -3633372242679114082, guid: ea51377292e955647aa92788e60356fb, type: 3}
+    - {fileID: -3247985735113339203, guid: 3e89bb3067ddf1644a79ef9de234063c, type: 3}
     deadSprite: {fileID: 0}
     minTemperature: -1
     maxTemperature: 1
@@ -29,7 +27,7 @@ MonoBehaviour:
     healthRecoveredPerCycle: 1
     isCopy: 1
   inventoryData:
-    inventoryIcon: {fileID: 21300000, guid: 113cb6275c42a1e4e94778cf7db8712e, type: 3}
+    inventoryIcon: {fileID: -3247985735113339203, guid: 3e89bb3067ddf1644a79ef9de234063c, type: 3}
     itemName: "H\xE9olia"
     description: 
     maxStackSize: 100

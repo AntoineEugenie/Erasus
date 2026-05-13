@@ -15,7 +15,7 @@ public static class SaveManager
     }
     public static void Save()
     {
-        Debug.Log("Début de la sauvegarde...");
+        Debug.Log("Dï¿½but de la sauvegarde...");
         Manager.GameManager gm = Manager.GameManager.instance;
         GameSaveData data = new GameSaveData();
 
@@ -70,7 +70,7 @@ public static class SaveManager
 
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(savePath, json);
-        Debug.Log("Sauvegarde terminée !");
+        Debug.Log("Sauvegarde terminï¿½e !");
     }
 
 
@@ -78,12 +78,14 @@ public static class SaveManager
     {
         if (!File.Exists(savePath))
         {
-            Debug.LogWarning("Aucune sauvegarde trouvée.");
+            Debug.LogWarning("Aucune sauvegarde trouvï¿½e.");
+            Save();
             return;
         }
         string json = File.ReadAllText(savePath);
         pendingData = JsonUtility.FromJson<GameSaveData>(json);
 
+        Manager.GameManager.instance.isLoadingSave = true;
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         SceneManager.LoadScene(pendingData.currentSceneName);
@@ -93,7 +95,7 @@ public static class SaveManager
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
 
-        Debug.Log("Scene chargée. Application des données...");
+        Debug.Log("Scene chargï¿½e. Application des donnï¿½es...");
         ApplyData();
     }
 
@@ -176,6 +178,8 @@ public static class SaveManager
         
         }
 
-        Debug.Log("Chargement complet terminé !");
+        Manager.GameManager.instance.isLoadingSave = false;
+        InventoryManager.Instance.RefreshAllUIs();
+        Debug.Log("Chargement complet terminï¿½ !");
     }
 }

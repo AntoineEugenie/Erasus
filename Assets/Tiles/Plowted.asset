@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiles:
   - {fileID: 11400000, guid: 4b110ca7ff5dd6047928e2f810488f9f, type: 2}
+  - {fileID: 11400000, guid: 71f021b997f185e48a65fe4d240ed232, type: 2}
   isPlowtable: 0
   isPlowted: 1
   isOccupied: 0

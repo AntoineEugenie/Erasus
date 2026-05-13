@@ -16,7 +16,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: af29b77dd47644049a9f8b46360b68bf, type: 2}
   - {fileID: 11400000, guid: 3497fde9d46654548b248133d67a1d30, type: 2}
   - {fileID: 11400000, guid: ab1f6d47c1aaca34883cffef9506d9cc, type: 2}
+  - {fileID: 11400000, guid: bb3a29e414290a44789da669da47ffea, type: 2}
   isPlowtable: 1
+  isPlowted: 0
   isOccupied: 0
   Temperature: 0
-  Waterlevel: 0
+  WaterLevel: 0

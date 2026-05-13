@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 102829592254645820}
   - component: {fileID: 8544277369578613339}
   - component: {fileID: 2469622986070924573}
-  - component: {fileID: 3070850334391908128}
   - component: {fileID: 1221122535805720352}
+  - component: {fileID: 6794090833181138879}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -49,11 +49,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d899a9a2ca1eb024895a211e03595ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemManager: {fileID: 0}
-  plantManager: {fileID: 0}
-  tileManager: {fileID: 0}
-  timeManager: {fileID: 0}
+  itemManager: {fileID: 8544277369578613339}
+  plantManager: {fileID: 2469622986070924573}
+  tileManager: {fileID: 102829592254645820}
+  potionManager: {fileID: 1221122535805720352}
   playerController: {fileID: 0}
+  playerInventory:
+    selectSlot:
+      itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    slots: []
+  craftInventory:
+    selectSlot:
+      itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    slots: []
+  inventoryManager: {fileID: 6794090833181138879}
+  inventoryUI: {fileID: 0}
+  isLoadingSave: 0
 --- !u!114 &102829592254645820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd10570f1384fb34a98894c490e97305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plowedTile: {fileID: 11400000, guid: 4b110ca7ff5dd6047928e2f810488f9f, type: 2}
+  plowedTile: {fileID: 11400000, guid: 71f021b997f185e48a65fe4d240ed232, type: 2}
   tileDatas:
   - {fileID: 11400000, guid: a4720adf8f6dfd94ea365b35ec8489ea, type: 2}
   - {fileID: 11400000, guid: 75fcc5d84e7890d479ea4851f71a076f, type: 2}
@@ -100,6 +119,7 @@ MonoBehaviour:
   - {fileID: 8611384691185691594, guid: df3322bee7884474daed4bad4bf00807, type: 3}
   - {fileID: 8649598491943237670, guid: 92fdb6902ffa64a429fac6ee10f14ecf, type: 3}
   - {fileID: 196581228340669660, guid: ac8f5e7e8042a3147855ced96fb6a6a1, type: 3}
+  - {fileID: 6227944419839830277, guid: 3862b32abaa0d784980e22096e1c8ebb, type: 3}
 --- !u!114 &2469622986070924573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,24 +132,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41250eefaef3364dbaa9d1205aa212a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePlantPrefab: {fileID: 0}
+  basePlantPrefab: {fileID: 7907336615616458845, guid: 1d8e5f39ec5e52b4e8271e408161bc6b, type: 3}
   plantsLibrary:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: a2000a23342c19249b9bfafef54f7587, type: 2}
+  - {fileID: 11400000, guid: 8c56718c01ec6a1439f25b0a01b59d07, type: 2}
+  - {fileID: 11400000, guid: dbfd273c00d907140a616a9a2d5b77b6, type: 2}
+  - {fileID: 11400000, guid: 20550774c27aeb44f815a5b10cd939d5, type: 2}
+  - {fileID: 11400000, guid: 8aa0ac9f784515d4698925d891f65b5f, type: 2}
+  - {fileID: 11400000, guid: 9d2271c5d21f86c4b82b0551d33cae34, type: 2}
+  - {fileID: 11400000, guid: 2bff58f95f7fbd84cbcd23d77a9f3300, type: 2}
   activePlants: []
---- !u!114 &3070850334391908128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7668728012820975665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2370f5f7c984dbc40820e333b5d13cc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cycle: 0
 --- !u!114 &1221122535805720352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,3 +156,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   potionsLibrary: []
   recipesJson: {fileID: 4900000, guid: 853584857a405e746947dc09e4614206, type: 3}
+  playerInventory:
+    selectSlot:
+      itemName: 
+      count: 0
+      maxPerStack: 0
+      icon: {fileID: 0}
+      item: {fileID: 0}
+    slots: []
+  itemManager: {fileID: 8544277369578613339}
+  playerController: {fileID: 0}
+--- !u!114 &6794090833181138879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7668728012820975665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e132728ede2e4b90932b96853e218dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toolbarInventoryUI: {fileID: 0}
+  craftInventoryUI: {fileID: 0}

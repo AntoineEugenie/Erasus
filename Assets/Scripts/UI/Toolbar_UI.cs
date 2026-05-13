@@ -17,8 +17,10 @@ public class Toolbar_UI : MonoBehaviour
             }
         }
         RefreshUI();
-        SelectSlot(0);
+        
     }
+
+
 
     public void SelectSlot(int index)
     {
@@ -31,6 +33,7 @@ public class Toolbar_UI : MonoBehaviour
             _selectedSlots = slots[index];
             _selectedSlots.SetHightlight(true);
         }
+        Debug.Log(index);
     }
     public void OnToolbarOne()
     {
@@ -74,7 +77,9 @@ public class Toolbar_UI : MonoBehaviour
     public void RefreshUI()
     {
         if (GameManager.instance.playerInventory == null) return;
-    
+        SelectSlot(GameManager.instance.playerController.player.selectSlot);
+        Debug.Log("Refresh Toolbar");
+
         for (int i = 0; i < slots.Count; i++)
         {
             // On vérifie que l'index existe dans les DATA avant de l'afficher dans l'UI

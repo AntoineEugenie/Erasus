@@ -102,9 +102,9 @@ public class Inventory
     public void Remove(int index)
     {
         // Ajout d'une sécurité pour vérifier si l'index est bien dans la liste
-        if (index < 0 || index >= slots.Count)
+        if (index < 0 )
         {
-            Debug.LogError($"Tentative de retrait à un index invalide : {index}. Taille inventaire : {slots.Count}");
+         
             return;
         }
 
@@ -190,11 +190,14 @@ public class Inventory
         {
             selectSlot = slots[index];
             Debug.Log($"Slot {index + 1} s�lectionn�.");
+            InventoryManager.Instance.RefreshAllUIs();
         }
     }
 
     public void LoadSlotFromSave(int index, Item itemModel, int quantity)
     {
+
+        Debug.Log($"Chargement du slot {index + 1} avec l'item {itemModel.data.itemName} x{quantity}.");
         if (index < slots.Count)
         {
             slots[index].itemName = itemModel.data.itemName;
